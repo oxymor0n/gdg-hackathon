@@ -473,7 +473,8 @@ def get_synthesis(query: str = Query(..., description="Drug name for synthesis p
             7. Alternative green chemistry route.
             8. Scale-up safety considerations.
             
-            Also calculate an Overall Industrial Feasibility Index (0-100) and scores for safety, green chemistry, economics, and regulatory compliance. Suggest pros and cons for scaling this compound.
+            Also calculate an Overall Industrial Feasibility Index (0-100) and scores for safety, green chemistry, economics, and regulatory compliance. Compile a highly specific list of pros and cons for industrial scaling of this compound (avoid generic answers).
+            For fda_insights, dynamically compile the top 3-4 actual MedDRA clinical adverse reactions and their real-world clinical trial incidence percentages (0-100%) for the target compound in `adverse_events`. In `shortages`, evaluate and draft a realistic clinical supply shortage status history for the target compound.
             
             Your output MUST be a valid JSON object matching this exact schema:
             {{
