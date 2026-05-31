@@ -181,17 +181,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Search Trigger Events (Top search bar)
-    runReviewBtn.addEventListener("click", () => {
-        const query = drugSearchInput.value.trim();
-        if (query) fetchDossier(query);
-    });
-
-    drugSearchInput.addEventListener("keypress", (e) => {
-        if (e.key === "Enter") {
+    if (runReviewBtn && drugSearchInput) {
+        runReviewBtn.addEventListener("click", () => {
             const query = drugSearchInput.value.trim();
             if (query) fetchDossier(query);
-        }
-    });
+        });
+
+        drugSearchInput.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") {
+                const query = drugSearchInput.value.trim();
+                if (query) fetchDossier(query);
+            }
+        });
+    }
 
     // Search Trigger Events (Welcome search bar)
     welcomeSearchBtn.addEventListener("click", () => {
@@ -265,9 +267,13 @@ document.addEventListener("DOMContentLoaded", () => {
         sidebarLogo.addEventListener("click", (e) => {
             e.preventDefault();
             
-            // 1. Hide active dashboard grid panels and top search bar
+            // 1. Hide active dashboard grid panels, top search bar, and right sidebar
             dashboardGrid.classList.add("hidden");
-            topSearchContainer.classList.add("hidden");
+            const dashboardWorkspace = document.getElementById("dashboard-workspace");
+            if (dashboardWorkspace) dashboardWorkspace.classList.add("hidden");
+            if (topSearchContainer) topSearchContainer.classList.add("hidden");
+            const aiChatPanel = document.getElementById("ai-chat-panel");
+            if (aiChatPanel) aiChatPanel.classList.add("hidden");
             
             // 2. Reveal Welcome Hub
             welcomeHub.classList.remove("hidden");
@@ -278,7 +284,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (synthesisRouterTab) synthesisRouterTab.classList.add("active");
             
             // 4. Clear search inputs for the next analysis
-            drugSearchInput.value = "";
+            if (drugSearchInput) drugSearchInput.value = "";
             if (welcomeSearchInput) welcomeSearchInput.value = "";
             
             showNotification("Returned to Welcome Hub");
@@ -378,7 +384,7 @@ async function fetchDossier(drugName) {
     currentDrugName = drugName;
     
     // Sync input search values across elements
-    drugSearchInput.value = drugName;
+    if (drugSearchInput) drugSearchInput.value = drugName;
     if (welcomeSearchInput) welcomeSearchInput.value = drugName;
     
     try {
@@ -393,10 +399,14 @@ async function fetchDossier(drugName) {
         
         const dossier = await response.json();
         
-        // Hide welcome hub and reveal active dashboard and top search header
+        // Hide welcome hub and reveal active dashboard, top search header, and right Co-Pilot sidebar
         welcomeHub.classList.add("hidden");
-        topSearchContainer.classList.remove("hidden");
+        if (topSearchContainer) topSearchContainer.classList.remove("hidden");
         dashboardGrid.classList.remove("hidden");
+        const dashboardWorkspace = document.getElementById("dashboard-workspace");
+        if (dashboardWorkspace) dashboardWorkspace.classList.remove("hidden");
+        const aiChatPanel = document.getElementById("ai-chat-panel");
+        if (aiChatPanel) aiChatPanel.classList.remove("hidden");
         
         updateUI(dossier);
         showNotification(`Successfully synthesized Dossier for ${drugName}!`);
@@ -991,7 +1001,7 @@ document.head.appendChild(toastStyle);
 
 // Global Pilot suggestion search triggers
 window.searchExample = function(name) {
-    drugSearchInput.value = name;
+    if (drugSearchInput) drugSearchInput.value = name;
     fetchDossier(name);
 };
 
@@ -1177,3 +1187,118 @@ function parseMarkdown(md) {
     
     return finalLines.join('\n');
 }
+
+// --- AI CHAT CO-PILOT WORKSPACE ---
+async function sendChatMessage() {
+    const chatInput = document.getElementById("chat-input");
+    const sendBtn = document.getElementById("chat-send-btn");
+    const msgContainer = document.getElementById("chat-messages-container");
+    
+    if (!chatInput || !msgContainer || !chatInput.value.trim() || !activeSynthesisSteps || activeSynthesisSteps.length === 0) return;
+    
+    const userMessage = chatInput.value.trim();
+    chatInput.value = "";
+    
+    // Disable inputs
+    chatInput.disabled = true;
+    if (sendBtn) sendBtn.disabled = true;
+    
+    // Append User Message
+    const userMsgEl = document.createElement("div");
+    userMsgEl.className = "chat-message user";
+    userMsgEl.style.cssText = "align-self: flex-end; background: var(--accent-purple); color: white; padding: 8px 12px; border-radius: 8px 4px 4px 8px; max-width: 90%; font-size: 11.5px; line-height: 1.5; margin-left: auto;";
+    userMsgEl.innerHTML = `<p style="margin: 0;">${escapeHtml(userMessage)}</p>`;
+    msgContainer.appendChild(userMsgEl);
+    msgContainer.scrollTop = msgContainer.scrollHeight;
+    
+    // Append AI Thinking Message
+    const thinkingEl = document.createElement("div");
+    thinkingEl.className = "chat-message ai thinking";
+    thinkingEl.style.cssText = "background: var(--bg-inset); border-left: 3px solid var(--accent-purple); padding: 8px 12px; border-radius: 4px 8px 8px 4px; max-width: 90%;";
+    thinkingEl.innerHTML = `<p style="margin: 0; font-size: 11.5px; color: var(--text-muted);"><i class="fa-solid fa-arrows-spin fa-spin" style="margin-right: 6px;"></i>Orchestrating process solver...</p>`;
+    msgContainer.appendChild(thinkingEl);
+    msgContainer.scrollTop = msgContainer.scrollHeight;
+    
+    try {
+        const response = await fetch(`${API_BASE_URL}/refine`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                drug_name: currentDrugName,
+                steps: activeSynthesisSteps,
+                instruction: userMessage,
+                api_key: geminiApiKey
+            })
+        });
+        
+        if (!response.ok) throw new Error("API call failed.");
+        
+        const payload = await response.json();
+        
+        // Remove thinking message
+        thinkingEl.remove();
+        
+        // Update active synthesis steps and re-render panels
+        if (payload.steps && payload.steps.length > 0) {
+            activeSynthesisSteps = payload.steps;
+            
+            // Re-render Synthesis Timeline Card
+            renderSynthesisTimeline(activeSynthesisSteps);
+            
+            // Re-render AI Scale-Up Dossier Card
+            const scorecardScore = parseInt(document.getElementById("overall-score-display").textContent, 10) || 85;
+            generateAiAdvisoryReport(currentDrugName, activeSynthesisSteps, scorecardScore);
+        }
+        
+        // Append AI Response
+        const aiMsgEl = document.createElement("div");
+        aiMsgEl.className = "chat-message ai";
+        aiMsgEl.style.cssText = "background: var(--bg-inset); border-left: 3px solid var(--accent-purple); padding: 8px 12px; border-radius: 4px 8px 8px 4px; max-width: 90%;";
+        aiMsgEl.innerHTML = `<p style="margin: 0; font-size: 11.5px; color: var(--text-secondary); line-height: 1.5;">${escapeHtml(payload.message)} Process refined and cards updated successfully.</p>`;
+        msgContainer.appendChild(aiMsgEl);
+        msgContainer.scrollTop = msgContainer.scrollHeight;
+        
+        showNotification("Dossier refined successfully!");
+        
+    } catch (error) {
+        console.error(error);
+        thinkingEl.remove();
+        
+        const errorMsgEl = document.createElement("div");
+        errorMsgEl.className = "chat-message ai error";
+        errorMsgEl.style.cssText = "background: var(--bg-inset); border-left: 3px solid var(--error-red); padding: 8px 12px; border-radius: 4px 8px 8px 4px; max-width: 90%;";
+        errorMsgEl.innerHTML = `<p style="margin: 0; font-size: 11.5px; color: var(--error-red); line-height: 1.5;">Refinery failed: ${escapeHtml(error.message)}</p>`;
+        msgContainer.appendChild(errorMsgEl);
+        msgContainer.scrollTop = msgContainer.scrollHeight;
+    } finally {
+        chatInput.disabled = false;
+        if (sendBtn) sendBtn.disabled = false;
+        chatInput.focus();
+    }
+}
+
+function escapeHtml(text) {
+    return text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
+// Attach Chat Listeners after DOM loads
+document.addEventListener("DOMContentLoaded", () => {
+    const chatInput = document.getElementById("chat-input");
+    const chatSendBtn = document.getElementById("chat-send-btn");
+    
+    if (chatSendBtn && chatInput) {
+        chatSendBtn.addEventListener("click", () => sendChatMessage());
+        chatInput.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") {
+                sendChatMessage();
+            }
+        });
+    }
+});

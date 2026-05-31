@@ -5,6 +5,7 @@ import logging
 from fastapi import FastAPI, Query, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+from typing import List, Optional
 from dotenv import load_dotenv
 
 # Load env variables from ~/.env
@@ -716,6 +717,119 @@ def get_synthesis(query: str = Query(..., description="Drug name for synthesis p
     }
     
     return fallback_payload
+
+
+class RefineRequest(BaseModel):
+    drug_name: str
+    steps: List[dict]
+    instruction: str
+    api_key: Optional[str] = None
+
+@app.post("/api/refine")
+def refine_synthesis(req: RefineRequest):
+    """Uses Gemini 3.5 Flash to dynamically refine synthesis steps based on user instructions."""
+    resolved_api_key = req.api_key or os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
+    
+    if not GENAI_AVAILABLE or not resolved_api_key:
+        logger.info("Gemini not available for refinement, applying rule-based refinery.")
+        refined_steps = json.loads(json.dumps(req.steps))
+        
+        inst_lower = req.instruction.lower()
+        modified = False
+        
+        # Rule 1: Step-specific yield adjustments
+        for i, step in enumerate(refined_steps):
+            step_num = str(step["step"])
+            if f"step {step_num}" in inst_lower or f"step{step_num}" in inst_lower:
+                if "yield" in inst_lower:
+                    import re
+                    pct = re.findall(r'\d+', inst_lower)
+                    if pct:
+                        step["yield"] = float(pct[0])
+                        modified = True
+                    else:
+                        step["yield"] = min(98.0, float(step["yield"]) + 5.0)
+                        modified = True
+                if "flow" in inst_lower or "continuous" in inst_lower:
+                    step["flow_chemistry"] = f"Refined Flow Optimization: {req.instruction}"
+                    modified = True
+                if "green" in inst_lower or "alternative" in inst_lower:
+                    step["alternative_route"] = f"Refined Green Path: {req.instruction}"
+                    modified = True
+                if "hazard" in inst_lower or "safety" in inst_lower:
+                    step["scale_up_safety"] = f"Refined Safety Control: {req.instruction}"
+                    if "red" in inst_lower:
+                        step["ghs_hazards"]["level"] = "Red"
+                    elif "yellow" in inst_lower:
+                        step["ghs_hazards"]["level"] = "Yellow"
+                    elif "green" in inst_lower:
+                        step["ghs_hazards"]["level"] = "Green"
+                    modified = True
+                    
+        # General adjustments if no step is specified
+        if not modified:
+            if "yield" in inst_lower:
+                for step in refined_steps:
+                    step["yield"] = min(98.0, float(step["yield"]) + 2.0)
+            elif "flow" in inst_lower or "continuous" in inst_lower:
+                refined_steps[0]["flow_chemistry"] = f"Optimized continuous processing: {req.instruction}"
+            else:
+                refined_steps[0]["title"] = f"{refined_steps[0]['title']} (Refined)"
+                
+        return {
+            "routing_mode": "fallback",
+            "steps": refined_steps,
+            "message": "Process refined successfully using structured rule-based planner."
+        }
+
+    # Gemini Active Refinement
+    try:
+        genai.configure(api_key=resolved_api_key)
+        model = genai.GenerativeModel('gemini-3.5-flash')
+        
+        prompt = f"""
+        You are a principal process chemistry engineer and active pharmaceutical ingredient (API) manufacturing director.
+        Your task is to refine the following {req.drug_name} generic synthesis pathway steps according to the researcher's instruction:
+        
+        Researcher's Instruction: "{req.instruction}"
+        
+        Current Synthesis Steps:
+        {json.dumps(req.steps, indent=2)}
+        
+        Modify the steps according to the instruction. Be scientifically precise, highly detailed, and preserve chemical accuracy.
+        You can update reaction yields, temperatures, durations, continuous-flow optimizations, alternative routes, safety controls, and hazard indicators as requested.
+        
+        Your output MUST be strictly a valid, raw, single-line JSON array of steps matching the exact schema of the input steps. 
+        Do not include any markdown formatting or prefix (no ```json). Double check that it parses as a valid JSON array.
+        """
+        
+        response = model.generate_content(
+            prompt,
+            generation_config={"response_mime_type": "application/json"}
+        )
+        
+        response_text = response.text.strip()
+        if response_text.startswith("```json"):
+            response_text = response_text[7:]
+        elif response_text.startswith("```"):
+            response_text = response_text[3:]
+        if response_text.endswith("```"):
+            response_text = response_text[:-3]
+        response_text = response_text.strip()
+        
+        refined_steps = json.loads(response_text)
+        return {
+            "routing_mode": "gemini",
+            "steps": refined_steps,
+            "message": "Gemini 3.5 Flash chemical process refinery successfully compiled."
+        }
+    except Exception as ex:
+        logger.error(f"Gemini refinery failed: {str(ex)}")
+        return {
+            "routing_mode": "error",
+            "steps": req.steps,
+            "message": f"Gemini refinery failed: {str(ex)}"
+        }
 
 
 def generate_fallback_dmf(compound_name, summary, synthesis_path, fda_insights):

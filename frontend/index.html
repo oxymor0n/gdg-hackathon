@@ -68,28 +68,6 @@
 
         <!-- Main Content Area -->
         <main class="main-content">
-            <!-- Search & Control Header -->
-            <header class="top-header">
-                <div class="search-container hidden" id="top-search-container">
-                    <div class="search-glow"></div>
-                    <i class="fa-solid fa-magnifying-glass search-bar-icon"></i>
-                    <input type="text" id="drug-search-input" placeholder="Enter target drug molecule (e.g. Imatinib, Sildenafil)...">
-                    <button id="run-review-btn" class="glowing-btn">
-                        <i class="fa-solid fa-wand-magic-sparkles"></i>
-                        <span>Synthesize Dossier</span>
-                    </button>
-                </div>
-                <div class="quick-stats">
-                    <div class="quick-stat-item">
-                        <span class="stat-label">Model:</span>
-                        <span class="stat-value text-glow-purple">Gemini 3.5 Flash</span>
-                    </div>
-                    <div class="quick-stat-item">
-                        <span class="stat-label">Skills DB:</span>
-                        <span class="stat-value text-glow-teal">Science-Skills SDK</span>
-                    </div>
-                </div>
-            </header>
 
             <!-- Loading Spinner Overlay -->
             <div id="loading-overlay" class="hidden">
@@ -220,11 +198,11 @@
                         </div>
                         <div class="metric-progress-item">
                             <div class="metric-lbl">
-                                <span>Economic Margin</span>
-                                <span id="val-economic">90%</span>
+                                <span>Economic Viability (Opex)</span>
+                                <span id="val-economic">94%</span>
                             </div>
                             <div class="progress-bg">
-                                <div class="progress-bar bar-purple" id="bar-economic" style="width: 90%;"></div>
+                                <div class="progress-bar bar-purple" id="bar-economic" style="width: 94%;"></div>
                             </div>
                         </div>
                     </div>
@@ -298,24 +276,21 @@
                     </div>
 
                     <div class="radar-inset-card">
-                        <h3>Shortage & Supply Analysis</h3>
-                        <p id="fda-shortage-history" class="shortage-text"></p>
+                        <h3>FDA Active Shortage Assessment</h3>
+                        <p class="text-xs text-muted" id="fda-shortage-history" style="line-height: 1.5;">
+                            Gleevec brand tablet lines are fully active in domestic drug supply registries.
+                        </p>
                     </div>
                 </section>
 
-                <!-- GEMINI ADVISORY DOSSIER -->
-                <section class="grid-card col-span-2" id="gemini-advisory-card">
-                    <div class="card-header border-purple-glowing" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
-                        <div class="ai-header">
-                            <i class="fa-solid fa-microchip ai-icon"></i>
-                            <div>
-                                <h2>Gemini 3.5 Flash Scale-Up Dossier</h2>
-                                <span class="ai-subtitle">Autonomous Process Chemistry Advisory</span>
-                            </div>
+                <!-- GEMINI AI ANALYSIS REPORT -->
+                <section class="grid-card col-span-2" id="ai-report-card">
+                    <div class="card-header">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <i class="fa-solid fa-wand-magic-sparkles card-icon text-purple"></i>
+                            <h2>Gemini 3.5 Flash Scale-Up Dossier</h2>
                         </div>
-                        <div class="header-actions" style="display: flex; gap: 8px; align-items: center;">
-                            <span class="badge badge-ai"><i class="fa-solid fa-sparkles"></i> AI Active</span>
-                        </div>
+                        <span class="badge badge-purple">Autonomous Advisory Report</span>
                     </div>
 
                     <div class="ai-dossier-content" id="ai-dossier-body">
@@ -357,6 +332,42 @@
                 
             </div>
         </main>
+        
+        <!-- Right Full-Height AI Chat Panel (Co-Pilot Sidebar) -->
+        <aside class="sidebar-right hidden" id="ai-chat-panel">
+            <!-- Chat Header -->
+            <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border-color); padding-bottom: 16px; margin-bottom: 16px; flex-shrink: 0;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <i class="fa-solid fa-wand-magic-sparkles text-purple" style="font-size: 15px;"></i>
+                    <h3 style="font-size: 15px; font-weight: 600; margin: 0; color: var(--text-primary);">Dossier Co-Pilot</h3>
+                </div>
+                <span class="badge badge-purple" style="font-size: 9px; padding: 2px 6px;">Gemini 3.5 Active</span>
+            </div>
+            
+            <!-- Chat System Prompt Details -->
+            <div style="background: var(--bg-inset); border-radius: 8px; padding: 10px 12px; font-size: 11px; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px; flex-shrink: 0; border: 1px solid var(--border-color);">
+                <i class="fa-solid fa-info-circle text-teal" style="margin-right: 6px;"></i>
+                Instruct me to refine reaction yields, continuous flow configurations, or scale-up safety controls.
+            </div>
+            
+            <!-- Chat Messages List -->
+            <div id="chat-messages-container" style="flex-grow: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; margin-bottom: 16px; padding-right: 4px;">
+                <!-- Initial Greeting Message -->
+                <div class="chat-message ai" style="background: var(--bg-inset); border-left: 3px solid var(--accent-purple); padding: 10px 14px; border-radius: 4px 8px 8px 4px; max-width: 95%;">
+                    <p style="margin: 0; font-size: 12px; color: var(--text-secondary); line-height: 1.5;">
+                        Hello! I am your AI Process Engineering Co-Pilot. I can refine the <strong>Proposed Industrial Synthesis Route</strong> and the <strong>Scale-Up Dossier</strong>. What would you like to optimize?
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Chat Input Controls -->
+            <div style="display: flex; gap: 8px; align-items: center; flex-shrink: 0; border-top: 1px solid var(--border-color); padding-top: 16px;">
+                <input type="text" id="chat-input" placeholder="Type instruction (e.g., 'increase yield in step 1')..." style="flex-grow: 1; background: var(--bg-inset); border: 1px solid var(--border-color); border-radius: 6px; padding: 10px 12px; font-size: 12px; color: var(--text-primary); outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--accent-purple)'" onblur="this.style.borderColor='var(--border-color)'">
+                <button id="chat-send-btn" style="background: var(--accent-purple); border: none; color: white; border-radius: 6px; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s;">
+                    <i class="fa-solid fa-paper-plane" style="font-size: 13px;"></i>
+                </button>
+            </div>
+        </aside>
     </div>
 
     <!-- Engine Settings Modal -->

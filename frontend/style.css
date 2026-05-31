@@ -1078,14 +1078,15 @@ body.light-theme .skeletal-img {
     color: var(--text-secondary);
 }
 
-#gemini-advisory-card {
+#ai-report-card {
     display: flex;
     flex-direction: column;
     padding: 0;
 }
 
-#gemini-advisory-card .card-header {
-    padding: 20px 20px 12px 20px;
+#ai-report-card .card-header {
+    padding: 20px 0 12px 0;
+    margin: 0 20px;
     margin-bottom: 0;
 }
 
@@ -1569,5 +1570,71 @@ body.light-theme .cta-dmf-btn:hover {
 #synthesis-timeline-card:hover {
     border-color: var(--accent-purple) !important;
     box-shadow: 0 0 12px rgba(124, 58, 237, 0.15) !important;
+}
+
+/* ==========================================================================
+   RIGHT SIDEBAR / CO-PILOT CHAT STYLING
+   ========================================================================== */
+.sidebar-right {
+    width: 350px;
+    background-color: var(--bg-sidebar);
+    border-left: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    padding: 24px 16px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+#chat-messages-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+#chat-messages-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#chat-messages-container::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 3px;
+}
+
+#chat-messages-container::-webkit-scrollbar-thumb:hover {
+    background: var(--border-hover);
+}
+
+.chat-message {
+    transition: all 0.2s ease-in-out;
+}
+
+.chat-message.user:hover {
+    filter: brightness(1.05);
+}
+
+.chat-message.ai:hover {
+    background: var(--bg-card) !important;
+}
+
+#chat-input:focus {
+    border-color: var(--accent-purple) !important;
+    box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.2);
+}
+
+#chat-send-btn:hover:not(:disabled) {
+    background-color: var(--border-active) !important;
+    transform: scale(1.05);
+}
+
+#chat-send-btn:active:not(:disabled) {
+    transform: scale(0.95);
+}
+
+#chat-send-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
