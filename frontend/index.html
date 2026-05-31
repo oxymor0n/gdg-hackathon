@@ -65,10 +65,10 @@
         <main class="main-content">
             <!-- Search & Control Header -->
             <header class="top-header">
-                <div class="search-container">
+                <div class="search-container hidden" id="top-search-container">
                     <div class="search-glow"></div>
                     <i class="fa-solid fa-magnifying-glass search-bar-icon"></i>
-                    <input type="text" id="drug-search-input" placeholder="Enter target drug molecule (e.g. Imatinib, Sildenafil)..." value="Imatinib">
+                    <input type="text" id="drug-search-input" placeholder="Enter target drug molecule (e.g. Imatinib, Sildenafil)...">
                     <button id="run-review-btn" class="glowing-btn">
                         <i class="fa-solid fa-wand-magic-sparkles"></i>
                         <span>Synthesize Dossier</span>
@@ -95,43 +95,89 @@
                 </div>
             </div>
 
+            <!-- Welcome Hub (Gemini App Style) -->
+            <div id="welcome-hub" class="welcome-container">
+                <div class="welcome-card">
+                    <h1 class="welcome-greeting">Hello, Sarah</h1>
+                    <p class="welcome-subtitle">Where shall we begin our literature review today?</p>
+                    
+                    <!-- Central Search Box -->
+                    <div class="welcome-search-box">
+                        <i class="fa-solid fa-magnifying-glass welcome-search-icon"></i>
+                        <input type="text" id="welcome-search-input" placeholder="Enter target drug molecule or expired patent ID...">
+                        <button id="welcome-search-btn" class="welcome-btn">
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+
+                    <!-- Dynamic Suggestion Cards -->
+                    <div class="suggestion-cards-grid">
+                        <div class="suggestion-card" onclick="searchExample('Imatinib')">
+                            <div class="card-icon-wrapper text-blue">
+                                <i class="fa-solid fa-flask"></i>
+                            </div>
+                            <h3>Imatinib</h3>
+                            <p>Philadelphia Chromosome tyrosine kinase inhibitor generic routing.</p>
+                        </div>
+                        <div class="suggestion-card" onclick="searchExample('Sildenafil')">
+                            <div class="card-icon-wrapper text-teal">
+                                <i class="fa-solid fa-heart-pulse"></i>
+                            </div>
+                            <h3>Sildenafil</h3>
+                            <p>PDE5 inhibitor continuous-flow synthesis & impurity profiling.</p>
+                        </div>
+                        <div class="suggestion-card" onclick="searchExample('Metformin')">
+                            <div class="card-icon-wrapper text-purple">
+                                <i class="fa-solid fa-capsules"></i>
+                            </div>
+                            <h3>Metformin</h3>
+                            <p>Biguanide class industrial green chemistry & scale-up planning.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Dashboard Content Grid -->
-            <div class="dashboard-grid">
+            <div class="dashboard-grid hidden" id="dashboard-grid">
                 
                 <!-- HERO CARD: Drug Profile -->
                 <section class="hero-card col-span-3">
                     <div class="hero-overlay"></div>
-                    <div class="hero-content">
-                        <div class="hero-header">
+                    <div class="hero-content hero-grid-layout">
+                        <!-- Left Column: Primary Drug Details -->
+                        <div class="hero-details-column">
                             <div>
                                 <span class="badge" id="hero-badge">Philadelphia Chromosome inhibitor</span>
                                 <h1 id="hero-title">Imatinib Mesylate</h1>
                                 <p class="hero-subtitle">Brand Name: <strong id="hero-brand">Gleevec (Glivec)</strong> | Patent Status: <span id="hero-patent" class="expired-label">Expired (2015/2016)</span></p>
                             </div>
-                            <div class="chemical-structure-render">
-                                <div class="mol-placeholder">
-                                    <i class="fa-solid fa-atom atom-spin"></i>
-                                    <span id="formula-display">C29H31N7O</span>
+                            
+                            <div class="hero-specs">
+                                <div class="spec-tile">
+                                    <span class="tile-label">Molecular Weight</span>
+                                    <span class="tile-value" id="spec-mwt">493.62 g/mol</span>
+                                </div>
+                                <div class="spec-tile">
+                                    <span class="tile-label">ChEMBL Identifier</span>
+                                    <span class="tile-value text-teal" id="spec-chembl">CHEMBL941</span>
+                                </div>
+                                <div class="spec-tile">
+                                    <span class="tile-label">PubChem CID</span>
+                                    <span class="tile-value text-purple" id="spec-cid">5291</span>
+                                </div>
+                                <div class="spec-tile col-span-2">
+                                    <span class="tile-label">Canonical SMILES String</span>
+                                    <span class="tile-value smiles-code" id="spec-smiles">Cc1ccc(NC(=O)c2ccc(CN3CCN(C)CC3)cc2)cc1Nc1nccc(-c2cccnc2)n1</span>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="hero-specs">
-                            <div class="spec-tile">
-                                <span class="tile-label">Molecular Weight</span>
-                                <span class="tile-value" id="spec-mwt">493.62 g/mol</span>
-                            </div>
-                            <div class="spec-tile">
-                                <span class="tile-label">ChEMBL Identifier</span>
-                                <span class="tile-value text-teal" id="spec-chembl">CHEMBL941</span>
-                            </div>
-                            <div class="spec-tile">
-                                <span class="tile-label">PubChem CID</span>
-                                <span class="tile-value text-purple" id="spec-cid">5291</span>
-                            </div>
-                            <div class="spec-tile col-span-2">
-                                <span class="tile-label">Canonical SMILES String</span>
-                                <span class="tile-value smiles-code" id="spec-smiles">Cc1ccc(NC(=O)c2ccc(CN3CCN(C)CC3)cc2)cc1Nc1nccc(-c2cccnc2)n1</span>
+                        <!-- Right Column: Skeletal Structure Diagram -->
+                        <div class="chemical-structure-render full-height-render">
+                            <img id="skeletal-structure-img" src="" alt="Bond-line formula" class="skeletal-img hidden">
+                            <div id="structure-placeholder" class="mol-placeholder">
+                                <i class="fa-solid fa-atom atom-spin"></i>
+                                <span id="formula-display">C29H31N7O</span>
                             </div>
                         </div>
                     </div>

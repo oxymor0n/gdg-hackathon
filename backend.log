@@ -6,3 +6,52 @@ INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     127.0.0.1:50549 - "GET /api/synthesis?query=Imatinib HTTP/1.1" 200 OK
 INFO:     127.0.0.1:50549 - "GET /api/synthesis?query=Imatinib HTTP/1.1" 200 OK
+WARNING:  StatReload detected changes in 'backend/main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [87799]
+INFO:     Started server process [88152]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:backend.main:Initiating end-to-end generic synthesis routing for: rogaine
+INFO:skills_helper:Running command: /Users/wvt/.local/bin/uv run /Users/wvt/projects/deepmind-hackathon/science-skills/skills/pubchem_database/scripts/pubchem_api.py resolve --name rogaine --output /var/folders/jy/tmwtw1t55hxggv7dxb6cpl0r0000gn/T/tmpbbz4vrkp.json
+INFO:skills_helper:Running command: /Users/wvt/.local/bin/uv run /Users/wvt/projects/deepmind-hackathon/science-skills/skills/chembl_database/scripts/chembl_api.py molecule --search rogaine --limit 1 --output /var/folders/jy/tmwtw1t55hxggv7dxb6cpl0r0000gn/T/tmpu4c1k3yv.json
+INFO:skills_helper:Running command: /Users/wvt/.local/bin/uv run /Users/wvt/projects/deepmind-hackathon/science-skills/skills/literature_search_openalex/scripts/openalex_cli.py filter works --search rogaine synthesis --per-page 5
+INFO:skills_helper:Running command: /Users/wvt/.local/bin/uv run /Users/wvt/projects/deepmind-hackathon/science-skills/skills/openfda_database/scripts/openfda_query.py search --category drug --endpoint label --search openfda.generic_name:rogaine --limit 1 --output /var/folders/jy/tmwtw1t55hxggv7dxb6cpl0r0000gn/T/tmpk1pwo492.json
+INFO:backend.main:Generating fallback structured process plan...
+INFO:     127.0.0.1:50628 - "GET /api/synthesis?query=Rogaine HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50655 - "GET /api/synthesis?query=Imatinib HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50663 - "GET /api/synthesis?query=Imatinib HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50840 - "GET /api/synthesis?query=Imatinib HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51083 - "GET /api/synthesis?query=Imatinib HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51636 - "GET /api/synthesis?query=Imatinib HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51636 - "GET /api/synthesis?query=Imatinib HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51636 - "GET /api/synthesis?query=Imatinib HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51834 - "GET /api/synthesis?query=Imatinib HTTP/1.1" 200 OK
+INFO:backend.main:Initiating end-to-end generic synthesis routing for: paracetamol
+INFO:skills_helper:Running command: /Users/wvt/.local/bin/uv run /Users/wvt/projects/deepmind-hackathon/science-skills/skills/pubchem_database/scripts/pubchem_api.py resolve --name paracetamol --output /var/folders/jy/tmwtw1t55hxggv7dxb6cpl0r0000gn/T/tmpx9cxetcp.json
+INFO:skills_helper:Running command: /Users/wvt/.local/bin/uv run /Users/wvt/projects/deepmind-hackathon/science-skills/skills/chembl_database/scripts/chembl_api.py molecule --search paracetamol --limit 1 --output /var/folders/jy/tmwtw1t55hxggv7dxb6cpl0r0000gn/T/tmpsyeuasiz.json
+INFO:skills_helper:Running command: /Users/wvt/.local/bin/uv run /Users/wvt/projects/deepmind-hackathon/science-skills/skills/literature_search_openalex/scripts/openalex_cli.py filter works --search paracetamol synthesis --per-page 5
+INFO:skills_helper:Running command: /Users/wvt/.local/bin/uv run /Users/wvt/projects/deepmind-hackathon/science-skills/skills/openfda_database/scripts/openfda_query.py search --category drug --endpoint label --search openfda.generic_name:paracetamol --limit 1 --output /var/folders/jy/tmwtw1t55hxggv7dxb6cpl0r0000gn/T/tmp2qxvs__u.json
+INFO:backend.main:Generating fallback structured process plan...
+INFO:     127.0.0.1:51838 - "GET /api/synthesis?query=paracetamol HTTP/1.1" 200 OK
+INFO:backend.main:Initiating end-to-end generic synthesis routing for: tylenol
+INFO:skills_helper:Running command: /Users/wvt/.local/bin/uv run /Users/wvt/projects/deepmind-hackathon/science-skills/skills/pubchem_database/scripts/pubchem_api.py resolve --name tylenol --output /var/folders/jy/tmwtw1t55hxggv7dxb6cpl0r0000gn/T/tmpkm6fo71j.json
+INFO:skills_helper:Running command: /Users/wvt/.local/bin/uv run /Users/wvt/projects/deepmind-hackathon/science-skills/skills/chembl_database/scripts/chembl_api.py molecule --search tylenol --limit 1 --output /var/folders/jy/tmwtw1t55hxggv7dxb6cpl0r0000gn/T/tmpx739gh44.json
+INFO:skills_helper:Running command: /Users/wvt/.local/bin/uv run /Users/wvt/projects/deepmind-hackathon/science-skills/skills/literature_search_openalex/scripts/openalex_cli.py filter works --search tylenol synthesis --per-page 5
+INFO:skills_helper:Running command: /Users/wvt/.local/bin/uv run /Users/wvt/projects/deepmind-hackathon/science-skills/skills/openfda_database/scripts/openfda_query.py search --category drug --endpoint label --search openfda.generic_name:tylenol --limit 1 --output /var/folders/jy/tmwtw1t55hxggv7dxb6cpl0r0000gn/T/tmpm2ypfj2q.json
+INFO:backend.main:Generating fallback structured process plan...
+INFO:     127.0.0.1:51847 - "GET /api/synthesis?query=tylenol HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52059 - "GET /api/synthesis?query=Imatinib HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52073 - "GET /api/synthesis?query=Imatinib HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52073 - "GET /api/synthesis?query=Imatinib HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52073 - "GET /api/synthesis?query=Imatinib HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52091 - "GET /api/synthesis?query=Imatinib HTTP/1.1" 200 OK
+INFO:backend.main:Initiating end-to-end generic synthesis routing for: sildenafil
+INFO:skills_helper:Running command: /Users/wvt/.local/bin/uv run /Users/wvt/projects/deepmind-hackathon/science-skills/skills/pubchem_database/scripts/pubchem_api.py resolve --name sildenafil --output /var/folders/jy/tmwtw1t55hxggv7dxb6cpl0r0000gn/T/tmpag8jfbl1.json
+INFO:skills_helper:Running command: /Users/wvt/.local/bin/uv run /Users/wvt/projects/deepmind-hackathon/science-skills/skills/chembl_database/scripts/chembl_api.py molecule --search sildenafil --limit 1 --output /var/folders/jy/tmwtw1t55hxggv7dxb6cpl0r0000gn/T/tmpiyohmsqn.json
+INFO:skills_helper:Running command: /Users/wvt/.local/bin/uv run /Users/wvt/projects/deepmind-hackathon/science-skills/skills/literature_search_openalex/scripts/openalex_cli.py filter works --search sildenafil synthesis --per-page 5
+INFO:skills_helper:Running command: /Users/wvt/.local/bin/uv run /Users/wvt/projects/deepmind-hackathon/science-skills/skills/openfda_database/scripts/openfda_query.py search --category drug --endpoint label --search openfda.generic_name:sildenafil --limit 1 --output /var/folders/jy/tmwtw1t55hxggv7dxb6cpl0r0000gn/T/tmpem4pykqh.json
+INFO:backend.main:Generating fallback structured process plan...
+INFO:     127.0.0.1:52096 - "GET /api/synthesis?query=Sildenafil HTTP/1.1" 200 OK

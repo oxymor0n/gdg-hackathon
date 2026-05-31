@@ -17,6 +17,8 @@ const heroTitle = document.getElementById("hero-title");
 const heroBrand = document.getElementById("hero-brand");
 const heroPatent = document.getElementById("hero-patent");
 const formulaDisplay = document.getElementById("formula-display");
+const skeletalStructureImg = document.getElementById("skeletal-structure-img");
+const structurePlaceholder = document.getElementById("structure-placeholder");
 const specMwt = document.getElementById("spec-mwt");
 const specChembl = document.getElementById("spec-chembl");
 const specCid = document.getElementById("spec-cid");
@@ -52,6 +54,13 @@ const settingsModal = document.getElementById("settings-modal");
 const closeModalBtn = document.querySelector(".close-modal-btn");
 const saveSettingsBtn = document.getElementById("save-settings-btn");
 
+// Welcome Hub & Grid Toggles
+const welcomeHub = document.getElementById("welcome-hub");
+const dashboardGrid = document.getElementById("dashboard-grid");
+const topSearchContainer = document.getElementById("top-search-container");
+const welcomeSearchInput = document.getElementById("welcome-search-input");
+const welcomeSearchBtn = document.getElementById("welcome-search-btn");
+
 // Theme Toggle Elements
 const themeToggleBtn = document.getElementById("theme-toggle-btn");
 const themeIcon = document.getElementById("theme-icon");
@@ -77,9 +86,6 @@ document.addEventListener("DOMContentLoaded", () => {
         themeIcon.className = "fa-solid fa-sun nav-icon";
         themeText.textContent = "Light Mode";
     }
-
-    // Initial load for pilot drug Imatinib
-    fetchDossier("Imatinib");
 
     // Theme Toggle Handler
     themeToggleBtn.addEventListener("click", (e) => {
@@ -151,7 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector('[data-tab="synthesis-router"]').classList.add("active");
     });
 
-    // Search Trigger Events
+    // Search Trigger Events (Top search bar)
     runReviewBtn.addEventListener("click", () => {
         const query = drugSearchInput.value.trim();
         if (query) fetchDossier(query);
@@ -163,19 +169,46 @@ document.addEventListener("DOMContentLoaded", () => {
             if (query) fetchDossier(query);
         }
     });
+
+    // Search Trigger Events (Welcome search bar)
+    welcomeSearchBtn.addEventListener("click", () => {
+        const query = welcomeSearchInput.value.trim();
+        if (query) fetchDossier(query);
+    });
+
+    welcomeSearchInput.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+            const query = welcomeSearchInput.value.trim();
+            if (query) fetchDossier(query);
+        }
+    });
 });
 
 // --- CORE REQUISITION LOGIC ---
 async function fetchDossier(drugName) {
     showLoader(`Triggering DeepMind Science Skills: Searching ${drugName}...`);
     
+    // Sync input search values across elements
+    drugSearchInput.value = drugName;
+    if (welcomeSearchInput) welcomeSearchInput.value = drugName;
+    
     try {
-        const response = await fetch(`${API_BASE_URL}/synthesis?query=${encodeURIComponent(drugName)}`);
+        let url = `${API_BASE_URL}/synthesis?query=${encodeURIComponent(drugName)}`;
+        if (geminiApiKey) {
+            url += `&api_key=${encodeURIComponent(geminiApiKey)}`;
+        }
+        const response = await fetch(url);
         if (!response.ok) {
             throw new Error("Target compound not found in chemical databases.");
         }
         
         const dossier = await response.json();
+        
+        // Hide welcome hub and reveal active dashboard and top search header
+        welcomeHub.classList.add("hidden");
+        topSearchContainer.classList.remove("hidden");
+        dashboardGrid.classList.remove("hidden");
+        
         updateUI(dossier);
         showNotification(`Successfully synthesized Dossier for ${drugName}!`);
         
@@ -196,6 +229,20 @@ function updateUI(dossier) {
     heroBrand.textContent = summary.brand_name || "Generic Formulation";
     heroBadge.textContent = summary.therapeutic_class || "Tyrosine Kinase Inhibitor";
     formulaDisplay.textContent = summary.formula || "N/A";
+    
+    // Dynamic skeletal bond-line image rendering
+    if (summary.cid && summary.cid !== "N/A" && summary.cid !== "Resolved via search") {
+        skeletalStructureImg.src = `https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/${summary.cid}/PNG`;
+        skeletalStructureImg.classList.remove("hidden");
+        structurePlaceholder.classList.add("hidden");
+    } else if (summary.chembl_id && summary.chembl_id !== "N/A") {
+        skeletalStructureImg.src = `https://www.ebi.ac.uk/chembl/api/data/image/${summary.chembl_id}.svg`;
+        skeletalStructureImg.classList.remove("hidden");
+        structurePlaceholder.classList.add("hidden");
+    } else {
+        skeletalStructureImg.classList.add("hidden");
+        structurePlaceholder.classList.remove("hidden");
+    }
     
     // Patent Expiry Logic
     heroPatent.textContent = summary.patent_expiry;
@@ -488,3 +535,9 @@ toastStyle.textContent = `
 .text-xs { font-size: 11px; }
 `;
 document.head.appendChild(toastStyle);
+
+// Global Pilot suggestion search triggers
+window.searchExample = function(name) {
+    drugSearchInput.value = name;
+    fetchDossier(name);
+};
