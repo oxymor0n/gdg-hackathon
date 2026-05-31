@@ -4,27 +4,27 @@ SynGen is a state-of-the-art, regulatory-grade literature review and process che
 
 The platform is pre-optimized for a pilot compound case study—**Imatinib Mesylate** (Gleevec)—and supports dynamic live routing and regulatory drafting for any active drug molecule (e.g., **Sildenafil**, **Metformin**).
 
-<img width="1840" height="1103" alt="Screenshot 2026-05-30 at 8 20 23 PM" src="https://github.com/user-attachments/assets/65cb3875-311e-4fba-bc43-50b8565df637" />
+<img width="1840" height="1103" alt="Screenshot 2026-05-31 at 1 34 18 PM" src="https://github.com/user-attachments/assets/2009cdd5-5756-4dbc-a431-3d99b4b5bc81" />
 
 ---
 
 ## 🚀 Key Features
 
-### 1. Gemini-Inspired Landing & Welcome Hub
-- A highly polished, minimalist landing experience matching modern generative AI layouts.
-- Features a central, glowing capsule search bar for instant molecule retrieval.
-- Interactive recommendation cards to quickly launch pre-configured pilot case studies.
-
-### 2. Live Multi-Database Scientific Querying
+### 1. Live Multi-Database Scientific Querying
 - **PubChem & ChEMBL Integration**: Resolves IUPAC nomenclature, molecular weight, canonical SMILES strings, and active chemical formulas.
 - **Theme-Aware Skeletal Rendering**: Renders chemical bond-line diagrams dynamically, utilizing high-contrast, theme-inverting CSS filters (`invert`, `hue-rotate`, `brightness`) to seamlessly render white-on-dark skeletal structures in Dark Mode.
 - **OpenAlex Scholarly Engine**: Indexes academic synthesis publications and DOIs, presenting them in a clean, scrollable tabular literature hub.
 
-### 3. Proposed Industrial Synthesis Route Timeline
+### 2. Proposed Industrial Synthesis Route Timeline
 - Interactive, collapsible timeline accordion widgets displaying step-by-step generic routing.
 - Formulates reaction formulas, yields, temperatures, and durations.
 - Integrates E-factors (environmental waste metrics) and detailed continuous-flow microfluidic transition recommendations.
 - Analyzes GHS Hazard codes and labels steps with reactive Green, Yellow, and Red caution badges.
+
+### 3. Interactive Dossier Co-Pilot (AI Chat Panel)
+- **Dynamic Optimization Refineries**: Allows process chemists to interactively instruct Gemini to adjust reaction variables, yields, flow chemistry configurations, safety controls, or GHS hazard policies.
+- **Real-Time Render Updates**: Instructing the Co-Pilot (e.g., "increase yield in step 1 to 95%") triggers a private `/api/refine` POST request to rewrite reaction metrics on the fly, instantly recalculating the Overall Feasibility Index and re-rendering the flowchart timeline and AI Dossier cards.
+- **Double Fail-Safe Refiner**: Seamlessly routes through Gemini 3.5 Flash JSON schema structures, falling back to a robust local regex-based process refiner for offline/unconfigured environments.
 
 ### 4. FDA Regulatory Radar
 - Packs critical regulatory insights into uniform, zero-padded minimalist cards.
@@ -33,21 +33,10 @@ The platform is pre-optimized for a pilot compound case study—**Imatinib Mesyl
 - **MedDRA Adverse Reaction Index**: Visualizes adverse clinical events dynamically via custom horizontal bar charts.
 - **Supply Shortage Monitor**: Displays supply histories and active market shortage alerts.
 
-### 5. Gemini 3.5 Flash Scale-Up Dossier
-- Scrollable, responsive flexbox container displaying autonomous process chemistry advisories.
+### 5. Scale-Up Dossier & Drug Master File (DMF) Generator
 - Detailed engineering guidelines covering process safety, basic gas scrubbing (e.g., HCl and Pyridine venting mitigations), and thermal crystallization monitoring (Raman-metered alpha-polymorph conversion controls).
-
-### 6. Automated Drug Master File (DMF) Generator
-- A prominent, full-width purple CTA button anchored at the bottom of the Dossier panel.
-- Triggers dynamic, regulatory-grade drafts of a **Type II (Drug Substance) Drug Master File** in compliance with official FDA and ICH M4Q CTD Section 3.2.S guidelines.
-- Features a custom client-side Markdown-to-HTML compiler (`parseMarkdown`) to render headers, bulleted lists, code blocks, bold text, and structured tables cleanly.
+- Generates dynamic, regulatory-grade drafts of a **Type II (Drug Substance) Drug Master File** in compliance with official FDA and ICH M4Q CTD Section 3.2.S guidelines.
 - Integrated export tools to **Copy Raw** markdown directly to the clipboard or **Download .md** to save the submission draft locally.
-
-### 7. Interactive Dossier Co-Pilot (AI Chat Panel)
-- **Three-Column Symmetrical Console**: A gorgeous, full-height right sidebar matching the design and aesthetic of the left navigation panel.
-- **Dynamic Optimization Refineries**: Allows process chemists to interactively instruct Gemini to adjust reaction variables, yields, flow chemistry configurations, safety controls, or GHS hazard policies.
-- **Real-Time Render Updates**: Instructing the Co-Pilot (e.g., "increase yield in step 1 to 95%") triggers a private `/api/refine` POST request to rewrite reaction metrics on the fly, instantly recalculating the Overall Feasibility Index and re-rendering the flowchart timeline and AI Dossier cards.
-- **Double Fail-Safe Refiner**: Seamlessly routes through Gemini 3.5 Flash JSON schema structures, falling back to a robust local regex-based process refiner for offline/unconfigured environments.
 
 ---
 
@@ -62,7 +51,7 @@ The platform is pre-optimized for a pilot compound case study—**Imatinib Mesyl
 ### FastAPI Backend
 - **Framework**: FastAPI (Python 3.11+), Uvicorn.
 - **Data Validation**: Pydantic v2.
-- **Generative AI**: `google-generativeai` (Gemini 1.5 Flash).
+- **Generative AI**: `google-generativeai` (Gemini 3.5 Flash).
 - **Subprocess Skills Orchestration**: Executes DeepMind `science-skills` SDK modules (`pubchem_api.py`, `chembl_api.py`, `openalex_cli.py`, `openfda_query.py`) under isolated virtual environment subprocesses to maintain database lookups.
 
 ---
