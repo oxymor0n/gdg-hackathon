@@ -1507,3 +1507,67 @@ body.light-theme .cta-dmf-btn:hover {
 .dmf-modal-body {
     padding: 16px 24px !important;
 }
+
+/* ==========================================================================
+   TIMELINE CAROUSEL MODAL
+   ========================================================================== */
+.timeline-modal-content {
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 12px !important;
+    box-shadow: var(--shadow-lg) !important;
+}
+
+#carousel-prev-btn,
+#carousel-next-btn {
+    transition: all 0.2s ease-in-out;
+}
+
+#carousel-prev-btn:hover,
+#carousel-next-btn:hover {
+    background-color: var(--bg-card-hover) !important;
+    border-color: var(--border-hover) !important;
+    color: var(--text-primary) !important;
+    transform: scale(1.08);
+}
+
+.close-timeline-modal-btn {
+    transition: color 0.2s ease-in-out;
+}
+
+.close-timeline-modal-btn:hover {
+    color: var(--text-primary) !important;
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--border-color);
+    border: none;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.carousel-dot:hover {
+    background-color: var(--border-hover);
+    transform: scale(1.1);
+}
+
+.carousel-dot.active {
+    background-color: var(--accent-purple);
+    box-shadow: 0 0 8px rgba(168, 85, 247, 0.5);
+    transform: scale(1.2);
+}
+
+#expand-timeline-btn:hover {
+    background-color: var(--bg-card-hover) !important;
+    border-color: var(--accent-purple) !important;
+    color: var(--accent-purple) !important;
+}
+
+#synthesis-timeline-card:hover {
+    border-color: var(--accent-purple) !important;
+    box-shadow: 0 0 12px rgba(124, 58, 237, 0.15) !important;
+}
+

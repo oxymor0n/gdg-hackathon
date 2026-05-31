@@ -245,11 +245,18 @@
                 </section>
 
                 <!-- INTERACTIVE FLOWCHART TIMELINE -->
-                <section class="grid-card col-span-2" id="synthesis-timeline-card">
-                    <div class="card-header">
-                        <i class="fa-solid fa-network-wired card-icon text-purple"></i>
-                        <h2>Proposed Industrial Synthesis Route</h2>
-                        <span class="badge badge-purple">Polymorph Alpha Stabilized</span>
+                <section class="grid-card col-span-2" id="synthesis-timeline-card" style="cursor: pointer;" title="Click to Expand Detailed Walkthrough">
+                    <div class="card-header" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <i class="fa-solid fa-network-wired card-icon text-purple"></i>
+                            <h2>Proposed Industrial Synthesis Route</h2>
+                        </div>
+                        <div style="display: flex; gap: 8px; align-items: center;">
+                            <span class="badge badge-purple">Polymorph Alpha Stabilized</span>
+                            <button id="expand-timeline-btn" class="badge" style="cursor: pointer; background: var(--bg-inset); border: 1px solid var(--border-color); padding: 4px 10px; border-radius: 4px; font-weight: 600; font-size: 10px; text-transform: uppercase; color: var(--text-primary); display: flex; align-items: center; gap: 4px; transition: all 0.2s;">
+                                <i class="fa-solid fa-expand"></i> Expand Route
+                            </button>
+                        </div>
                     </div>
 
                     <div class="timeline-container" id="synthesis-timeline">
@@ -397,6 +404,45 @@
                 <!-- Populated dynamically by JS with beautifully rendered markdown/HTML -->
                 <div class="pulse-loader" style="margin: 40px auto;"></div>
                 <p style="text-align: center; color: var(--text-muted);">Generating regulatory-compliant FDA Drug Master File draft...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Timeline Carousel Modal -->
+    <div id="timeline-modal" class="modal hidden">
+        <div class="modal-content glass-card timeline-modal-content" style="max-width: 1000px; width: 85%; display: flex; flex-direction: column; max-height: 85vh; padding: 24px; position: relative;">
+            <div class="modal-header" style="flex-shrink: 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 12px; margin-bottom: 20px;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <i class="fa-solid fa-network-wired text-purple" style="font-size: 16px;"></i>
+                    <h2 style="font-size: 16px; font-weight: 600; color: var(--text-primary);">Generic Industrial Synthesis - Step-by-Step Walkthrough</h2>
+                </div>
+                <div style="display: flex; align-items: center; gap: 16px;">
+                    <span id="carousel-step-indicator" class="badge badge-purple" style="font-weight: 600;">Step 1 of 3</span>
+                    <i class="fa-solid fa-xmark close-timeline-modal-btn" style="cursor: pointer; font-size: 18px; color: var(--text-muted); transition: color 0.2s;"></i>
+                </div>
+            </div>
+            
+            <!-- Carousel Content Area -->
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-grow: 1; position: relative; gap: 20px;">
+                <!-- Left Nav Arrow -->
+                <button id="carousel-prev-btn" style="background: var(--bg-inset); border: 1px solid var(--border-color); color: var(--text-primary); cursor: pointer; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.2s; flex-shrink: 0; box-shadow: var(--shadow-sm);">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                
+                <!-- Active Card Container -->
+                <div id="carousel-card-container" style="flex-grow: 1; overflow-y: auto; max-height: 60vh; width: 100%; display: flex; flex-direction: column; gap: 16px;">
+                    <!-- Populated dynamically by JS -->
+                </div>
+                
+                <!-- Right Nav Arrow -->
+                <button id="carousel-next-btn" style="background: var(--bg-inset); border: 1px solid var(--border-color); color: var(--text-primary); cursor: pointer; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.2s; flex-shrink: 0; box-shadow: var(--shadow-sm);">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+            
+            <!-- Navigation Dot Indicators -->
+            <div id="carousel-dots" style="display: flex; justify-content: center; gap: 8px; margin-top: 20px; flex-shrink: 0;">
+                <!-- Populated dynamically by JS -->
             </div>
         </div>
     </div>

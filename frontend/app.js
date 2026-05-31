@@ -72,6 +72,9 @@ let openalexApiKey = "";
 let fdaApiKey = "";
 let currentDrugName = "";
 let currentDmfContent = "";
+let activeSynthesisSteps = [];
+let currentCarouselIndex = 0;
+
 
 // Initialize App
 document.addEventListener("DOMContentLoaded", () => {
@@ -263,6 +266,92 @@ document.addEventListener("DOMContentLoaded", () => {
             showNotification("Returned to Welcome Hub");
         });
     }
+
+    // --- TIMELINE MODAL CAROUSEL EVENTS ---
+    const timelineCard = document.getElementById("synthesis-timeline-card");
+    const expandTimelineBtn = document.getElementById("expand-timeline-btn");
+    const timelineModal = document.getElementById("timeline-modal");
+    const closeTimelineModalBtn = document.querySelector(".close-timeline-modal-btn");
+    const carouselPrevBtn = document.getElementById("carousel-prev-btn");
+    const carouselNextBtn = document.getElementById("carousel-next-btn");
+
+    if (timelineCard) {
+        timelineCard.addEventListener("click", (e) => {
+            // Ignore if clicked an accordion-toggle, accordion-content, or expand button
+            if (e.target.closest(".accordion-toggle") || e.target.closest(".accordion-content") || e.target.closest("#expand-timeline-btn") || e.target.closest("button")) {
+                return;
+            }
+            
+            // Look for a specific step clicked
+            const stepEl = e.target.closest(".timeline-step");
+            let startIndex = 0;
+            if (stepEl && stepEl.dataset.stepIndex !== undefined) {
+                startIndex = parseInt(stepEl.dataset.stepIndex, 10);
+            }
+            
+            openTimelineModal(startIndex);
+        });
+    }
+
+    if (expandTimelineBtn) {
+        expandTimelineBtn.addEventListener("click", (e) => {
+            e.stopPropagation(); // prevent card level click
+            openTimelineModal(0);
+        });
+    }
+
+    if (closeTimelineModalBtn && timelineModal) {
+        closeTimelineModalBtn.addEventListener("click", () => {
+            timelineModal.classList.add("hidden");
+        });
+        
+        timelineModal.addEventListener("click", (e) => {
+            if (e.target === timelineModal) {
+                timelineModal.classList.add("hidden");
+            }
+        });
+    }
+
+    if (carouselPrevBtn) {
+        carouselPrevBtn.addEventListener("click", () => {
+            if (currentCarouselIndex > 0) {
+                currentCarouselIndex--;
+                renderCarouselCard(currentCarouselIndex);
+                updateCarouselIndicators();
+            }
+        });
+    }
+
+    if (carouselNextBtn) {
+        carouselNextBtn.addEventListener("click", () => {
+            if (currentCarouselIndex < activeSynthesisSteps.length - 1) {
+                currentCarouselIndex++;
+                renderCarouselCard(currentCarouselIndex);
+                updateCarouselIndicators();
+            }
+        });
+    }
+
+    // Keyboard support: Escape, ArrowLeft, ArrowRight
+    document.addEventListener("keydown", (e) => {
+        if (timelineModal && !timelineModal.classList.contains("hidden")) {
+            if (e.key === "Escape") {
+                timelineModal.classList.add("hidden");
+            } else if (e.key === "ArrowLeft") {
+                if (currentCarouselIndex > 0) {
+                    currentCarouselIndex--;
+                    renderCarouselCard(currentCarouselIndex);
+                    updateCarouselIndicators();
+                }
+            } else if (e.key === "ArrowRight") {
+                if (currentCarouselIndex < activeSynthesisSteps.length - 1) {
+                    currentCarouselIndex++;
+                    renderCarouselCard(currentCarouselIndex);
+                    updateCarouselIndicators();
+                }
+            }
+        }
+    });
 });
 
 // --- CORE REQUISITION LOGIC ---
@@ -307,7 +396,46 @@ function updateUI(dossier) {
     const summary = dossier.summary;
     
     // 1. Hero Card Updates
-    heroTitle.textContent = `${summary.name} Mesylate`;
+    const DRUG_SALT_MAPPING = {
+        "imatinib": "Mesylate",
+        "sildenafil": "Citrate",
+        "metformin": "Hydrochloride",
+        "atorvastatin": "Calcium",
+        "rosuvastatin": "Calcium",
+        "amlodipine": "Besylate",
+        "losartan": "Potassium",
+        "albuterol": "Sulfate",
+        "lisinopril": "Dihydrate",
+        "clopidogrel": "Bisulfate",
+        "duloxetine": "Hydrochloride",
+        "gabapentin": "",
+        "simvastatin": "",
+        "omeprazole": "Magnesium",
+        "pantoprazole": "Sodium"
+    };
+
+    const nameLower = summary.name.toLowerCase();
+    let displayName = summary.name;
+    
+    const hasExistingSalt = ["mesylate", "citrate", "hydrochloride", "calcium", "besylate", "potassium", "sulfate", "dihydrate", "bisulfate", "sodium", "magnesium"]
+        .some(salt => nameLower.includes(salt));
+        
+    if (!hasExistingSalt) {
+        const saltSuffix = DRUG_SALT_MAPPING[nameLower];
+        if (saltSuffix !== undefined) {
+            displayName = saltSuffix ? `${summary.name} ${saltSuffix}` : summary.name;
+        } else {
+            const queriedLower = currentDrugName.toLowerCase();
+            const foundSalt = ["mesylate", "citrate", "hydrochloride", "hcl", "calcium", "besylate", "potassium", "sulfate", "dihydrate", "bisulfate", "sodium", "magnesium"]
+                .find(salt => queriedLower.includes(salt));
+            if (foundSalt) {
+                const capitalizedSalt = foundSalt === "hcl" ? "HCl" : foundSalt.charAt(0).toUpperCase() + foundSalt.slice(1);
+                displayName = `${summary.name} ${capitalizedSalt}`;
+            }
+        }
+    }
+    
+    heroTitle.textContent = displayName;
     heroBrand.textContent = summary.brand_name || "Generic Formulation";
     heroBadge.textContent = summary.therapeutic_class || "Tyrosine Kinase Inhibitor";
     formulaDisplay.textContent = summary.formula || "N/A";
@@ -355,6 +483,7 @@ function updateUI(dossier) {
     feasibilityCons.innerHTML = f.cons.map(con => `<li>${con}</li>`).join("");
     
     // 3. Proposed Synthesis Pathway Timeline (Flowchart)
+    activeSynthesisSteps = dossier.synthesis_path || [];
     renderSynthesisTimeline(dossier.synthesis_path);
     
     // 4. FDA Regulatory Radar
@@ -432,7 +561,7 @@ function renderSynthesisTimeline(steps) {
         if (step.ghs_hazards.level === "Red") dotColor = "dot-red";
         
         return `
-            <div class="timeline-step">
+            <div class="timeline-step" data-step-index="${idx}">
                 <div class="step-indicator">${step.step}</div>
                 <div class="step-header">
                     <div class="step-title-block">
@@ -476,6 +605,159 @@ function renderSynthesisTimeline(steps) {
             </div>
         `;
     }).join("");
+}
+
+// Open Synthesis Timeline Modal
+function openTimelineModal(startIndex = 0) {
+    const timelineModal = document.getElementById("timeline-modal");
+    if (!timelineModal || !activeSynthesisSteps || activeSynthesisSteps.length === 0) return;
+    
+    currentCarouselIndex = startIndex;
+    timelineModal.classList.remove("hidden");
+    renderCarouselCard(currentCarouselIndex);
+    updateCarouselIndicators();
+}
+
+// Render active step card in carousel modal
+function renderCarouselCard(index) {
+    if (!activeSynthesisSteps || activeSynthesisSteps.length === 0) return;
+    
+    const step = activeSynthesisSteps[index];
+    const cardContainer = document.getElementById("carousel-card-container");
+    if (!cardContainer) return;
+    
+    let dotColor = "dot-green";
+    let badgeClass = "badge-teal";
+    if (step.ghs_hazards.level === "Yellow") {
+        dotColor = "dot-yellow";
+        badgeClass = "badge-yellow";
+    } else if (step.ghs_hazards.level === "Red") {
+        dotColor = "dot-red";
+        badgeClass = "badge-red";
+    }
+    
+    cardContainer.innerHTML = `
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+            <!-- Step Title & Reaction Code Block -->
+            <div class="radar-inset-card" style="margin-top: 0; padding: 16px; background: rgba(30, 41, 59, 0.4); backdrop-filter: blur(4px);">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                    <h3 style="margin: 0; font-size: 16px; font-weight: 600; color: var(--text-primary);">
+                        Step ${step.step}: ${step.title}
+                    </h3>
+                    <span class="badge badge-purple" style="font-size: 10px; font-weight: 600; text-transform: uppercase;">
+                        ${step.type}
+                    </span>
+                </div>
+                
+                <div style="margin-top: 12px; padding: 12px 16px; background: var(--bg-base); border-left: 4px solid var(--accent-purple); border-radius: 4px; font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace; font-size: 13px; color: var(--text-secondary); word-break: break-all;">
+                    <i class="fa-solid fa-flask" style="color: var(--accent-purple); margin-right: 8px;"></i>
+                    <strong>Reaction Equation:</strong> ${step.reaction}
+                </div>
+            </div>
+            
+            <!-- Metrics Grid -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px;">
+                <div class="radar-inset-card" style="margin-top: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 12px;">
+                    <span style="font-size: 10px; text-transform: uppercase; color: var(--text-muted); font-weight: 600;">Target Yield</span>
+                    <span style="font-size: 20px; font-weight: 700; color: var(--accent-teal); margin-top: 4px;">${step.yield}%</span>
+                </div>
+                <div class="radar-inset-card" style="margin-top: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 12px;">
+                    <span style="font-size: 10px; text-transform: uppercase; color: var(--text-muted); font-weight: 600;">Temp / Duration</span>
+                    <span style="font-size: 16px; font-weight: 700; color: var(--text-primary); margin-top: 4px;">${step.temp}°C / ${step.duration}h</span>
+                </div>
+                <div class="radar-inset-card" style="margin-top: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 12px;">
+                    <span style="font-size: 10px; text-transform: uppercase; color: var(--text-muted); font-weight: 600;">E-Factor</span>
+                    <span style="font-size: 20px; font-weight: 700; color: var(--accent-purple); margin-top: 4px;">${step.e_factor}</span>
+                </div>
+                <div class="radar-inset-card" style="margin-top: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 12px;">
+                    <span style="font-size: 10px; text-transform: uppercase; color: var(--text-muted); font-weight: 600;">GHS Hazard Level</span>
+                    <span class="badge ${badgeClass}" style="margin-top: 4px; display: inline-flex; align-items: center; gap: 6px; font-size: 11px; padding: 4px 8px;">
+                        <span class="hazard-dot ${dotColor}" style="margin: 0; position: static;"></span>
+                        ${step.ghs_hazards.level}
+                    </span>
+                </div>
+            </div>
+            
+            <!-- Inset Cards for Detailed Sub-Processes -->
+            <div class="radar-inset-card" style="margin-top: 0; padding: 14px; border-left: 3px solid var(--accent-purple);">
+                <h4 style="margin: 0 0 6px 0; font-size: 12px; font-weight: 600; color: var(--accent-purple); display: flex; align-items: center; gap: 6px;">
+                    <i class="fa-solid fa-bezier-curve"></i> Continuous-Flow Optimization
+                </h4>
+                <p style="margin: 0; font-size: 12px; line-height: 1.5; color: var(--text-secondary);">
+                    ${step.flow_chemistry}
+                </p>
+            </div>
+            
+            <div class="radar-inset-card" style="margin-top: 0; padding: 14px; border-left: 3px solid var(--accent-teal);">
+                <h4 style="margin: 0 0 6px 0; font-size: 12px; font-weight: 600; color: var(--accent-teal); display: flex; align-items: center; gap: 6px;">
+                    <i class="fa-solid fa-leaf"></i> Alternative 'Green' Route
+                </h4>
+                <p style="margin: 0; font-size: 12px; line-height: 1.5; color: var(--text-secondary);">
+                    ${step.alternative_route}
+                </p>
+            </div>
+            
+            <div class="radar-inset-card" style="margin-top: 0; padding: 14px; border-left: 3px solid ${step.ghs_hazards.level === 'Red' ? 'var(--error-red)' : step.ghs_hazards.level === 'Yellow' ? 'var(--warning-yellow)' : 'var(--success-green)'};">
+                <h4 style="margin: 0 0 6px 0; font-size: 12px; font-weight: 600; color: ${step.ghs_hazards.level === 'Red' ? 'var(--error-red)' : step.ghs_hazards.level === 'Yellow' ? 'var(--warning-yellow)' : 'var(--success-green)'}; display: flex; align-items: center; gap: 6px;">
+                    <i class="fa-solid fa-triangle-exclamation"></i> GHS Safety Classification & Hazards
+                </h4>
+                <p style="margin: 0; font-size: 12px; line-height: 1.5; color: var(--text-secondary);">
+                    ${step.ghs_hazards.description}
+                </p>
+            </div>
+        </div>
+    `;
+}
+
+// Update Carousel Indicators (Dots & Count labels)
+function updateCarouselIndicators() {
+    const dotsContainer = document.getElementById("carousel-dots");
+    const stepIndicator = document.getElementById("carousel-step-indicator");
+    if (!dotsContainer || !stepIndicator || !activeSynthesisSteps || activeSynthesisSteps.length === 0) return;
+    
+    stepIndicator.textContent = `Step ${currentCarouselIndex + 1} of ${activeSynthesisSteps.length}`;
+    
+    dotsContainer.innerHTML = activeSynthesisSteps.map((step, idx) => {
+        const isActive = idx === currentCarouselIndex ? "active" : "";
+        return `<button class="carousel-dot ${isActive}" data-dot-index="${idx}" title="Go to Step ${step.step}"></button>`;
+    }).join("");
+    
+    const dots = dotsContainer.querySelectorAll(".carousel-dot");
+    dots.forEach(dot => {
+        dot.addEventListener("click", () => {
+            const targetIdx = parseInt(dot.getAttribute("data-dot-index"), 10);
+            currentCarouselIndex = targetIdx;
+            renderCarouselCard(currentCarouselIndex);
+            updateCarouselIndicators();
+        });
+    });
+    
+    const prevBtn = document.getElementById("carousel-prev-btn");
+    const nextBtn = document.getElementById("carousel-next-btn");
+    
+    if (prevBtn) {
+        if (currentCarouselIndex === 0) {
+            prevBtn.disabled = true;
+            prevBtn.style.opacity = "0.4";
+            prevBtn.style.cursor = "not-allowed";
+        } else {
+            prevBtn.disabled = false;
+            prevBtn.style.opacity = "1";
+            prevBtn.style.cursor = "pointer";
+        }
+    }
+    
+    if (nextBtn) {
+        if (currentCarouselIndex === activeSynthesisSteps.length - 1) {
+            nextBtn.disabled = true;
+            nextBtn.style.opacity = "0.4";
+            nextBtn.style.cursor = "not-allowed";
+        } else {
+            nextBtn.disabled = false;
+            nextBtn.style.opacity = "1";
+            nextBtn.style.cursor = "pointer";
+        }
+    }
 }
 
 // Timeline Accordion Toggling
