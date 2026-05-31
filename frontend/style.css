@@ -1367,3 +1367,71 @@ body.light-theme .skeletal-img {
     color: var(--text-muted);
     line-height: 1.45;
 }
+
+/* ==========================================================================
+   DRUG MASTER FILE (DMF) CUSTOM STYLING
+   ========================================================================== */
+.badge-dmf {
+    border-color: var(--border-hover) !important;
+    transition: var(--transition-fast) !important;
+}
+
+.badge-dmf:hover {
+    background-color: var(--border-color) !important;
+    border-color: #c084fc !important;
+    color: #c084fc !important;
+    box-shadow: 0 0 8px rgba(192, 132, 252, 0.2);
+}
+
+.cta-dmf-btn {
+    background-color: var(--accent-purple);
+    border: 1px solid var(--accent-purple);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 100%;
+    transition: var(--transition-fast);
+    box-shadow: 0 0 10px rgba(124, 58, 237, 0.2);
+}
+
+.cta-dmf-btn:hover {
+    background-color: #6d28d9;
+    border-color: #6d28d9;
+    box-shadow: 0 0 14px rgba(124, 58, 237, 0.5);
+}
+
+body.light-theme .cta-dmf-btn:hover {
+    background-color: #5b21b6;
+    border-color: #5b21b6;
+}
+
+#gemini-advisory-card .card-footer {
+    display: flex;
+    align-items: center;
+    padding: 14px 20px 20px 20px;
+    border-top: 1px solid var(--border-color);
+    background-color: var(--bg-card);
+    flex-shrink: 0;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.dmf-modal-content {
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 12px !important;
+    box-shadow: var(--shadow-lg) !important;
+}
+
+.dmf-modal-body {
+    padding: 16px 24px !important;
+}

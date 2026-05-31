@@ -701,3 +701,255 @@ def get_synthesis(query: str = Query(..., description="Drug name for synthesis p
     }
     
     return fallback_payload
+
+
+def generate_fallback_dmf(compound_name, summary, synthesis_path, fda_insights):
+    brand = summary.get("brand_name", "Generic")
+    formula = summary.get("formula", "N/A")
+    mwt = summary.get("mwt", "N/A")
+    smiles = summary.get("smiles", "N/A")
+    inchikey = summary.get("inchikey", "N/A")
+    chembl_id = summary.get("chembl_id", "N/A")
+    cid = summary.get("cid", "N/A")
+    warnings = fda_insights.get("labeling", {}).get("warnings", ["No active warning flags resolved."])
+    warnings_str = " ".join(warnings)
+
+    dmf_md = f"""# DRUG MASTER FILE (DMF) DRAFT SUBMISSION
+## MODULE 3: QUALITY -- ACTIVE PHARMACEUTICAL INGREDIENT
+### 3.2.S DRUG SUBSTANCE: {compound_name.upper()}
+
+---
+
+### 3.2.S.1 GENERAL INFORMATION
+
+#### 3.2.S.1.1 Nomenclature
+- **International Nonproprietary Name (INN):** {compound_name}
+- **Compendial Name:** {compound_name} USP / Ph. Eur.
+- **Chemical Name:** {compound_name} active drug substance
+- **ChEMBL Identifier:** {chembl_id}
+- **PubChem CID:** {cid}
+
+#### 3.2.S.1.2 Structure
+- **Canonical SMILES String:** `{smiles}`
+- **InChIKey:** `{inchikey}`
+- **Molecular Formula:** {formula}
+- **Molecular Weight:** {mwt} g/mol
+
+#### 3.2.S.1.3 General Properties
+- **Physical Appearance:** Off-white to light yellow crystalline powder.
+- **Solubility Profile:** Soluble in DMSO, dimethylformamide; sparingly soluble in methanol; practically insoluble in water.
+- **Polymorphism:** Exists in multiple crystalline polymorphs. The preferred therapeutic polymorph (stable anhydrous form) is targeted in final crystallization steps.
+- **pH & pKa:** Demonstrates pH-dependent ionization characteristics typical of small-molecule active compounds.
+
+---
+
+### 3.2.S.2 MANUFACTURE
+
+#### 3.2.S.2.1 Manufacturer(s)
+- **Primary Facility:** SynGen Process Engineering Facility, Manufacturing Suite Alpha
+- **Address:** 100 Innovation Way, Suite A, Boston, MA, USA
+
+#### 3.2.S.2.2 Description of Manufacturing Process and Process Controls
+The industrial manufacturing process of **{compound_name}** is conducted through a multi-step chemical synthesis path described below:
+"""
+
+    for step in synthesis_path:
+        step_num = step.get("step", "?")
+        step_title = step.get("title", "Process Reaction")
+        reaction = step.get("reaction", "A -> B")
+        react_type = step.get("type", "Chemical Synthesis")
+        temp = step.get("temp", "N/A")
+        duration = step.get("duration", "N/A")
+        step_yield = step.get("yield", "N/A")
+        reagents = step.get("reagents", "Standard process reagents")
+        solvent = step.get("solvent", "Standard process solvents")
+        
+        ghs = step.get("ghs_hazards", {})
+        ghs_level = ghs.get("level", "Green")
+        ghs_codes = ghs.get("codes", [])
+        ghs_codes_str = ", ".join(ghs_codes) if ghs_codes else "No hazard codes"
+        ghs_desc = ghs.get("description", "No critical hazards identified.")
+        
+        e_factor = step.get("e_factor", "N/A")
+        safety_prot = step.get("scale_up_safety", "Employ standard industrial laboratory precautions.")
+        
+        dmf_md += f"""
+##### Step {step_num}: {step_title}
+- **Chemical Equation:** `{reaction}`
+- **Reaction Type:** {react_type}
+- **Process Parameters:** Operating Temperature: **{temp} °C**, Reaction Duration: **{duration} h**, Target Step Yield: **{step_yield}%**.
+- **Solvents & Reagents:** Reagents: *{reagents}*, Solvent System: *{solvent}*.
+- **Precursor Feedstocks:**
+"""
+        for p in step.get("precursors", []):
+            p_name = p.get("name", "Raw intermediate material")
+            p_cost = p.get("cost_usd_kg", "N/A")
+            p_source = p.get("source", "Standard commercial supplier")
+            dmf_md += f"  - *{p_name}* (Estimated Cost: ${p_cost}/kg from {p_source})\n"
+        
+        dmf_md += f"""- **In-Process Controls & Safety:**
+  - *GHS Hazards:* Level: **{ghs_level}** ({ghs_codes_str}). *Description:* {ghs_desc}
+  - *Waste Management:* Step E-factor: **{e_factor}**
+  - *Scale-up Safety Protocol:* {safety_prot}
+"""
+
+    dmf_md += f"""
+#### 3.2.S.2.3 Control of Materials
+Starting feedstocks, solvents, and catalysts are subjected to standard quality testing prior to reactor intake. Specifications for starting materials include appearance, identity by Infrared Spectroscopy (IR), chromatographic purity by HPLC, and water content by Karl Fischer (KF).
+
+#### 3.2.S.2.4 Controls of Critical Steps and Intermediates
+In-process testing is performed at the completion of each step to verify intermediate conversion efficiency. Critical process parameters (CPPs), such as internal temperature and addition rates, are monitored continuously via inline temperature probes and HPLC analysis.
+
+#### 3.2.S.2.5 Continuous Flow Process Development
+To maximize process safety and optimize green chemistry efficiency, the manufacturing process incorporates advanced continuous-flow microfluidic conversions:
+"""
+
+    for step in synthesis_path:
+        step_num = step.get("step", "?")
+        flow_rec = step.get("flow_chemistry", "Deploy in a high-surface-area continuous-flow loop reactor to optimize thermal control.")
+        dmf_md += f"- **Step {step_num} Flow Recommendation:** {flow_rec}\n"
+
+    dmf_md += f"""
+---
+
+### 3.2.S.4 CONTROL OF DRUG SUBSTANCE
+
+#### 3.2.S.4.1 Specifications
+| Test Parameter | Analytical Procedure | Specification Limit |
+| :--- | :--- | :--- |
+| **Appearance** | Visual Inspection | Off-white to light yellow powder |
+| **Identification (IR)** | USP <197K> | Matches reference spectrum |
+| **Identification (NMR)** | Proton / Carbon NMR | Confirms structural framework |
+| **Assay (HPLC)** | Liquid Chromatography | 98.0% - 102.0% (anhydrous basis) |
+| **Organic Impurities** | HPLC (USP <621>) | Individual impurity &le; 0.10%, Total &le; 0.50% |
+| **Residual Solvents** | GC-Headspace (USP <467>) | Class 2 solvents &le; limit, Class 3 &le; 5000 ppm |
+| **Heavy Metals** | USP <232> / <233> | Conform to USP elemental limits |
+| **Water Content** | Karl Fischer Titration | &le; 0.5% |
+
+#### 3.2.S.4.2 Analytical Procedures
+- **Assay & Impurities by HPLC:** Performed using a reverse-phase C18 column (e.g., 150 x 4.6 mm, 5 &mu;m) with a gradient mobile phase consisting of acidified water and acetonitrile. UV detection is set at the compound's absorption maximum.
+- **Residual Solvents by GC-HS:** Conducted via a flame ionization detector (FID) with automated headspace injection to monitor process solvent residues (e.g., DMF, THF, DCM).
+
+#### 3.2.S.4.5 Justification of Specification
+Specifications are justified based on toxicology profiles, batch history, and clinical safety thresholds.
+Specifically, in consideration of the critical FDA warnings: **"{warnings_str}"**, a specialized batch clearance protocol is implemented:
+- **Genotoxic Impurities:** Process-related intermediates (especially chlorinated and alkylating species) are strictly monitored and kept below the Threshold of Toxicological Concern (TTC) of 1.5 &mu;g/day.
+- **Nitrosamine Controls:** In compliance with updated USP and FDA guidelines, trace nitrosamine impurities are quantified using ultra-high performance liquid chromatography-tandem mass spectrometry (UHPLC-MS/MS) to ensure levels are safely below 30 ppm.
+
+---
+
+### 3.2.S.7 STABILITY
+
+#### 3.2.S.7.1 Stability Summary and Conclusions
+Long-term and accelerated stability testing has been designed in compliance with ICH Q1A(R2) guidelines:
+- **Storage Conditions:** Store in tight, light-resistant containers at controlled room temperature (20 °C to 25 °C; excursions permitted between 15 °C and 30 °C).
+- **Stress Testing:** Demonstrates robust thermal stability. Protect from high humidity and intensive photolytic exposure to prevent trace degradation.
+- **Re-test Period:** A re-test period of 24 months is justified when stored in the proposed commercial packaging system under ICH Climate Zones II/IV.
+
+#### 3.2.S.7.2 Post-approval Stability Commitment
+The DMF holder commits to placing the first three commercial production scale batches on long-term stability testing (25 °C &plusmn; 2 °C / 60% &plusmn; 5% RH) for up to 36 months, and accelerated testing (40 °C &plusmn; 2 °C / 75% &plusmn; 5% RH) for 6 months, to continuously validate the shelf-life profile.
+
+---
+*End of Drug Master File (DMF) Technical Section -- Generated by SynGen AI Pharma Portal.*
+"""
+    return dmf_md
+
+
+@app.get("/api/dmf/generate")
+def generate_dmf(query: str = Query(..., description="Name of the compound"), api_key: str = None):
+    """Generates a complete Type II Drug Master File (DMF) draft for the drug."""
+    query_clean = query.strip().lower()
+    
+    try:
+        synthesis_data = get_synthesis(query_clean, api_key=api_key)
+    except Exception as e:
+        logger.error(f"Failed to gather synthesis data for DMF: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Failed to retrieve chemical data for {query_clean}: {str(e)}")
+        
+    summary = synthesis_data.get("summary", {})
+    synthesis_path = synthesis_data.get("synthesis_path", [])
+    fda_insights = synthesis_data.get("fda_insights", {})
+    
+    compound_name = summary.get("name", query_clean.capitalize())
+    brand_name = summary.get("brand_name", "Generic")
+    formula = summary.get("formula", "N/A")
+    mwt = summary.get("mwt", "N/A")
+    smiles = summary.get("smiles", "N/A")
+    chembl_id = summary.get("chembl_id", "N/A")
+    cid = summary.get("cid", "N/A")
+    warnings = fda_insights.get("labeling", {}).get("warnings", ["No active warning flags resolved."])
+    
+    resolved_api_key = api_key or os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
+    if GENAI_AVAILABLE and resolved_api_key:
+        try:
+            logger.info("Orchestrating Gemini 3.5 Flash for professional DMF regulatory drafting...")
+            genai.configure(api_key=resolved_api_key)
+            model = genai.GenerativeModel('gemini-1.5-flash')
+            
+            prompt = f"""
+            You are a senior regulatory affairs specialist and pharmaceutical quality control director.
+            Your task is to generate a comprehensive, highly technical, and professional draft of a **Drug Master File (DMF) - Type II (Drug Substance)** for submission to the FDA.
+
+            Use the following collected scientific data and analysis for the active compound:
+
+            Drug Substance Name: {compound_name}
+            Brand Name: {brand_name}
+            Molecular Formula: {formula}
+            Molecular Weight: {mwt} g/mol
+            SMILES: {smiles}
+            ChEMBL ID: {chembl_id}
+            PubChem CID: {cid}
+            FDA Warnings: {warnings}
+            Synthesis Path: {json.dumps(synthesis_path, indent=2)}
+
+            Structure the DMF draft in professional ICH M4Q CTD Section 3.2.S format, using the following sections:
+
+            # DRUG MASTER FILE (DMF) DRAFT SUBMISSION
+            ## MODULE 3: QUALITY
+            ### 3.2.S DRUG SUBSTANCE
+
+            #### 3.2.S.1 GENERAL INFORMATION
+            - **3.2.S.1.1 Nomenclature**: CAS registry name, systematic chemical name, and laboratory codes.
+            - **3.2.S.1.2 Structure**: Structural formula (include canonical SMILES and InChIKey), formula, molecular weight.
+            - **3.2.S.1.3 General Properties**: Physical description, solubility profile (in water and common organic solvents), hygroscopicity, polymorphism, and pKa.
+
+            #### 3.2.S.2 MANUFACTURE
+            - **3.2.S.2.1 Manufacturer(s)**: Standard virtual manufacturing facility info (Manufacturing Suite Alpha).
+            - **3.2.S.2.2 Description of Manufacturing Process and Process Controls**: Provide a detailed, step-by-step process narrative for the manufacturing process based on the synthesis path. For each step, include chemical equations, operating parameters (temperature, duration), solvents, and raw precursors with standard controls.
+            - **3.2.S.2.3 Control of Materials**: Specifications for starting materials, solvents, and critical reagents.
+            - **3.2.S.2.4 Controls of Critical Steps and Intermediates**: List critical process parameters (CPPs) and in-process controls (IPCs) for each synthesis step.
+            - **3.2.S.2.5 Continuous Flow Process Development**: Integration of continuous-flow microfluidics recommendations and E-factor optimization details to transition this compound from batch to flow chemistry.
+
+            #### 3.2.S.4 CONTROL OF DRUG SUBSTANCE
+            - **3.2.S.4.1 Specifications**: Elaborate standard testing specifications table (Appearance, Identification by IR/NMR, Assay, Impurities, Residual Solvents).
+            - **3.2.S.4.2 Analytical Procedures**: High-performance liquid chromatography (HPLC) and gas chromatography (GC) procedure summaries.
+            - **3.2.S.4.5 Justification of Specification**: Scientific justification for limits, including integration of safety margins based on the FDA clinical warnings: {warnings} (e.g., control of trace nitrosamine impurities or process-related genotoxic intermediates).
+
+            #### 3.2.S.7 STABILITY
+            - **3.2.S.7.1 Stability Summary and Conclusions**: Thermal stability, humidity precautions, photolytic stress warnings, and estimated shelf-life under ICH Storage Zones II/IV.
+            - **3.2.S.7.2 Post-approval Stability Commitment**: commitment to place the first three production batches on long-term stability testing.
+
+            Maintain an extremely formal, scientific, and authoritative tone suitable for an FDA regulatory reviewer. Do not use placeholders or generic templates. Fill in all chemical details, reactions, and specifications precisely based on the provided synthesis steps and compound properties.
+
+            Provide the complete text in clean, readable Markdown format. Do not enclose the output in code blocks (e.g. do not wrap in ```markdown).
+            """
+            
+            response = model.generate_content(prompt)
+            dmf_text = response.text
+            if dmf_text and len(dmf_text.strip()) > 200:
+                logger.info("Successfully received professional DMF from Gemini.")
+                return {
+                    "compound_name": compound_name,
+                    "source": "gemini_regulatory_agent",
+                    "dmf_content": dmf_text
+                }
+        except Exception as ex:
+            logger.error(f"Gemini DMF generation failed: {str(ex)}. Falling back to structured rule-based DMF planner...")
+            
+    dmf_text = generate_fallback_dmf(compound_name, summary, synthesis_path, fda_insights)
+    
+    return {
+        "compound_name": compound_name,
+        "source": "fallback_structured_regulatory_template",
+        "dmf_content": dmf_text
+    }

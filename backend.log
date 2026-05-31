@@ -71,3 +71,99 @@ INFO:backend.main:Generating fallback structured process plan...
 INFO:     127.0.0.1:52562 - "GET /api/synthesis?query=Sildenafil HTTP/1.1" 200 OK
 INFO:     127.0.0.1:53045 - "GET /api/synthesis?query=Imatinib HTTP/1.1" 200 OK
 INFO:     127.0.0.1:53892 - "GET /api/synthesis?query=Imatinib HTTP/1.1" 200 OK
+INFO:backend.main:Initiating end-to-end generic synthesis routing for: metformin
+INFO:skills_helper:Running command: /Users/wvt/.local/bin/uv run /Users/wvt/projects/deepmind-hackathon/science-skills/skills/pubchem_database/scripts/pubchem_api.py resolve --name metformin --output /var/folders/jy/tmwtw1t55hxggv7dxb6cpl0r0000gn/T/tmp45ejqisx.json
+INFO:skills_helper:Running command: /Users/wvt/.local/bin/uv run /Users/wvt/projects/deepmind-hackathon/science-skills/skills/chembl_database/scripts/chembl_api.py molecule --search metformin --limit 1 --output /var/folders/jy/tmwtw1t55hxggv7dxb6cpl0r0000gn/T/tmp5co5jwnt.json
+INFO:skills_helper:Running command: /Users/wvt/.local/bin/uv run /Users/wvt/projects/deepmind-hackathon/science-skills/skills/literature_search_openalex/scripts/openalex_cli.py filter works --search metformin synthesis --per-page 5
+INFO:skills_helper:Running command: /Users/wvt/.local/bin/uv run /Users/wvt/projects/deepmind-hackathon/science-skills/skills/openfda_database/scripts/openfda_query.py search --category drug --endpoint label --search openfda.generic_name:metformin --limit 1 --output /var/folders/jy/tmwtw1t55hxggv7dxb6cpl0r0000gn/T/tmp4t9ydqtv.json
+INFO:backend.main:Generating fallback structured process plan...
+INFO:     127.0.0.1:53905 - "GET /api/synthesis?query=Metformin HTTP/1.1" 200 OK
+WARNING:  StatReload detected changes in 'backend/main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [88152]
+INFO:     Started server process [88795]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:53954 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53958 - "GET /api/dmf/generate?query=Imatinib HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/Users/wvt/projects/deepmind-hackathon/.venv/lib/python3.11/site-packages/uvicorn/protocols/http/h11_impl.py", line 408, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wvt/projects/deepmind-hackathon/.venv/lib/python3.11/site-packages/uvicorn/middleware/proxy_headers.py", line 69, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wvt/projects/deepmind-hackathon/.venv/lib/python3.11/site-packages/fastapi/applications.py", line 1054, in __call__
+    await super().__call__(scope, receive, send)
+  File "/Users/wvt/projects/deepmind-hackathon/.venv/lib/python3.11/site-packages/starlette/applications.py", line 123, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/wvt/projects/deepmind-hackathon/.venv/lib/python3.11/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/Users/wvt/projects/deepmind-hackathon/.venv/lib/python3.11/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/Users/wvt/projects/deepmind-hackathon/.venv/lib/python3.11/site-packages/starlette/middleware/cors.py", line 83, in __call__
+    await self.app(scope, receive, send)
+  File "/Users/wvt/projects/deepmind-hackathon/.venv/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/Users/wvt/projects/deepmind-hackathon/.venv/lib/python3.11/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/wvt/projects/deepmind-hackathon/.venv/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/wvt/projects/deepmind-hackathon/.venv/lib/python3.11/site-packages/starlette/routing.py", line 758, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/Users/wvt/projects/deepmind-hackathon/.venv/lib/python3.11/site-packages/starlette/routing.py", line 778, in app
+    await route.handle(scope, receive, send)
+  File "/Users/wvt/projects/deepmind-hackathon/.venv/lib/python3.11/site-packages/starlette/routing.py", line 299, in handle
+    await self.app(scope, receive, send)
+  File "/Users/wvt/projects/deepmind-hackathon/.venv/lib/python3.11/site-packages/starlette/routing.py", line 79, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/Users/wvt/projects/deepmind-hackathon/.venv/lib/python3.11/site-packages/starlette/_exception_handler.py", line 64, in wrapped_app
+    raise exc
+  File "/Users/wvt/projects/deepmind-hackathon/.venv/lib/python3.11/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    await app(scope, receive, sender)
+  File "/Users/wvt/projects/deepmind-hackathon/.venv/lib/python3.11/site-packages/starlette/routing.py", line 74, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/wvt/projects/deepmind-hackathon/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 278, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wvt/projects/deepmind-hackathon/.venv/lib/python3.11/site-packages/fastapi/routing.py", line 193, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wvt/projects/deepmind-hackathon/.venv/lib/python3.11/site-packages/starlette/concurrency.py", line 42, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wvt/projects/deepmind-hackathon/.venv/lib/python3.11/site-packages/anyio/to_thread.py", line 63, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wvt/projects/deepmind-hackathon/.venv/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 2518, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/Users/wvt/projects/deepmind-hackathon/.venv/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 1002, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wvt/projects/deepmind-hackathon/backend/main.py", line 925, in generate_dmf
+    dmf_text = generate_fallback_dmf(compound_name, summary, synthesis_path, fda_insights)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wvt/projects/deepmind-hackathon/backend/main.py", line 766, in generate_fallback_dmf
+    dmf_md += f"  - *{p['name']}* (Estimated Cost: ${p['cost_usd_kg']}/kg from {p['source']})\n"
+                                                                                ~^^^^^^^^^^
+KeyError: 'source'
+WARNING:  StatReload detected changes in 'backend/main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [88795]
+INFO:     Started server process [88832]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:53962 - "GET /api/dmf/generate?query=Imatinib HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53969 - "GET /api/synthesis?query=Imatinib HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53971 - "GET /api/dmf/generate?query=Imatinib HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53984 - "GET /api/synthesis?query=Imatinib HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53995 - "GET /api/synthesis?query=Imatinib HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54008 - "GET /api/synthesis?query=Imatinib HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54156 - "GET /api/synthesis?query=Imatinib HTTP/1.1" 200 OK
