@@ -1150,126 +1150,47 @@ function downloadDmfFile() {
     showNotification("DMF markdown download initiated!");
 }
 
-// Robust client-side markdown to HTML parser
+// Bulletproof client-side markdown to HTML parser utilizing standard engines
 function parseMarkdown(md) {
     if (!md) return "";
     
-    // Secure escape HTML to avoid XSS issues
-    let html = md
+    // First, escape HTML characters to avoid XSS issues, maintaining parity with original logic
+    let htmlContent = md
         .replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")
         .replace(/>/g, "&gt;");
-    
-    // Headings
-    html = html.replace(/^### (.*$)/gim, '<h3 style="font-size: 14.5px; font-weight: 700; color: var(--text-primary); margin-top: 24px; margin-bottom: 8px; border-bottom: 1px solid var(--border-color); padding-bottom: 6px;">$1</h3>');
-    html = html.replace(/^#### (.*$)/gim, '<h4 style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-top: 18px; margin-bottom: 6px;">$1</h4>');
-    html = html.replace(/^##### (.*$)/gim, '<h5 style="font-size: 12px; font-weight: 600; color: var(--text-secondary); margin-top: 14px; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.02em;">$1</h5>');
-    html = html.replace(/^## (.*$)/gim, '<h2 style="font-size: 16px; font-weight: 700; color: var(--primary-purple); margin-top: 32px; margin-bottom: 12px; border-bottom: 2px solid var(--border-color); padding-bottom: 8px;">$1</h2>');
-    html = html.replace(/^# (.*$)/gim, '<h1 style="font-size: 20px; font-weight: 800; color: var(--primary-teal); margin-top: 20px; margin-bottom: 16px; text-align: center; text-transform: uppercase; letter-spacing: 0.05em;">$1</h1>');
-    
-    // Bold & Italic
-    html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-    html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
-    
-    // Inline Code
-    html = html.replace(/`(.*?)`/g, '<code style="font-family: monospace; background: var(--bg-inset); border: 1px solid var(--border-color); padding: 2px 6px; border-radius: 4px; color: #c084fc;">$1</code>');
-    
-    // Horizontal Rule
-    html = html.replace(/^\s*---\s*$/gm, '<hr style="border: 0; border-top: 1px solid var(--border-color); margin: 20px 0;">');
-
-    // Lists and Tables Parsing Loop
-    const lines = html.split('\n');
-    let inTable = false;
-    let inList = false;
-    let tableHtml = '';
-    let listHtml = '';
-    let parsedLines = [];
-    
-    for (let i = 0; i < lines.length; i++) {
-        let line = lines[i].trim();
         
-        // Handle Lists
-        if (line.startsWith('- ')) {
-            // Close active table if we were in one
-            if (inTable) {
-                inTable = false;
-                tableHtml += '</tbody></table></div>';
-                parsedLines.push(tableHtml);
-            }
-            
-            if (!inList) {
-                inList = true;
-                listHtml = '<ul style="margin-bottom: 12px; padding-left: 20px; list-style-type: square;">';
-            }
-            
-            const content = line.substring(2).trim();
-            listHtml += `<li style="margin-bottom: 6px;">${content}</li>`;
-            continue;
-        } else {
-            if (inList) {
-                inList = false;
-                listHtml += '</ul>';
-                parsedLines.push(listHtml);
-            }
-        }
-        
-        // Handle Tables
-        if (line.startsWith('|')) {
-            if (!inTable) {
-                inTable = true;
-                tableHtml = '<div style="overflow-x: auto; margin: 16px 0;"><table style="width: 100%; border-collapse: collapse; font-size: 12px; text-align: left;">';
-            }
-            
-            if (line.includes('---')) {
-                continue; // Skip divider row
-            }
-            
-            const cols = line.split('|').map(c => c.trim()).filter((c, idx, arr) => idx > 0 && idx < arr.length - 1);
-            const tag = tableHtml.includes('<thead>') ? 'td' : 'th';
-            let rowHtml = '<tr style="border-bottom: 1px solid var(--border-color);">';
-            
-            cols.forEach(col => {
-                const alignStyle = tag === 'th' ? 'padding: 10px; font-weight: 600; background: var(--bg-sidebar); border: 1px solid var(--border-color);' : 'padding: 10px; border: 1px solid var(--border-color);';
-                rowHtml += `<${tag} style="${alignStyle}">${col}</${tag}>`;
+    // 1. Separate math blocks ($...$) and compile with KaTeX
+    htmlContent = htmlContent.replace(/\$(.*?)\$/g, (match, formula) => {
+        try {
+            return katex.renderToString(formula, {
+                throwOnError: false,
+                displayMode: false
             });
-            rowHtml += '</tr>';
-            
-            if (tag === 'th') {
-                tableHtml += `<thead>${rowHtml}</thead><tbody>`;
-            } else {
-                tableHtml += rowHtml;
-            }
-        } else {
-            if (inTable) {
-                inTable = false;
-                tableHtml += '</tbody></table></div>';
-                parsedLines.push(tableHtml);
-            }
-            parsedLines.push(lines[i]);
+        } catch (err) {
+            console.warn("KaTeX rendering error: ", err);
+            return match;
         }
-    }
-    
-    if (inTable) {
-        tableHtml += '</tbody></table></div>';
-        parsedLines.push(tableHtml);
-    }
-    if (inList) {
-        listHtml += '</ul>';
-        parsedLines.push(listHtml);
-    }
-    
-    html = parsedLines.join('\n');
-    
-    // Paragraphs
-    const finalLines = html.split('\n').map(line => {
-        const trimmed = line.trim();
-        if (trimmed && !trimmed.startsWith('<h') && !trimmed.startsWith('<l') && !trimmed.startsWith('<d') && !trimmed.startsWith('<t') && !trimmed.startsWith('<u') && !trimmed.startsWith('<b') && !trimmed.startsWith('<h') && !trimmed.startsWith('<hr')) {
-            return `<p style="margin-bottom: 12px; font-size: 13px; line-height: 1.6;">${trimmed}</p>`;
-        }
-        return line;
     });
     
-    return finalLines.join('\n');
+    // 2. Separate global chemical equations & symbols and clean them up
+    // Strip \text{...} wrappers globally
+    while (htmlContent.includes('\\text{')) {
+        htmlContent = htmlContent.replace(/\\text\{(.*?)\}/g, '$1');
+    }
+    htmlContent = htmlContent.replace(/\s*\\longrightarrow\s*/g, ' ⟶ ');
+    htmlContent = htmlContent.replace(/\s*\\rightarrow\s*/g, ' → ');
+    htmlContent = htmlContent.replace(/\s*\\leftrightarrow\s*/g, ' ↔ ');
+    htmlContent = htmlContent.replace(/\s*\\pm\s*/g, ' ± ');
+    htmlContent = htmlContent.replace(/\b([0-9.]+)\s+pm\s+([0-9.]+)\b/g, '$1 ± $2');
+    htmlContent = htmlContent.replace(/\^?\\circ\s*C/g, '°C');
+    htmlContent = htmlContent.replace(/\^?circ\s*C/g, '°C');
+    htmlContent = htmlContent.replace(/\^?\\circ/g, '°');
+    htmlContent = htmlContent.replace(/\^?circ/g, '°');
+    htmlContent = htmlContent.replace(/\\%/g, '%');
+    
+    // 3. Render the rest of the document with Marked
+    return marked.parse(htmlContent);
 }
 
 // --- AI CHAT CO-PILOT WORKSPACE ---
@@ -1337,7 +1258,7 @@ async function sendChatMessage() {
         // Append AI Response
         const aiMsgEl = document.createElement("div");
         aiMsgEl.className = "chat-message ai";
-        aiMsgEl.innerHTML = `<p>${escapeHtml(payload.message)} Process refined and cards updated successfully.</p>`;
+        aiMsgEl.innerHTML = parseMarkdown(payload.message);
         msgContainer.appendChild(aiMsgEl);
         msgContainer.scrollTop = msgContainer.scrollHeight;
         
