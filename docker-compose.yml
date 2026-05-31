@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  # Python FastAPI Backend Service
+  backend-service:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - OPENALEX_API_KEY=${OPENALEX_API_KEY}
+      - FDA_API_KEY=${FDA_API_KEY}
+    restart: always
+
+  # Static Assets & Nginx Reverse Proxy Frontend
+  frontend-service:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - backend-service
+    restart: always

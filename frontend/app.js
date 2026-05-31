@@ -3,7 +3,7 @@
    Handles backend integration, dynamic flowchart rendering, and settings.
    ========================================================================== */
 
-const API_BASE_URL = "http://localhost:8000/api";
+const API_BASE_URL = window.location.port === "3000" ? "http://localhost:8000/api" : "/api";
 
 // DOM Elements
 const drugSearchInput = document.getElementById("drug-search-input");
@@ -235,6 +235,32 @@ document.addEventListener("DOMContentLoaded", () => {
                 collapseIcon.className = "fa-solid fa-chevron-left";
                 sidebarCollapseBtn.title = "Collapse Sidebar";
             }
+        });
+    }
+
+    // --- CLICK LOGO TO RETURN TO WELCOME HUB ---
+    const sidebarLogo = document.getElementById("sidebar-logo");
+    if (sidebarLogo) {
+        sidebarLogo.addEventListener("click", (e) => {
+            e.preventDefault();
+            
+            // 1. Hide active dashboard grid panels and top search bar
+            dashboardGrid.classList.add("hidden");
+            topSearchContainer.classList.add("hidden");
+            
+            // 2. Reveal Welcome Hub
+            welcomeHub.classList.remove("hidden");
+            
+            // 3. Reset active highlights on sidebar navigation tabs
+            navItems.forEach(n => n.classList.remove("active"));
+            const synthesisRouterTab = document.querySelector('[data-tab="synthesis-router"]');
+            if (synthesisRouterTab) synthesisRouterTab.classList.add("active");
+            
+            // 4. Clear search inputs for the next analysis
+            drugSearchInput.value = "";
+            if (welcomeSearchInput) welcomeSearchInput.value = "";
+            
+            showNotification("Returned to Welcome Hub");
         });
     }
 });

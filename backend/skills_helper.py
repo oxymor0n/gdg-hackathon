@@ -9,7 +9,8 @@ logger = logging.getLogger(__name__)
 
 # Absolute path to the science-skills repository
 SKILLS_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "science-skills"))
-UV_PATH = os.path.expanduser("~/.local/bin/uv")
+import shutil
+UV_PATH = shutil.which("uv") or os.path.expanduser("~/.local/bin/uv")
 
 def run_cli_command(args, output_file=None, capture_stdout=False):
     """Runs a science-skills CLI command using uv."""
