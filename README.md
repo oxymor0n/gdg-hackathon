@@ -4,6 +4,8 @@ SynGen is a state-of-the-art, regulatory-grade literature review and process che
 
 The platform is pre-optimized for a pilot compound case study—**Imatinib Mesylate** (Gleevec)—and supports dynamic live routing and regulatory drafting for any active drug molecule (e.g., **Sildenafil**, **Metformin**).
 
+<img width="1840" height="1103" alt="Screenshot 2026-05-30 at 8 20 23 PM" src="https://github.com/user-attachments/assets/65cb3875-311e-4fba-bc43-50b8565df637" />
+
 ---
 
 ## 🚀 Key Features
