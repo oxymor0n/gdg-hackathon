@@ -105,14 +105,60 @@ h1, h2, h3, h4, .logo-title, .score-value {
     position: sticky;
     top: 0;
     height: 100vh;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar.collapsed {
+    width: 72px;
+    padding: 24px 12px;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 32px;
+    flex-shrink: 0;
+}
+
+.sidebar.collapsed .sidebar-header {
+    justify-content: center;
+}
+
+#sidebar-collapse-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 11px;
+    padding: 6px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-fast);
+}
+
+#sidebar-collapse-btn:hover {
+    color: var(--text-primary);
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.sidebar.collapsed #sidebar-collapse-btn {
+    margin-top: 8px;
 }
 
 .sidebar-logo {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 32px;
     padding-left: 4px;
+}
+
+.sidebar.collapsed .sidebar-logo {
+    padding-left: 0;
+    justify-content: center;
 }
 
 .logo-icon {
@@ -218,6 +264,32 @@ h1, h2, h3, h4, .logo-title, .score-value {
 .user-role {
     font-size: 10.5px;
     color: var(--text-muted);
+}
+
+/* ==========================================================================
+   COLLAPSED SIDEBAR ADAPTATION
+   ========================================================================== */
+.sidebar.collapsed .logo-text,
+.sidebar.collapsed .nav-item span,
+.sidebar.collapsed .user-info {
+    display: none;
+}
+
+.sidebar.collapsed .sidebar-header {
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+}
+
+.sidebar.collapsed .nav-item {
+    justify-content: center;
+    padding: 10px;
+    gap: 0;
+}
+
+.sidebar.collapsed .user-profile {
+    justify-content: center;
+    gap: 0;
 }
 
 /* ==========================================================================

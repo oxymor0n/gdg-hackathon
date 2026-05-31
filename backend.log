@@ -178,3 +178,4 @@ INFO:backend.main:Generating fallback structured process plan...
 INFO:     127.0.0.1:54391 - "GET /api/synthesis?query=Sildenafil HTTP/1.1" 200 OK
 INFO:     127.0.0.1:54548 - "GET /api/synthesis?query=Imatinib HTTP/1.1" 200 OK
 INFO:     127.0.0.1:54552 - "GET /api/synthesis?query=Imatinib HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54758 - "GET /api/synthesis?query=Imatinib HTTP/1.1" 200 OK

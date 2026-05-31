@@ -216,6 +216,27 @@ document.addEventListener("DOMContentLoaded", () => {
             downloadDmfFile();
         });
     }
+
+    // --- SIDEBAR COLLAPSE TOGGLE ---
+    const sidebar = document.querySelector(".sidebar");
+    const sidebarCollapseBtn = document.getElementById("sidebar-collapse-btn");
+    const collapseIcon = document.getElementById("collapse-icon");
+
+    if (sidebarCollapseBtn && sidebar && collapseIcon) {
+        sidebarCollapseBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            sidebar.classList.toggle("collapsed");
+            
+            const isCollapsed = sidebar.classList.contains("collapsed");
+            if (isCollapsed) {
+                collapseIcon.className = "fa-solid fa-chevron-right";
+                sidebarCollapseBtn.title = "Expand Sidebar";
+            } else {
+                collapseIcon.className = "fa-solid fa-chevron-left";
+                sidebarCollapseBtn.title = "Collapse Sidebar";
+            }
+        });
+    }
 });
 
 // --- CORE REQUISITION LOGIC ---
@@ -534,9 +555,9 @@ toastStyle.textContent = `
     position: fixed;
     bottom: 30px;
     right: -320px;
-    background: rgba(16, 22, 37, 0.95);
+    background: var(--bg-card);
     border: 1px solid var(--border-color);
-    box-shadow: var(--shadow-card);
+    box-shadow: var(--shadow-md);
     backdrop-filter: blur(10px);
     border-radius: 10px;
     padding: 14px 20px;
