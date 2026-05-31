@@ -31,15 +31,15 @@
             </div>
             
             <nav class="sidebar-nav">
-                <a href="#" class="nav-item active" data-tab="synthesis-router">
+                <a href="#" class="nav-item hidden" data-tab="synthesis-router" id="nav-synthesis-router">
                     <i class="fa-solid fa-bezier-curve nav-icon"></i>
                     <span>Synthesis Router</span>
                 </a>
-                <a href="#" class="nav-item" data-tab="regulatory-radar">
+                <a href="#" class="nav-item hidden" data-tab="regulatory-radar" id="nav-regulatory-radar">
                     <i class="fa-solid fa-shield-halved nav-icon"></i>
                     <span>Regulatory Radar</span>
                 </a>
-                <a href="#" class="nav-item" data-tab="literature-explorer">
+                <a href="#" class="nav-item hidden" data-tab="literature-explorer" id="nav-literature-explorer">
                     <i class="fa-solid fa-book-open nav-icon"></i>
                     <span>Literature Hub</span>
                 </a>
@@ -157,10 +157,12 @@
                         
                         <!-- Right Column: Skeletal Structure Diagram -->
                         <div class="chemical-structure-render full-height-render">
-                            <img id="skeletal-structure-img" src="" alt="Bond-line formula" class="skeletal-img hidden">
-                            <div id="structure-placeholder" class="mol-placeholder">
-                                <i class="fa-solid fa-atom atom-spin"></i>
-                                <span id="formula-display">C29H31N7O</span>
+                            <div class="skeletal-wrapper">
+                                <img id="skeletal-structure-img" src="" alt="Bond-line formula" class="skeletal-img hidden">
+                                <div id="structure-placeholder" class="mol-placeholder">
+                                    <i class="fa-solid fa-atom atom-spin"></i>
+                                    <span id="formula-display">C29H31N7O</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -286,9 +288,9 @@
                 <!-- GEMINI AI ANALYSIS REPORT -->
                 <section class="grid-card col-span-2" id="ai-report-card">
                     <div class="card-header">
-                        <div style="display: flex; align-items: center; gap: 10px;">
+                        <div style="display: flex; align-items: center; gap: 10px; flex-grow: 1;">
                             <i class="fa-solid fa-wand-magic-sparkles card-icon text-purple"></i>
-                            <h2>Gemini 3.5 Flash Scale-Up Dossier</h2>
+                            <h2>Scale-Up Dossier</h2>
                         </div>
                         <span class="badge badge-purple">Autonomous Advisory Report</span>
                     </div>
@@ -299,7 +301,7 @@
 
                     <div class="card-footer">
                         <button id="generate-dmf-btn" class="cta-dmf-btn">
-                            <i class="fa-solid fa-file-invoice"></i> Draft Drug Master File (DMF)
+                            <i class="fa-solid fa-file-invoice"></i> Generate Drug Master File (DMF)
                         </button>
                     </div>
                 </section>
@@ -336,34 +338,34 @@
         <!-- Right Full-Height AI Chat Panel (Co-Pilot Sidebar) -->
         <aside class="sidebar-right hidden" id="ai-chat-panel">
             <!-- Chat Header -->
-            <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border-color); padding-bottom: 16px; margin-bottom: 16px; flex-shrink: 0;">
-                <div style="display: flex; align-items: center; gap: 8px;">
+            <div class="chat-header">
+                <div class="chat-header-title">
                     <i class="fa-solid fa-wand-magic-sparkles text-purple" style="font-size: 15px;"></i>
-                    <h3 style="font-size: 15px; font-weight: 600; margin: 0; color: var(--text-primary);">Dossier Co-Pilot</h3>
+                    <h3>Dossier Co-Pilot</h3>
                 </div>
                 <span class="badge badge-purple" style="font-size: 9px; padding: 2px 6px;">Gemini 3.5 Active</span>
             </div>
             
             <!-- Chat System Prompt Details -->
-            <div style="background: var(--bg-inset); border-radius: 8px; padding: 10px 12px; font-size: 11px; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px; flex-shrink: 0; border: 1px solid var(--border-color);">
+            <div class="chat-info-prompt">
                 <i class="fa-solid fa-info-circle text-teal" style="margin-right: 6px;"></i>
                 Instruct me to refine reaction yields, continuous flow configurations, or scale-up safety controls.
             </div>
             
             <!-- Chat Messages List -->
-            <div id="chat-messages-container" style="flex-grow: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; margin-bottom: 16px; padding-right: 4px;">
+            <div id="chat-messages-container">
                 <!-- Initial Greeting Message -->
-                <div class="chat-message ai" style="background: var(--bg-inset); border-left: 3px solid var(--accent-purple); padding: 10px 14px; border-radius: 4px 8px 8px 4px; max-width: 95%;">
-                    <p style="margin: 0; font-size: 12px; color: var(--text-secondary); line-height: 1.5;">
+                <div class="chat-message ai">
+                    <p style="margin: 0; font-size: 12px; line-height: 1.5;">
                         Hello! I am your AI Process Engineering Co-Pilot. I can refine the <strong>Proposed Industrial Synthesis Route</strong> and the <strong>Scale-Up Dossier</strong>. What would you like to optimize?
                     </p>
                 </div>
             </div>
             
             <!-- Chat Input Controls -->
-            <div style="display: flex; gap: 8px; align-items: center; flex-shrink: 0; border-top: 1px solid var(--border-color); padding-top: 16px;">
-                <input type="text" id="chat-input" placeholder="Type instruction (e.g., 'increase yield in step 1')..." style="flex-grow: 1; background: var(--bg-inset); border: 1px solid var(--border-color); border-radius: 6px; padding: 10px 12px; font-size: 12px; color: var(--text-primary); outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--accent-purple)'" onblur="this.style.borderColor='var(--border-color)'">
-                <button id="chat-send-btn" style="background: var(--accent-purple); border: none; color: white; border-radius: 6px; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s;">
+            <div class="chat-input-controls">
+                <input type="text" id="chat-input" placeholder="Type instruction (e.g., 'increase yield in step 1')...">
+                <button id="chat-send-btn">
                     <i class="fa-solid fa-paper-plane" style="font-size: 13px;"></i>
                 </button>
             </div>
@@ -421,7 +423,7 @@
 
     <!-- Timeline Carousel Modal -->
     <div id="timeline-modal" class="modal hidden">
-        <div class="modal-content glass-card timeline-modal-content" style="max-width: 1000px; width: 85%; display: flex; flex-direction: column; max-height: 85vh; padding: 24px; position: relative;">
+        <div class="modal-content glass-card timeline-modal-content" style="max-width: 1000px; width: 85%; display: flex; flex-direction: column; max-height: 92vh; padding: 24px; position: relative;">
             <div class="modal-header" style="flex-shrink: 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 12px; margin-bottom: 20px;">
                 <div style="display: flex; align-items: center; gap: 10px;">
                     <i class="fa-solid fa-network-wired text-purple" style="font-size: 16px;"></i>
@@ -441,7 +443,7 @@
                 </button>
                 
                 <!-- Active Card Container -->
-                <div id="carousel-card-container" style="flex-grow: 1; overflow-y: auto; max-height: 60vh; width: 100%; display: flex; flex-direction: column; gap: 16px;">
+                <div id="carousel-card-container" style="flex-grow: 1; overflow-y: auto; max-height: 72vh; width: 100%; display: flex; flex-direction: column; gap: 16px;">
                     <!-- Populated dynamically by JS -->
                 </div>
                 

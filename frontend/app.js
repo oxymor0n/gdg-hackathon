@@ -141,6 +141,24 @@ document.addEventListener("DOMContentLoaded", () => {
             if (tab === "settings") {
                 settingsModal.classList.remove("hidden");
             } else {
+                // If no active drug has been searched yet, redirect and warn
+                if (!activeSynthesisSteps || activeSynthesisSteps.length === 0) {
+                    showNotification("Please search for a target molecule first.", true);
+                    const welcomeInput = document.getElementById("welcome-search-input");
+                    if (welcomeInput) {
+                        welcomeInput.focus();
+                        welcomeInput.style.borderColor = "var(--accent-purple)";
+                        setTimeout(() => {
+                            welcomeInput.style.borderColor = "";
+                        }, 1500);
+                    }
+                    // Reset active highlights
+                    navItems.forEach(n => n.classList.remove("active"));
+                    const routerTab = document.querySelector('[data-tab="synthesis-router"]');
+                    if (routerTab) routerTab.classList.add("active");
+                    return;
+                }
+
                 // Focus search or scroll to relevant section
                 const sectionMap = {
                     "synthesis-router": "synthesis-timeline-card",
@@ -149,7 +167,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 };
                 const targetId = sectionMap[tab];
                 if (targetId) {
-                    document.getElementById(targetId).scrollIntoView({ behavior: "smooth" });
+                    const targetEl = document.getElementById(targetId);
+                    if (targetEl) targetEl.scrollIntoView({ behavior: "smooth" });
                 }
             }
         });
@@ -161,6 +180,16 @@ document.addEventListener("DOMContentLoaded", () => {
         // Reset active sidebar tab to Synthesis Router
         navItems.forEach(n => n.classList.remove("active"));
         document.querySelector('[data-tab="synthesis-router"]').classList.add("active");
+    });
+    
+    // Close Modal on Backdrop Click
+    settingsModal.addEventListener("click", (e) => {
+        if (e.target === settingsModal) {
+            settingsModal.classList.add("hidden");
+            // Reset active sidebar tab to Synthesis Router
+            navItems.forEach(n => n.classList.remove("active"));
+            document.querySelector('[data-tab="synthesis-router"]').classList.add("active");
+        }
     });
 
     // Save Settings
@@ -226,6 +255,13 @@ document.addEventListener("DOMContentLoaded", () => {
         closeDmfModalBtn.addEventListener("click", () => {
             dmfModal.classList.add("hidden");
         });
+        
+        // Close Modal on Backdrop Click
+        dmfModal.addEventListener("click", (e) => {
+            if (e.target === dmfModal) {
+                dmfModal.classList.add("hidden");
+            }
+        });
     }
 
     if (copyDmfBtn) {
@@ -275,13 +311,19 @@ document.addEventListener("DOMContentLoaded", () => {
             const aiChatPanel = document.getElementById("ai-chat-panel");
             if (aiChatPanel) aiChatPanel.classList.add("hidden");
             
+            // Hide Dossier-specific Sidebar Navigation options
+            const navRouter = document.getElementById("nav-synthesis-router");
+            const navRadar = document.getElementById("nav-regulatory-radar");
+            const navLit = document.getElementById("nav-literature-explorer");
+            if (navRouter) navRouter.classList.add("hidden");
+            if (navRadar) navRadar.classList.add("hidden");
+            if (navLit) navLit.classList.add("hidden");
+            
             // 2. Reveal Welcome Hub
             welcomeHub.classList.remove("hidden");
             
             // 3. Reset active highlights on sidebar navigation tabs
             navItems.forEach(n => n.classList.remove("active"));
-            const synthesisRouterTab = document.querySelector('[data-tab="synthesis-router"]');
-            if (synthesisRouterTab) synthesisRouterTab.classList.add("active");
             
             // 4. Clear search inputs for the next analysis
             if (drugSearchInput) drugSearchInput.value = "";
@@ -407,6 +449,17 @@ async function fetchDossier(drugName) {
         if (dashboardWorkspace) dashboardWorkspace.classList.remove("hidden");
         const aiChatPanel = document.getElementById("ai-chat-panel");
         if (aiChatPanel) aiChatPanel.classList.remove("hidden");
+        
+        // Reveal and highlight Sidebar Navigation options
+        const navRouter = document.getElementById("nav-synthesis-router");
+        const navRadar = document.getElementById("nav-regulatory-radar");
+        const navLit = document.getElementById("nav-literature-explorer");
+        if (navRouter) navRouter.classList.remove("hidden");
+        if (navRadar) navRadar.classList.remove("hidden");
+        if (navLit) navLit.classList.remove("hidden");
+        
+        navItems.forEach(n => n.classList.remove("active"));
+        if (navRouter) navRouter.classList.add("active");
         
         updateUI(dossier);
         showNotification(`Successfully synthesized Dossier for ${drugName}!`);
@@ -673,7 +726,7 @@ function renderCarouselCard(index) {
     cardContainer.innerHTML = `
         <div style="display: flex; flex-direction: column; gap: 16px;">
             <!-- Step Title & Reaction Code Block -->
-            <div class="radar-inset-card" style="margin-top: 0; padding: 16px; background: rgba(30, 41, 59, 0.4); backdrop-filter: blur(4px);">
+            <div class="radar-inset-card" style="margin-top: 0; padding: 16px;">
                 <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
                     <h3 style="margin: 0; font-size: 16px; font-weight: 600; color: var(--text-primary);">
                         Step ${step.step}: ${step.title}
@@ -1124,14 +1177,43 @@ function parseMarkdown(md) {
     // Horizontal Rule
     html = html.replace(/^\s*---\s*$/gm, '<hr style="border: 0; border-top: 1px solid var(--border-color); margin: 20px 0;">');
 
-    // Tables
+    // Lists and Tables Parsing Loop
     const lines = html.split('\n');
     let inTable = false;
+    let inList = false;
     let tableHtml = '';
+    let listHtml = '';
     let parsedLines = [];
     
     for (let i = 0; i < lines.length; i++) {
         let line = lines[i].trim();
+        
+        // Handle Lists
+        if (line.startsWith('- ')) {
+            // Close active table if we were in one
+            if (inTable) {
+                inTable = false;
+                tableHtml += '</tbody></table></div>';
+                parsedLines.push(tableHtml);
+            }
+            
+            if (!inList) {
+                inList = true;
+                listHtml = '<ul style="margin-bottom: 12px; padding-left: 20px; list-style-type: square;">';
+            }
+            
+            const content = line.substring(2).trim();
+            listHtml += `<li style="margin-bottom: 6px;">${content}</li>`;
+            continue;
+        } else {
+            if (inList) {
+                inList = false;
+                listHtml += '</ul>';
+                parsedLines.push(listHtml);
+            }
+        }
+        
+        // Handle Tables
         if (line.startsWith('|')) {
             if (!inTable) {
                 inTable = true;
@@ -1166,15 +1248,17 @@ function parseMarkdown(md) {
             parsedLines.push(lines[i]);
         }
     }
+    
     if (inTable) {
         tableHtml += '</tbody></table></div>';
         parsedLines.push(tableHtml);
     }
+    if (inList) {
+        listHtml += '</ul>';
+        parsedLines.push(listHtml);
+    }
     
     html = parsedLines.join('\n');
-    
-    // Lists
-    html = html.replace(/^\s*-\s+(.*$)/gim, '<li style="margin-bottom: 6px; margin-left: 20px; list-style-type: square;">$1</li>');
     
     // Paragraphs
     const finalLines = html.split('\n').map(line => {
@@ -1206,16 +1290,14 @@ async function sendChatMessage() {
     // Append User Message
     const userMsgEl = document.createElement("div");
     userMsgEl.className = "chat-message user";
-    userMsgEl.style.cssText = "align-self: flex-end; background: var(--accent-purple); color: white; padding: 8px 12px; border-radius: 8px 4px 4px 8px; max-width: 90%; font-size: 11.5px; line-height: 1.5; margin-left: auto;";
-    userMsgEl.innerHTML = `<p style="margin: 0;">${escapeHtml(userMessage)}</p>`;
+    userMsgEl.innerHTML = `<p>${escapeHtml(userMessage)}</p>`;
     msgContainer.appendChild(userMsgEl);
     msgContainer.scrollTop = msgContainer.scrollHeight;
     
     // Append AI Thinking Message
     const thinkingEl = document.createElement("div");
     thinkingEl.className = "chat-message ai thinking";
-    thinkingEl.style.cssText = "background: var(--bg-inset); border-left: 3px solid var(--accent-purple); padding: 8px 12px; border-radius: 4px 8px 8px 4px; max-width: 90%;";
-    thinkingEl.innerHTML = `<p style="margin: 0; font-size: 11.5px; color: var(--text-muted);"><i class="fa-solid fa-arrows-spin fa-spin" style="margin-right: 6px;"></i>Orchestrating process solver...</p>`;
+    thinkingEl.innerHTML = `<p><i class="fa-solid fa-arrows-spin fa-spin" style="margin-right: 6px;"></i>Orchestrating process solver...</p>`;
     msgContainer.appendChild(thinkingEl);
     msgContainer.scrollTop = msgContainer.scrollHeight;
     
@@ -1255,8 +1337,7 @@ async function sendChatMessage() {
         // Append AI Response
         const aiMsgEl = document.createElement("div");
         aiMsgEl.className = "chat-message ai";
-        aiMsgEl.style.cssText = "background: var(--bg-inset); border-left: 3px solid var(--accent-purple); padding: 8px 12px; border-radius: 4px 8px 8px 4px; max-width: 90%;";
-        aiMsgEl.innerHTML = `<p style="margin: 0; font-size: 11.5px; color: var(--text-secondary); line-height: 1.5;">${escapeHtml(payload.message)} Process refined and cards updated successfully.</p>`;
+        aiMsgEl.innerHTML = `<p>${escapeHtml(payload.message)} Process refined and cards updated successfully.</p>`;
         msgContainer.appendChild(aiMsgEl);
         msgContainer.scrollTop = msgContainer.scrollHeight;
         
@@ -1268,8 +1349,7 @@ async function sendChatMessage() {
         
         const errorMsgEl = document.createElement("div");
         errorMsgEl.className = "chat-message ai error";
-        errorMsgEl.style.cssText = "background: var(--bg-inset); border-left: 3px solid var(--error-red); padding: 8px 12px; border-radius: 4px 8px 8px 4px; max-width: 90%;";
-        errorMsgEl.innerHTML = `<p style="margin: 0; font-size: 11.5px; color: var(--error-red); line-height: 1.5;">Refinery failed: ${escapeHtml(error.message)}</p>`;
+        errorMsgEl.innerHTML = `<p>Refinery failed: ${escapeHtml(error.message)}</p>`;
         msgContainer.appendChild(errorMsgEl);
         msgContainer.scrollTop = msgContainer.scrollHeight;
     } finally {
