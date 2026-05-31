@@ -55,3 +55,19 @@ INFO:skills_helper:Running command: /Users/wvt/.local/bin/uv run /Users/wvt/proj
 INFO:skills_helper:Running command: /Users/wvt/.local/bin/uv run /Users/wvt/projects/deepmind-hackathon/science-skills/skills/openfda_database/scripts/openfda_query.py search --category drug --endpoint label --search openfda.generic_name:sildenafil --limit 1 --output /var/folders/jy/tmwtw1t55hxggv7dxb6cpl0r0000gn/T/tmpem4pykqh.json
 INFO:backend.main:Generating fallback structured process plan...
 INFO:     127.0.0.1:52096 - "GET /api/synthesis?query=Sildenafil HTTP/1.1" 200 OK
+INFO:backend.main:Initiating end-to-end generic synthesis routing for: sildenafil
+INFO:skills_helper:Running command: /Users/wvt/.local/bin/uv run /Users/wvt/projects/deepmind-hackathon/science-skills/skills/pubchem_database/scripts/pubchem_api.py resolve --name sildenafil --output /var/folders/jy/tmwtw1t55hxggv7dxb6cpl0r0000gn/T/tmp7i04j18k.json
+INFO:skills_helper:Running command: /Users/wvt/.local/bin/uv run /Users/wvt/projects/deepmind-hackathon/science-skills/skills/chembl_database/scripts/chembl_api.py molecule --search sildenafil --limit 1 --output /var/folders/jy/tmwtw1t55hxggv7dxb6cpl0r0000gn/T/tmpxeojzrcv.json
+INFO:skills_helper:Running command: /Users/wvt/.local/bin/uv run /Users/wvt/projects/deepmind-hackathon/science-skills/skills/literature_search_openalex/scripts/openalex_cli.py filter works --search sildenafil synthesis --per-page 5
+INFO:skills_helper:Running command: /Users/wvt/.local/bin/uv run /Users/wvt/projects/deepmind-hackathon/science-skills/skills/openfda_database/scripts/openfda_query.py search --category drug --endpoint label --search openfda.generic_name:sildenafil --limit 1 --output /var/folders/jy/tmwtw1t55hxggv7dxb6cpl0r0000gn/T/tmpjfhxt3yi.json
+INFO:backend.main:Generating fallback structured process plan...
+INFO:     127.0.0.1:52128 - "GET /api/synthesis?query=Sildenafil HTTP/1.1" 200 OK
+INFO:backend.main:Initiating end-to-end generic synthesis routing for: sildenafil
+INFO:skills_helper:Running command: /Users/wvt/.local/bin/uv run /Users/wvt/projects/deepmind-hackathon/science-skills/skills/pubchem_database/scripts/pubchem_api.py resolve --name sildenafil --output /var/folders/jy/tmwtw1t55hxggv7dxb6cpl0r0000gn/T/tmp9lymjzw9.json
+INFO:skills_helper:Running command: /Users/wvt/.local/bin/uv run /Users/wvt/projects/deepmind-hackathon/science-skills/skills/chembl_database/scripts/chembl_api.py molecule --search sildenafil --limit 1 --output /var/folders/jy/tmwtw1t55hxggv7dxb6cpl0r0000gn/T/tmppjdg81fl.json
+INFO:skills_helper:Running command: /Users/wvt/.local/bin/uv run /Users/wvt/projects/deepmind-hackathon/science-skills/skills/literature_search_openalex/scripts/openalex_cli.py filter works --search sildenafil synthesis --per-page 5
+INFO:skills_helper:Running command: /Users/wvt/.local/bin/uv run /Users/wvt/projects/deepmind-hackathon/science-skills/skills/openfda_database/scripts/openfda_query.py search --category drug --endpoint label --search openfda.generic_name:sildenafil --limit 1 --output /var/folders/jy/tmwtw1t55hxggv7dxb6cpl0r0000gn/T/tmp7xyo06xx.json
+INFO:backend.main:Generating fallback structured process plan...
+INFO:     127.0.0.1:52562 - "GET /api/synthesis?query=Sildenafil HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53045 - "GET /api/synthesis?query=Imatinib HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53892 - "GET /api/synthesis?query=Imatinib HTTP/1.1" 200 OK

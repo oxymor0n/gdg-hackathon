@@ -897,14 +897,25 @@ body.light-theme .skeletal-img {
 /* ==========================================================================
    FDA CLINICAL EVENTS / REGULATORY RADAR
    ========================================================================== */
-.fda-label-details {
+.grid-card h3 {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    margin-top: 0;
+}
+
+.radar-inset-card {
     background-color: var(--bg-inset);
     border: 1px solid var(--border-color);
-    padding: 10px;
+    padding: 12px;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 8px;
+    margin-top: 12px;
 }
 
 .fda-detail-row {
@@ -960,13 +971,6 @@ body.light-theme .skeletal-img {
     border-radius: 2px;
 }
 
-.shortage-historical-card {
-    background-color: var(--bg-inset);
-    border: 1px solid var(--border-color);
-    padding: 10px;
-    border-radius: 8px;
-}
-
 .shortage-text {
     font-size: 11px;
     line-height: 1.4;
@@ -1002,13 +1006,25 @@ body.light-theme .skeletal-img {
     color: var(--text-secondary);
 }
 
+#gemini-advisory-card {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+
+#gemini-advisory-card .card-header {
+    padding: 20px 20px 12px 20px;
+    margin-bottom: 0;
+}
+
 .ai-dossier-content {
     font-size: 12.5px;
     line-height: 1.6;
     color: var(--text-secondary);
     overflow-y: auto;
-    max-height: 380px;
-    padding-right: 4px;
+    flex-grow: 1; /* Stretch to fill full height of the parent grid card */
+    height: 0; /* Let flexbox calculate exact height */
+    padding: 16px 20px 20px 20px;
 }
 
 .ai-dossier-content p {
