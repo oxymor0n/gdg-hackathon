@@ -1,0 +1,26 @@
+# ==========================================================================
+# Google Cloud CLI Upload Exclusions (.gcloudignore)
+# Overrides .gitignore specifically for Cloud Build / Cloud Run uploads
+# ==========================================================================
+
+# Ignore Git directory and standard git files
+.git
+.gitignore
+.gitmodules
+
+# Ignore this .gcloudignore configuration
+.gcloudignore
+
+# Ignore heavy local virtual environments & packages
+.venv/
+__pycache__/
+backend/__pycache__/
+node_modules/
+
+# Ignore local run logs
+*.log
+backend.log
+frontend.log
+
+# DO NOT ignore the science-skills repository (which is listed in .gitignore).
+# By omitting it here, it will be securely uploaded to Cloud Build context.

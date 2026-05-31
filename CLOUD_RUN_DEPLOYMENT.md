@@ -1,6 +1,6 @@
 # Deployment Guide: GCP Cloud Run
 
-This guide outlines the standard procedure for deploying the **SynGen (AI Pharma Review & Generic Drug Synthesis Portal)** to **Google Cloud Run** using our dedicated unified container build (`Dockerfile.cloudrun`).
+This guide outlines the standard procedure for deploying the **SynGen (AI Pharma Review & Generic Drug Synthesis Portal)** to **Google Cloud Run** using our dedicated unified container build (`Dockerfile` at the root).
 
 Deploying as a single unified container is the **absolute best practice** for this tech stack on Cloud Run. It eliminates cross-origin resource sharing (CORS) complications, reduces cold start overheads, avoids private VPC peering, and operates on a single serverless public URL.
 
@@ -16,6 +16,7 @@ Before deploying, ensure you have:
    gcloud services enable run.googleapis.com build.googleapis.com artifactregistry.googleapis.com
    ```
 4. A valid **Gemini API Key** (required by the backend process solver).
+5. A **`.gcloudignore`** file in the root of the project. Since `science-skills/` is ignored in your `.gitignore` to keep it out of git history, the `.gcloudignore` file tells `gcloud` to override this block and securely upload `science-skills/` to Cloud Build while still omitting large folders like `.venv/`. *(I have already created this file in your root workspace).*
 
 ---
 
@@ -23,7 +24,7 @@ Before deploying, ensure you have:
 
 GCP's `gcloud run deploy` command handles the complete workflow:
 - Uploads the workspace code to Google Cloud Build.
-- Compiles the container securely using the `Dockerfile.cloudrun` recipe.
+- Compiles the container securely using the root `Dockerfile` recipe (automatically detected by `gcloud`).
 - Pushes the image to Artifact Registry.
 - Provisions a serverless Cloud Run instance listening on the dynamically allocated `$PORT`.
 
@@ -32,7 +33,6 @@ Run the following command from the root of your project:
 ```bash
 gcloud run deploy syngen-portal \
   --source . \
-  --file Dockerfile.cloudrun \
   --platform managed \
   --region us-central1 \
   --allow-unauthenticated \
@@ -46,12 +46,10 @@ gcloud run deploy syngen-portal \
 
 ## 3. How the Unified Port Routing Operates
 
-- **Unified Port Mapping**: Cloud Run dynamically spins up the container and sets the `$PORT` environment variable (usually `8080`). Our command runner receives this and starts Uvicorn on that exact port:
-  ```dockerfile
-  CMD ["sh", "-c", "uvicorn backend.main:app --host 0.0.0.0 --port ${PORT:-8080}"]
-  ```
-- **Static Assets Serviced Natively**: FastAPI serves the frontend assets (HTML, CSS, JS) at the root url (`/`), while keeping the API endpoints active at `/api/...`.
-- **Dynamic API Resolving**: In `frontend/app.js`, `API_BASE_URL` dynamically resolves to `/api` because the app is running on the main Cloud Run port instead of the local dev port (`3000`). All frontend fetch queries route securely to the backend endpoints under a single domain.
+- **Unified Ingress (Nginx first)**: The container boots using a dynamic startup shell script (`entrypoint.sh`). It reads the GCP Cloud Run `$PORT` environment variable (typically `8080`) and dynamically modifies the `listen` directive inside your standard `nginx.conf` file to bind to that exact port.
+- **Internal Loopback Reverse Proxy**: The startup script automatically starts the FastAPI uvicorn backend on port `8000` listening on local loopback (`127.0.0.1:8000`). It then rewires Nginx's proxy pass directive in `default.conf` from `http://backend-service:8000` to `http://127.0.0.1:8000`.
+- **Static Assets Serviced directly by Nginx**: Public requests on the root URL (`/`) are routed directly to Nginx, which serves the compiled frontend assets statically, ensuring optimal load times. 
+- **Dynamic API Resolving**: API calls targeting `/api/...` are captured by Nginx and reverse-proxied locally to the backend running inside the same container. No code changes are required in either the frontend or backend!
 
 ---
 
