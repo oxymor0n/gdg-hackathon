@@ -801,47 +801,93 @@ function toggleTimelineAccordion(element) {
 }
 
 // Generate the beautiful markdown advisory report
+// Generate the beautiful markdown advisory report
 function generateAiAdvisoryReport(drugName, steps, score) {
-    const isImatinib = drugName.toLowerCase() === "imatinib";
-    
-    let htmlContent = "";
-    if (isImatinib) {
-        htmlContent = `
-            <h4>1. Executive Summary & Chemical Validation</h4>
-            <p>Imatinib Mesylate (STI-571) is a primary pilot case study showing extremely high feasibility (Score: <strong>${score}/100</strong>) for immediate process design. The primary synthesis path utilizes well-documented enaminone condensation to form the central 2-aminopyrimidine core, avoiding stereochemical complications as the molecule is achiral.</p>
-            
-            <h4>2. Continuous-Flow Engineering Recommendations</h4>
-            <p>We recommend transitioning <strong>Step 1 (Enaminone formation)</strong> and <strong>Step 3 (Catalytic nitro reduction)</strong> from traditional batch vessels to a modular continuous-flow reactor setup.
-            <ul>
-                <li><strong>Step 1 neat flow run:</strong> Bypassing Toluene solvent drops the overall synthesis E-factor from 12.4 to 1.8, reducing active chemical footprint and improving throughput.</li>
-                <li><strong>Step 3 inline H2 generation:</strong> Restricting the active high-pressure hydrogen inventory to &lt;2 mL eliminates the pyrophoric Pd/C catalyst explosion hazard common in industrial scale autoclaves.</li>
-            </ul>
-            </p>
-
-            <h4>3. Polymorph Stabilization & Crystallization Control</h4>
-            <p>Imatinib mesylate exists in multiple crystal forms, notably the unstable beta-form and the thermodynamically stable, needle-shaped <strong>alpha-form</strong>.
-            <ul>
-                <li>For oral solid formulation, in-situ crystallization in ethanol/acetone must be performed at exactly 50 °C with methanesulfonic acid addition metered via active Raman spectroscopy monitoring to ensure complete alpha polymorph conversion.</li>
-            </ul>
-            </p>
-
-            <h4>4. Process Safety & Gas Scrubbing</h4>
-            <p>Step 4 utilizes highly carcinogenic pyridine as a basic catalyst and volatile THF. Pyridine releases noxious vapors, and benzoyl chloride coupling emits corrosive HCl gas. 
-            A closed-loop scrubber unit with 10% aqueous NaOH is mandatory in all batch venting pipelines to neutralize fumes before atmospheric venting.</p>
-        `;
-    } else {
-        htmlContent = `
-            <h4>1. Process Engineering Review</h4>
-            <p>Proposed synthetic scale-up plan for <strong>${drugName}</strong> demonstrates moderate industrial viability (Feasibility Index: <strong>${score}/100</strong>). Main synthetic vulnerabilities center on chemical yield efficiency in structural acylation and deprotection steps.</p>
-            
-            <h4>2. Continuous Flow Opportunities</h4>
-            <p>Deprotection steps using Trifluoroacetic acid (TFA) produce aggressive corrosive hazards that erode steel reactors. We recommend packed-bed solid support exchange resins in flow pipes to eliminate bulk liquid acid washes.</p>
-            
-            <h4>3. Regulatory Safeguards</h4>
-            <p>Verify active FDA labels for recent black-box clinical trial additions. Process safety protocols must isolate intermediates to test for trace nitrosamine impurity levels below 30 ppm to comply with updated USP monographs.</p>
-        `;
+    if (!steps || steps.length === 0) {
+        aiDossierBody.innerHTML = `<p class="text-muted text-xs p-4">No active synthesis pathway steps resolved to compile AI process engineering report.</p>`;
+        return;
     }
+
+    // Dynamic calculations
+    const totalSteps = steps.length;
+    const avgYield = (steps.reduce((acc, step) => acc + parseFloat(step.yield || 0), 0) / totalSteps).toFixed(1);
+    const cumulativeEFactor = steps.reduce((acc, step) => acc + parseFloat(step.e_factor || 0), 0).toFixed(1);
     
+    // Safety rating based on hazards
+    const redStepsCount = steps.filter(s => s.ghs_hazards.level === "Red").length;
+    const yellowStepsCount = steps.filter(s => s.ghs_hazards.level === "Yellow").length;
+    let safetyAssessment = "Excellent process safety profile.";
+    if (redStepsCount > 0) {
+        safetyAssessment = `Critical scale-up engineering controls required: process utilizes ${redStepsCount} steps with high toxicological or explosive hazard profiles (GHS Level: Red).`;
+    } else if (yellowStepsCount > 0) {
+        safetyAssessment = `Standard safety precautions required: ${yellowStepsCount} process steps are classified under baseline GHS warnings (Level: Yellow).`;
+    }
+
+    // Build the dynamic HTML report
+    let htmlContent = `
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+            
+            <!-- Executive Summary -->
+            <div class="radar-inset-card" style="margin-top: 0; padding: 14px; border-left: 3px solid var(--accent-purple);">
+                <h4 style="margin: 0 0 6px 0; font-size: 13px; font-weight: 600; color: var(--accent-purple); text-transform: uppercase; letter-spacing: 0.5px;">
+                    1. Executive Summary & Chemical Validation
+                </h4>
+                <p style="margin: 0; font-size: 12px; line-height: 1.6; color: var(--text-secondary);">
+                    The dynamic industrial process engineering design for <strong>${drugName}</strong> exhibits an Overall Feasibility Index of <strong>${score}/100</strong>. 
+                    The proposed manufacturing pathway spans a <strong>${totalSteps}-step</strong> synthetic route, achieving a projected average step-wise yield of <strong>${avgYield}%</strong> 
+                    with a cumulative environmental waste E-Factor of <strong>${cumulativeEFactor}</strong>. 
+                    <em>${safetyAssessment}</em>
+                </p>
+            </div>
+            
+            <!-- Continuous Flow Recommendations -->
+            <div class="radar-inset-card" style="margin-top: 0; padding: 14px; border-left: 3px solid var(--accent-teal);">
+                <h4 style="margin: 0 0 6px 0; font-size: 13px; font-weight: 600; color: var(--accent-teal); text-transform: uppercase; letter-spacing: 0.5px;">
+                    2. Continuous-Flow Process Engineering Recommendations
+                </h4>
+                <ul style="margin: 0; padding-left: 18px; font-size: 12px; color: var(--text-secondary); display: flex; flex-direction: column; gap: 8px; line-height: 1.5;">
+                    ${steps.map(step => `
+                        <li>
+                            <strong>Step ${step.step} (${step.title}):</strong> ${step.flow_chemistry}
+                        </li>
+                    `).join("")}
+                </ul>
+            </div>
+            
+            <!-- Green Chemistry & E-Factor Validation -->
+            <div class="radar-inset-card" style="margin-top: 0; padding: 14px; border-left: 3px solid var(--success-green);">
+                <h4 style="margin: 0 0 6px 0; font-size: 13px; font-weight: 600; color: var(--success-green); text-transform: uppercase; letter-spacing: 0.5px;">
+                    3. Green Chemistry & Alternative Synthesis Routing
+                </h4>
+                <ul style="margin: 0; padding-left: 18px; font-size: 12px; color: var(--text-secondary); display: flex; flex-direction: column; gap: 8px; line-height: 1.5;">
+                    ${steps.map(step => `
+                        <li>
+                            <strong>Step ${step.step} Green Alternative:</strong> ${step.alternative_route}
+                        </li>
+                    `).join("")}
+                </ul>
+            </div>
+            
+            <!-- Process Safety & Scrubber Controls -->
+            <div class="radar-inset-card" style="margin-top: 0; padding: 14px; border-left: 3px solid var(--error-red);">
+                <h4 style="margin: 0 0 6px 0; font-size: 13px; font-weight: 600; color: var(--error-red); text-transform: uppercase; letter-spacing: 0.5px;">
+                    4. Industrial Process Safety & GHS Scrubber Protocols
+                </h4>
+                <ul style="margin: 0; padding-left: 18px; font-size: 12px; color: var(--text-secondary); display: flex; flex-direction: column; gap: 8px; line-height: 1.5;">
+                    ${steps.map(step => {
+                        let scaleUpSafetyText = step.scale_up_safety || step.ghs_hazards.description;
+                        return `
+                            <li>
+                                <strong>Step ${step.step} (${step.ghs_hazards.level} Level):</strong> ${scaleUpSafetyText}
+                            </li>
+                        `;
+                    }).join("")}
+                </ul>
+            </div>
+            
+        </div>
+    `;
+
     aiDossierBody.innerHTML = htmlContent;
 }
 
