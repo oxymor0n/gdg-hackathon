@@ -1,0 +1,6002 @@
+{
+  "meta": {
+    "count": 19816,
+    "db_response_time_ms": 99,
+    "page": 1,
+    "per_page": 5,
+    "groups_count": null,
+    "cost_usd": 0.001
+  },
+  "results": [
+    {
+      "id": "https://openalex.org/W2083415062",
+      "doi": "https://doi.org/10.1039/c001550d",
+      "title": "A flow-based synthesis of Imatinib: the API of Gleevec",
+      "display_name": "A flow-based synthesis of Imatinib: the API of Gleevec",
+      "relevance_score": 467.30243,
+      "publication_year": 2010,
+      "publication_date": "2010-01-01",
+      "ids": {
+        "openalex": "https://openalex.org/W2083415062",
+        "doi": "https://doi.org/10.1039/c001550d",
+        "mag": "2083415062",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/20309467"
+      },
+      "language": "en",
+      "primary_location": {
+        "id": "doi:10.1039/c001550d",
+        "is_oa": false,
+        "landing_page_url": "https://doi.org/10.1039/c001550d",
+        "pdf_url": null,
+        "source": {
+          "id": "https://openalex.org/S152760256",
+          "display_name": "Chemical Communications",
+          "issn_l": "1359-7345",
+          "issn": [
+            "1359-7345",
+            "1364-548X"
+          ],
+          "is_oa": false,
+          "is_in_doaj": false,
+          "is_core": true,
+          "host_organization": "https://openalex.org/P4310320556",
+          "host_organization_name": "Royal Society of Chemistry",
+          "host_organization_lineage": [
+            "https://openalex.org/P4310320556"
+          ],
+          "host_organization_lineage_names": [
+            "Royal Society of Chemistry"
+          ],
+          "type": "journal"
+        },
+        "license": null,
+        "license_id": null,
+        "version": "publishedVersion",
+        "is_accepted": true,
+        "is_published": true,
+        "raw_source_name": "Chemical Communications",
+        "raw_type": "journal-article"
+      },
+      "type": "article",
+      "indexed_in": [
+        "crossref",
+        "pubmed"
+      ],
+      "open_access": {
+        "is_oa": true,
+        "oa_status": "green",
+        "oa_url": "https://durham-repository.worktribe.com/output/1470914",
+        "any_repository_has_fulltext": true
+      },
+      "authorships": [
+        {
+          "author_position": "first",
+          "author": {
+            "id": "https://openalex.org/A5011206496",
+            "display_name": "Mark D. Hopkin",
+            "orcid": null
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I241749",
+              "display_name": "University of Cambridge",
+              "ror": "https://ror.org/013meh722",
+              "country_code": "GB",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I241749"
+              ]
+            }
+          ],
+          "countries": [
+            "GB"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Mark D. Hopkin",
+          "raw_affiliation_strings": [
+            "Innovative Technology Centre, Department of Chemistry, University of Cambridge, Lensfield Road, Cambridge, CB2 1EW, UK",
+            "Innovative Technology Centre, Department of Chemistry, University of Cambridge, Lensfield Road, Cambridge, UK"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Innovative Technology Centre, Department of Chemistry, University of Cambridge, Lensfield Road, Cambridge, CB2 1EW, UK",
+              "institution_ids": []
+            },
+            {
+              "raw_affiliation_string": "Innovative Technology Centre, Department of Chemistry, University of Cambridge, Lensfield Road, Cambridge, UK",
+              "institution_ids": [
+                "https://openalex.org/I241749"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5041647177",
+            "display_name": "Ian R. Baxendale",
+            "orcid": "https://orcid.org/0000-0003-1297-1552"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I241749",
+              "display_name": "University of Cambridge",
+              "ror": "https://ror.org/013meh722",
+              "country_code": "GB",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I241749"
+              ]
+            }
+          ],
+          "countries": [
+            "GB"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Ian R. Baxendale",
+          "raw_affiliation_strings": [
+            "Innovative Technology Centre, Department of Chemistry, University of Cambridge, Lensfield Road, Cambridge, UK"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Innovative Technology Centre, Department of Chemistry, University of Cambridge, Lensfield Road, Cambridge, UK",
+              "institution_ids": [
+                "https://openalex.org/I241749"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "last",
+          "author": {
+            "id": "https://openalex.org/A5046859786",
+            "display_name": "Steven V. Ley",
+            "orcid": "https://orcid.org/0000-0002-7816-0042"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I241749",
+              "display_name": "University of Cambridge",
+              "ror": "https://ror.org/013meh722",
+              "country_code": "GB",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I241749"
+              ]
+            }
+          ],
+          "countries": [
+            "GB"
+          ],
+          "is_corresponding": true,
+          "raw_author_name": "Steven V. Ley",
+          "raw_affiliation_strings": [
+            "Innovative Technology Centre, Department of Chemistry, University of Cambridge, Lensfield Road, Cambridge, UK"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Innovative Technology Centre, Department of Chemistry, University of Cambridge, Lensfield Road, Cambridge, UK",
+              "institution_ids": [
+                "https://openalex.org/I241749"
+              ]
+            }
+          ]
+        }
+      ],
+      "institutions": [],
+      "countries_distinct_count": 1,
+      "institutions_distinct_count": 3,
+      "corresponding_author_ids": [
+        "https://openalex.org/A5046859786"
+      ],
+      "corresponding_institution_ids": [
+        "https://openalex.org/I241749"
+      ],
+      "apc_list": null,
+      "apc_paid": null,
+      "fwci": 16.7371,
+      "has_fulltext": false,
+      "cited_by_count": 190,
+      "citation_normalized_percentile": {
+        "value": 0.99515141,
+        "is_in_top_1_percent": true,
+        "is_in_top_10_percent": true
+      },
+      "cited_by_percentile_year": {
+        "min": 98,
+        "max": 100
+      },
+      "biblio": {
+        "volume": "46",
+        "issue": "14",
+        "first_page": "2450",
+        "last_page": "2450"
+      },
+      "is_retracted": false,
+      "is_paratext": false,
+      "is_xpac": false,
+      "primary_topic": {
+        "id": "https://openalex.org/T11407",
+        "display_name": "Innovative Microfluidic and Catalytic Techniques Innovation",
+        "score": 0.9991999864578247,
+        "subfield": {
+          "id": "https://openalex.org/subfields/2204",
+          "display_name": "Biomedical Engineering"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/22",
+          "display_name": "Engineering"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/3",
+          "display_name": "Physical Sciences"
+        }
+      },
+      "topics": [
+        {
+          "id": "https://openalex.org/T11407",
+          "display_name": "Innovative Microfluidic and Catalytic Techniques Innovation",
+          "score": 0.9991999864578247,
+          "subfield": {
+            "id": "https://openalex.org/subfields/2204",
+            "display_name": "Biomedical Engineering"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/22",
+            "display_name": "Engineering"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/3",
+            "display_name": "Physical Sciences"
+          }
+        },
+        {
+          "id": "https://openalex.org/T11157",
+          "display_name": "Chronic Lymphocytic Leukemia Research",
+          "score": 0.9854999780654907,
+          "subfield": {
+            "id": "https://openalex.org/subfields/2716",
+            "display_name": "Genetics"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/27",
+            "display_name": "Medicine"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/4",
+            "display_name": "Health Sciences"
+          }
+        },
+        {
+          "id": "https://openalex.org/T11016",
+          "display_name": "Monoclonal and Polyclonal Antibodies Research",
+          "score": 0.9575999975204468,
+          "subfield": {
+            "id": "https://openalex.org/subfields/2741",
+            "display_name": "Radiology, Nuclear Medicine and Imaging"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/27",
+            "display_name": "Medicine"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/4",
+            "display_name": "Health Sciences"
+          }
+        }
+      ],
+      "keywords": [
+        {
+          "id": "https://openalex.org/keywords/imatinib",
+          "display_name": "Imatinib",
+          "score": 0.7425715923309326
+        },
+        {
+          "id": "https://openalex.org/keywords/reagent",
+          "display_name": "Reagent",
+          "score": 0.6505702137947083
+        },
+        {
+          "id": "https://openalex.org/keywords/chemistry",
+          "display_name": "Chemistry",
+          "score": 0.5666195154190063
+        },
+        {
+          "id": "https://openalex.org/keywords/combinatorial-chemistry",
+          "display_name": "Combinatorial chemistry",
+          "score": 0.5332873463630676
+        },
+        {
+          "id": "https://openalex.org/keywords/chronic-myeloid-leukaemia",
+          "display_name": "Chronic myeloid leukaemia",
+          "score": 0.5250142216682434
+        },
+        {
+          "id": "https://openalex.org/keywords/solvent",
+          "display_name": "Solvent",
+          "score": 0.5051355957984924
+        },
+        {
+          "id": "https://openalex.org/keywords/medicine",
+          "display_name": "Medicine",
+          "score": 0.15219643712043762
+        },
+        {
+          "id": "https://openalex.org/keywords/cancer-research",
+          "display_name": "Cancer research",
+          "score": 0.1410321295261383
+        },
+        {
+          "id": "https://openalex.org/keywords/organic-chemistry",
+          "display_name": "Organic chemistry",
+          "score": 0.13742506504058838
+        },
+        {
+          "id": "https://openalex.org/keywords/myeloid-leukemia",
+          "display_name": "Myeloid leukemia",
+          "score": 0.11336317658424377
+        }
+      ],
+      "concepts": [
+        {
+          "id": "https://openalex.org/C2777583451",
+          "wikidata": "https://www.wikidata.org/wiki/Q177094",
+          "display_name": "Imatinib",
+          "level": 3,
+          "score": 0.7425715923309326
+        },
+        {
+          "id": "https://openalex.org/C40875361",
+          "wikidata": "https://www.wikidata.org/wiki/Q2356542",
+          "display_name": "Reagent",
+          "level": 2,
+          "score": 0.6505702137947083
+        },
+        {
+          "id": "https://openalex.org/C185592680",
+          "wikidata": "https://www.wikidata.org/wiki/Q2329",
+          "display_name": "Chemistry",
+          "level": 0,
+          "score": 0.5666195154190063
+        },
+        {
+          "id": "https://openalex.org/C21951064",
+          "wikidata": "https://www.wikidata.org/wiki/Q899212",
+          "display_name": "Combinatorial chemistry",
+          "level": 1,
+          "score": 0.5332873463630676
+        },
+        {
+          "id": "https://openalex.org/C2993416501",
+          "wikidata": "https://www.wikidata.org/wiki/Q729735",
+          "display_name": "Chronic myeloid leukaemia",
+          "level": 2,
+          "score": 0.5250142216682434
+        },
+        {
+          "id": "https://openalex.org/C2780471494",
+          "wikidata": "https://www.wikidata.org/wiki/Q146505",
+          "display_name": "Solvent",
+          "level": 2,
+          "score": 0.5051355957984924
+        },
+        {
+          "id": "https://openalex.org/C71924100",
+          "wikidata": "https://www.wikidata.org/wiki/Q11190",
+          "display_name": "Medicine",
+          "level": 0,
+          "score": 0.15219643712043762
+        },
+        {
+          "id": "https://openalex.org/C502942594",
+          "wikidata": "https://www.wikidata.org/wiki/Q3421914",
+          "display_name": "Cancer research",
+          "level": 1,
+          "score": 0.1410321295261383
+        },
+        {
+          "id": "https://openalex.org/C178790620",
+          "wikidata": "https://www.wikidata.org/wiki/Q11351",
+          "display_name": "Organic chemistry",
+          "level": 1,
+          "score": 0.13742506504058838
+        },
+        {
+          "id": "https://openalex.org/C2778729363",
+          "wikidata": "https://www.wikidata.org/wiki/Q11688946",
+          "display_name": "Myeloid leukemia",
+          "level": 2,
+          "score": 0.11336317658424377
+        }
+      ],
+      "mesh": [
+        {
+          "descriptor_ui": "D000068877",
+          "descriptor_name": "Imatinib Mesylate",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000068877",
+          "descriptor_name": "Imatinib Mesylate",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000068877",
+          "descriptor_name": "Imatinib Mesylate",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000077489",
+          "descriptor_name": "Piperazine",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000077489",
+          "descriptor_name": "Piperazine",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000077489",
+          "descriptor_name": "Piperazine",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000970",
+          "descriptor_name": "Antineoplastic Agents",
+          "qualifier_ui": "Q000138",
+          "qualifier_name": "chemical synthesis",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000970",
+          "descriptor_name": "Antineoplastic Agents",
+          "qualifier_ui": "Q000138",
+          "qualifier_name": "chemical synthesis",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000970",
+          "descriptor_name": "Antineoplastic Agents",
+          "qualifier_ui": "Q000138",
+          "qualifier_name": "chemical synthesis",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000970",
+          "descriptor_name": "Antineoplastic Agents",
+          "qualifier_ui": "Q000627",
+          "qualifier_name": "therapeutic use",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000970",
+          "descriptor_name": "Antineoplastic Agents",
+          "qualifier_ui": "Q000627",
+          "qualifier_name": "therapeutic use",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000970",
+          "descriptor_name": "Antineoplastic Agents",
+          "qualifier_ui": "Q000627",
+          "qualifier_name": "therapeutic use",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000970",
+          "descriptor_name": "Antineoplastic Agents",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000970",
+          "descriptor_name": "Antineoplastic Agents",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000970",
+          "descriptor_name": "Antineoplastic Agents",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D001549",
+          "descriptor_name": "Benzamides",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D001549",
+          "descriptor_name": "Benzamides",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D001549",
+          "descriptor_name": "Benzamides",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D004123",
+          "descriptor_name": "Dimethylamines",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D004123",
+          "descriptor_name": "Dimethylamines",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D004123",
+          "descriptor_name": "Dimethylamines",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D006801",
+          "descriptor_name": "Humans",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D006801",
+          "descriptor_name": "Humans",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D006801",
+          "descriptor_name": "Humans",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D010879",
+          "descriptor_name": "Piperazines",
+          "qualifier_ui": "Q000138",
+          "qualifier_name": "chemical synthesis",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D010879",
+          "descriptor_name": "Piperazines",
+          "qualifier_ui": "Q000138",
+          "qualifier_name": "chemical synthesis",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D010879",
+          "descriptor_name": "Piperazines",
+          "qualifier_ui": "Q000138",
+          "qualifier_name": "chemical synthesis",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D010879",
+          "descriptor_name": "Piperazines",
+          "qualifier_ui": "Q000627",
+          "qualifier_name": "therapeutic use",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D010879",
+          "descriptor_name": "Piperazines",
+          "qualifier_ui": "Q000627",
+          "qualifier_name": "therapeutic use",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D010879",
+          "descriptor_name": "Piperazines",
+          "qualifier_ui": "Q000627",
+          "qualifier_name": "therapeutic use",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D010879",
+          "descriptor_name": "Piperazines",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D010879",
+          "descriptor_name": "Piperazines",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D010879",
+          "descriptor_name": "Piperazines",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D011743",
+          "descriptor_name": "Pyrimidines",
+          "qualifier_ui": "Q000138",
+          "qualifier_name": "chemical synthesis",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D011743",
+          "descriptor_name": "Pyrimidines",
+          "qualifier_ui": "Q000138",
+          "qualifier_name": "chemical synthesis",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D011743",
+          "descriptor_name": "Pyrimidines",
+          "qualifier_ui": "Q000138",
+          "qualifier_name": "chemical synthesis",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D011743",
+          "descriptor_name": "Pyrimidines",
+          "qualifier_ui": "Q000627",
+          "qualifier_name": "therapeutic use",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D011743",
+          "descriptor_name": "Pyrimidines",
+          "qualifier_ui": "Q000627",
+          "qualifier_name": "therapeutic use",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D011743",
+          "descriptor_name": "Pyrimidines",
+          "qualifier_ui": "Q000627",
+          "qualifier_name": "therapeutic use",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D011743",
+          "descriptor_name": "Pyrimidines",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D011743",
+          "descriptor_name": "Pyrimidines",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D011743",
+          "descriptor_name": "Pyrimidines",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D015464",
+          "descriptor_name": "Leukemia, Myelogenous, Chronic, BCR-ABL Positive",
+          "qualifier_ui": "Q000188",
+          "qualifier_name": "drug therapy",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D015464",
+          "descriptor_name": "Leukemia, Myelogenous, Chronic, BCR-ABL Positive",
+          "qualifier_ui": "Q000188",
+          "qualifier_name": "drug therapy",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D015464",
+          "descriptor_name": "Leukemia, Myelogenous, Chronic, BCR-ABL Positive",
+          "qualifier_ui": "Q000188",
+          "qualifier_name": "drug therapy",
+          "is_major_topic": false
+        }
+      ],
+      "locations_count": 3,
+      "locations": [
+        {
+          "id": "doi:10.1039/c001550d",
+          "is_oa": false,
+          "landing_page_url": "https://doi.org/10.1039/c001550d",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S152760256",
+            "display_name": "Chemical Communications",
+            "issn_l": "1359-7345",
+            "issn": [
+              "1359-7345",
+              "1364-548X"
+            ],
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": true,
+            "host_organization": "https://openalex.org/P4310320556",
+            "host_organization_name": "Royal Society of Chemistry",
+            "host_organization_lineage": [
+              "https://openalex.org/P4310320556"
+            ],
+            "host_organization_lineage_names": [
+              "Royal Society of Chemistry"
+            ],
+            "type": "journal"
+          },
+          "license": null,
+          "license_id": null,
+          "version": "publishedVersion",
+          "is_accepted": true,
+          "is_published": true,
+          "raw_source_name": "Chemical Communications",
+          "raw_type": "journal-article"
+        },
+        {
+          "id": "pmid:20309467",
+          "is_oa": false,
+          "landing_page_url": "https://pubmed.ncbi.nlm.nih.gov/20309467",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S4306525036",
+            "display_name": "PubMed",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": false,
+            "host_organization": "https://openalex.org/I1299303238",
+            "host_organization_name": "National Institutes of Health",
+            "host_organization_lineage": [
+              "https://openalex.org/I1299303238"
+            ],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": null,
+          "license_id": null,
+          "version": "publishedVersion",
+          "is_accepted": true,
+          "is_published": true,
+          "raw_source_name": "Chemical communications (Cambridge, England)",
+          "raw_type": null
+        },
+        {
+          "id": "pmh:oai:durham-repository.worktribe.com:1470914",
+          "is_oa": true,
+          "landing_page_url": "https://durham-repository.worktribe.com/output/1470914",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S4306400188",
+            "display_name": "Durham Research Online (Durham University)",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": false,
+            "host_organization": "https://openalex.org/I190082696",
+            "host_organization_name": "Durham University",
+            "host_organization_lineage": [
+              "https://openalex.org/I190082696"
+            ],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": "cc-by",
+          "license_id": "https://openalex.org/licenses/cc-by",
+          "version": "submittedVersion",
+          "is_accepted": false,
+          "is_published": false,
+          "raw_source_name": "",
+          "raw_type": "Journal Article"
+        }
+      ],
+      "best_oa_location": {
+        "id": "pmh:oai:durham-repository.worktribe.com:1470914",
+        "is_oa": true,
+        "landing_page_url": "https://durham-repository.worktribe.com/output/1470914",
+        "pdf_url": null,
+        "source": {
+          "id": "https://openalex.org/S4306400188",
+          "display_name": "Durham Research Online (Durham University)",
+          "issn_l": null,
+          "issn": null,
+          "is_oa": false,
+          "is_in_doaj": false,
+          "is_core": false,
+          "host_organization": "https://openalex.org/I190082696",
+          "host_organization_name": "Durham University",
+          "host_organization_lineage": [
+            "https://openalex.org/I190082696"
+          ],
+          "host_organization_lineage_names": [],
+          "type": "repository"
+        },
+        "license": "cc-by",
+        "license_id": "https://openalex.org/licenses/cc-by",
+        "version": "submittedVersion",
+        "is_accepted": false,
+        "is_published": false,
+        "raw_source_name": "",
+        "raw_type": "Journal Article"
+      },
+      "sustainable_development_goals": [
+        {
+          "score": 0.5899999737739563,
+          "display_name": "Industry, innovation and infrastructure",
+          "id": "https://metadata.un.org/sdg/9"
+        }
+      ],
+      "awards": [],
+      "funders": [],
+      "has_content": {
+        "grobid_xml": false,
+        "pdf": false
+      },
+      "content_urls": null,
+      "referenced_works_count": 37,
+      "referenced_works": [
+        "https://openalex.org/W78777125",
+        "https://openalex.org/W1965032180",
+        "https://openalex.org/W1973475909",
+        "https://openalex.org/W1974903851",
+        "https://openalex.org/W1990876696",
+        "https://openalex.org/W1993337685",
+        "https://openalex.org/W1996670139",
+        "https://openalex.org/W2001889835",
+        "https://openalex.org/W2007642306",
+        "https://openalex.org/W2011441683",
+        "https://openalex.org/W2017281968",
+        "https://openalex.org/W2018412168",
+        "https://openalex.org/W2021545504",
+        "https://openalex.org/W2041905260",
+        "https://openalex.org/W2044882497",
+        "https://openalex.org/W2045976732",
+        "https://openalex.org/W2075944315",
+        "https://openalex.org/W2076883432",
+        "https://openalex.org/W2085944962",
+        "https://openalex.org/W2092944267",
+        "https://openalex.org/W2093242847",
+        "https://openalex.org/W2093620127",
+        "https://openalex.org/W2112003945",
+        "https://openalex.org/W2138994429",
+        "https://openalex.org/W2143558930",
+        "https://openalex.org/W2145392776",
+        "https://openalex.org/W2147872586",
+        "https://openalex.org/W2156564154",
+        "https://openalex.org/W2160060745",
+        "https://openalex.org/W2161205795",
+        "https://openalex.org/W2161653506",
+        "https://openalex.org/W2162525969",
+        "https://openalex.org/W2166495940",
+        "https://openalex.org/W2314715102",
+        "https://openalex.org/W2343531733",
+        "https://openalex.org/W2950606963",
+        "https://openalex.org/W3005374977"
+      ],
+      "related_works": [
+        "https://openalex.org/W2022211274",
+        "https://openalex.org/W2602905164",
+        "https://openalex.org/W2586882065",
+        "https://openalex.org/W2056807842",
+        "https://openalex.org/W4249099735",
+        "https://openalex.org/W2147358344",
+        "https://openalex.org/W2058677025",
+        "https://openalex.org/W2339362259",
+        "https://openalex.org/W2030109982",
+        "https://openalex.org/W3205919786"
+      ],
+      "abstract_inverted_index": {
+        "A": [
+          0
+        ],
+        "concise,": [
+          1
+        ],
+        "flow-based": [
+          2
+        ],
+        "synthesis": [
+          3
+        ],
+        "of": [
+          4,
+          12,
+          56
+        ],
+        "Imatinib,": [
+          5
+        ],
+        "a": [
+          6
+        ],
+        "compound": [
+          7
+        ],
+        "used": [
+          8
+        ],
+        "for": [
+          9
+        ],
+        "the": [
+          10,
+          47
+        ],
+        "treatment": [
+          11
+        ],
+        "chronic": [
+          13
+        ],
+        "myeloid": [
+          14
+        ],
+        "leukaemia,": [
+          15
+        ],
+        "is": [
+          16
+        ],
+        "described": [
+          17
+        ],
+        "whereby": [
+          18
+        ],
+        "all": [
+          19
+        ],
+        "steps": [
+          20
+        ],
+        "are": [
+          21
+        ],
+        "conducted": [
+          22
+        ],
+        "in": [
+          23
+        ],
+        "tubular": [
+          24
+        ],
+        "flow": [
+          25
+        ],
+        "coils": [
+          26
+        ],
+        "or": [
+          27,
+          32
+        ],
+        "cartridges": [
+          28
+        ],
+        "packed": [
+          29
+        ],
+        "with": [
+          30,
+          52
+        ],
+        "reagents": [
+          31
+        ],
+        "scavengers": [
+          33
+        ],
+        "to": [
+          34,
+          49
+        ],
+        "effect": [
+          35
+        ],
+        "clean": [
+          36
+        ],
+        "product": [
+          37
+        ],
+        "formation.": [
+          38
+        ],
+        "An": [
+          39
+        ],
+        "in-line": [
+          40
+        ],
+        "solvent": [
+          41
+        ],
+        "switching": [
+          42
+        ],
+        "procedure": [
+          43,
+          48
+        ],
+        "was": [
+          44
+        ],
+        "developed": [
+          45
+        ],
+        "enabling": [
+          46
+        ],
+        "be": [
+          50
+        ],
+        "performed": [
+          51
+        ],
+        "limited": [
+          53
+        ],
+        "manual": [
+          54
+        ],
+        "handling": [
+          55
+        ],
+        "intermediates.": [
+          57
+        ]
+      },
+      "counts_by_year": [
+        {
+          "year": 2026,
+          "cited_by_count": 3
+        },
+        {
+          "year": 2025,
+          "cited_by_count": 6
+        },
+        {
+          "year": 2024,
+          "cited_by_count": 8
+        },
+        {
+          "year": 2023,
+          "cited_by_count": 6
+        },
+        {
+          "year": 2022,
+          "cited_by_count": 8
+        },
+        {
+          "year": 2021,
+          "cited_by_count": 10
+        },
+        {
+          "year": 2020,
+          "cited_by_count": 10
+        },
+        {
+          "year": 2019,
+          "cited_by_count": 6
+        },
+        {
+          "year": 2018,
+          "cited_by_count": 11
+        },
+        {
+          "year": 2017,
+          "cited_by_count": 9
+        },
+        {
+          "year": 2016,
+          "cited_by_count": 8
+        },
+        {
+          "year": 2015,
+          "cited_by_count": 10
+        },
+        {
+          "year": 2014,
+          "cited_by_count": 17
+        },
+        {
+          "year": 2013,
+          "cited_by_count": 24
+        },
+        {
+          "year": 2012,
+          "cited_by_count": 19
+        }
+      ],
+      "updated_date": "2026-05-10T08:33:47.465468",
+      "created_date": "2025-10-10T00:00:00"
+    },
+    {
+      "id": "https://openalex.org/W2267373025",
+      "doi": "https://doi.org/10.1002/cmdc.201500510",
+      "title": "Synthesis and Biopharmaceutical Evaluation of Imatinib Analogues Featuring Unusual Structural Motifs",
+      "display_name": "Synthesis and Biopharmaceutical Evaluation of Imatinib Analogues Featuring Unusual Structural Motifs",
+      "relevance_score": 345.4595,
+      "publication_year": 2015,
+      "publication_date": "2015-11-20",
+      "ids": {
+        "openalex": "https://openalex.org/W2267373025",
+        "doi": "https://doi.org/10.1002/cmdc.201500510",
+        "mag": "2267373025",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/26585829"
+      },
+      "language": "en",
+      "primary_location": {
+        "id": "doi:10.1002/cmdc.201500510",
+        "is_oa": false,
+        "landing_page_url": "https://doi.org/10.1002/cmdc.201500510",
+        "pdf_url": null,
+        "source": {
+          "id": "https://openalex.org/S136164820",
+          "display_name": "ChemMedChem",
+          "issn_l": "1860-7179",
+          "issn": [
+            "1860-7179",
+            "1860-7187"
+          ],
+          "is_oa": false,
+          "is_in_doaj": false,
+          "is_core": true,
+          "host_organization": "https://openalex.org/P4310320595",
+          "host_organization_name": "Wiley",
+          "host_organization_lineage": [
+            "https://openalex.org/P4310320595"
+          ],
+          "host_organization_lineage_names": [
+            "Wiley"
+          ],
+          "type": "journal"
+        },
+        "license": null,
+        "license_id": null,
+        "version": "publishedVersion",
+        "is_accepted": true,
+        "is_published": true,
+        "raw_source_name": "ChemMedChem",
+        "raw_type": "journal-article"
+      },
+      "type": "article",
+      "indexed_in": [
+        "crossref",
+        "pubmed"
+      ],
+      "open_access": {
+        "is_oa": false,
+        "oa_status": "closed",
+        "oa_url": null,
+        "any_repository_has_fulltext": false
+      },
+      "authorships": [
+        {
+          "author_position": "first",
+          "author": {
+            "id": "https://openalex.org/A5065008454",
+            "display_name": "K. C. Nicolaou",
+            "orcid": "https://orcid.org/0000-0001-5332-2511"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I74775410",
+              "display_name": "Rice University",
+              "ror": "https://ror.org/008zs3103",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I74775410"
+              ]
+            }
+          ],
+          "countries": [
+            "US"
+          ],
+          "is_corresponding": true,
+          "raw_author_name": "Kyriacos C. Nicolaou",
+          "raw_affiliation_strings": [
+            "Department of Chemistry Rice University  6100 Main Street Houston TX 77005 USA",
+            "Department of Chemistry, Rice University, 6100 Main Street, Houston, TX, 77005 USA"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Department of Chemistry Rice University  6100 Main Street Houston TX 77005 USA",
+              "institution_ids": [
+                "https://openalex.org/I74775410"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Department of Chemistry, Rice University, 6100 Main Street, Houston, TX, 77005 USA",
+              "institution_ids": [
+                "https://openalex.org/I74775410"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5108216613",
+            "display_name": "Dionisios Vourloumis",
+            "orcid": null
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I203474044",
+              "display_name": "National Centre of Scientific Research \"Demokritos\"",
+              "ror": "https://ror.org/038jp4m40",
+              "country_code": "GR",
+              "type": "facility",
+              "lineage": [
+                "https://openalex.org/I203474044"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I74775410",
+              "display_name": "Rice University",
+              "ror": "https://ror.org/008zs3103",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I74775410"
+              ]
+            }
+          ],
+          "countries": [
+            "GR",
+            "US"
+          ],
+          "is_corresponding": true,
+          "raw_author_name": "Dionisios Vourloumis",
+          "raw_affiliation_strings": [
+            "Department of Chemistry Rice University  6100 Main Street Houston TX 77005 USA",
+            "Laboratory of Chemical Biology of Natural Products &amp; Designed Molecules National Centre of Scientific Research (NCSR) \u201cDemokritos\u201d  Agia Paraskevi Athens 15310 Greece",
+            "Laboratory of Chemical Biology of Natural Products & Designed Molecules, National Centre of Scientific Research (NCSR) \"Demokritos\", Agia Paraskevi, Athens, 15310 Greece",
+            "Department of Chemistry, Rice University, 6100 Main Street, Houston, TX, 77005 USA"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Department of Chemistry Rice University  6100 Main Street Houston TX 77005 USA",
+              "institution_ids": [
+                "https://openalex.org/I74775410"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Laboratory of Chemical Biology of Natural Products &amp; Designed Molecules National Centre of Scientific Research (NCSR) \u201cDemokritos\u201d  Agia Paraskevi Athens 15310 Greece",
+              "institution_ids": [
+                "https://openalex.org/I203474044"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Laboratory of Chemical Biology of Natural Products & Designed Molecules, National Centre of Scientific Research (NCSR) \"Demokritos\", Agia Paraskevi, Athens, 15310 Greece",
+              "institution_ids": [
+                "https://openalex.org/I203474044"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Department of Chemistry, Rice University, 6100 Main Street, Houston, TX, 77005 USA",
+              "institution_ids": [
+                "https://openalex.org/I74775410"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5063924786",
+            "display_name": "Sotirios Totokotsopoulos",
+            "orcid": null
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I74775410",
+              "display_name": "Rice University",
+              "ror": "https://ror.org/008zs3103",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I74775410"
+              ]
+            }
+          ],
+          "countries": [
+            "US"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Sotirios Totokotsopoulos",
+          "raw_affiliation_strings": [
+            "Department of Chemistry Rice University  6100 Main Street Houston TX 77005 USA",
+            "Department of Chemistry, Rice University, 6100 Main Street, Houston, TX, 77005 USA"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Department of Chemistry Rice University  6100 Main Street Houston TX 77005 USA",
+              "institution_ids": [
+                "https://openalex.org/I74775410"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Department of Chemistry, Rice University, 6100 Main Street, Houston, TX, 77005 USA",
+              "institution_ids": [
+                "https://openalex.org/I74775410"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5028473698",
+            "display_name": "Athanasios Papakyriakou",
+            "orcid": "https://orcid.org/0000-0003-3931-6232"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I203474044",
+              "display_name": "National Centre of Scientific Research \"Demokritos\"",
+              "ror": "https://ror.org/038jp4m40",
+              "country_code": "GR",
+              "type": "facility",
+              "lineage": [
+                "https://openalex.org/I203474044"
+              ]
+            }
+          ],
+          "countries": [
+            "GR"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Athanasios Papakyriakou",
+          "raw_affiliation_strings": [
+            "Laboratory of Chemical Biology of Natural Products &amp; Designed Molecules National Centre of Scientific Research (NCSR) \u201cDemokritos\u201d  Agia Paraskevi Athens 15310 Greece",
+            "Laboratory of Chemical Biology of Natural Products & Designed Molecules, National Centre of Scientific Research (NCSR) \"Demokritos\", Agia Paraskevi, Athens, 15310 Greece"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Laboratory of Chemical Biology of Natural Products &amp; Designed Molecules National Centre of Scientific Research (NCSR) \u201cDemokritos\u201d  Agia Paraskevi Athens 15310 Greece",
+              "institution_ids": [
+                "https://openalex.org/I203474044"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Laboratory of Chemical Biology of Natural Products & Designed Molecules, National Centre of Scientific Research (NCSR) \"Demokritos\", Agia Paraskevi, Athens, 15310 Greece",
+              "institution_ids": [
+                "https://openalex.org/I203474044"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5084936868",
+            "display_name": "Holger Karsunky",
+            "orcid": null
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I4210109362",
+              "display_name": "Rex Medical (United States)",
+              "ror": "https://ror.org/01yhcdk46",
+              "country_code": "US",
+              "type": "company",
+              "lineage": [
+                "https://openalex.org/I4210109362"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I4210131827",
+              "display_name": "ChemoCentryx (United States)",
+              "ror": "https://ror.org/04gp12571",
+              "country_code": "US",
+              "type": "company",
+              "lineage": [
+                "https://openalex.org/I4210131827"
+              ]
+            }
+          ],
+          "countries": [
+            "US"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Holger Karsunky",
+          "raw_affiliation_strings": [
+            "Stemcentrx, Inc.  450 East Jamie Court San Francisco CA 94080 USA",
+            "Stemcentrx, Inc., 450 East Jamie Court, San Francisco, CA, 94080 USA"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Stemcentrx, Inc.  450 East Jamie Court San Francisco CA 94080 USA",
+              "institution_ids": [
+                "https://openalex.org/I4210109362"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Stemcentrx, Inc., 450 East Jamie Court, San Francisco, CA, 94080 USA",
+              "institution_ids": [
+                "https://openalex.org/I4210131827"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5011899680",
+            "display_name": "Hanan Fernando",
+            "orcid": null
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I4210109362",
+              "display_name": "Rex Medical (United States)",
+              "ror": "https://ror.org/01yhcdk46",
+              "country_code": "US",
+              "type": "company",
+              "lineage": [
+                "https://openalex.org/I4210109362"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I4210131827",
+              "display_name": "ChemoCentryx (United States)",
+              "ror": "https://ror.org/04gp12571",
+              "country_code": "US",
+              "type": "company",
+              "lineage": [
+                "https://openalex.org/I4210131827"
+              ]
+            }
+          ],
+          "countries": [
+            "US"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Hanan Fernando",
+          "raw_affiliation_strings": [
+            "Stemcentrx, Inc.  450 East Jamie Court San Francisco CA 94080 USA",
+            "Stemcentrx, Inc., 450 East Jamie Court, San Francisco, CA, 94080 USA"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Stemcentrx, Inc.  450 East Jamie Court San Francisco CA 94080 USA",
+              "institution_ids": [
+                "https://openalex.org/I4210109362"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Stemcentrx, Inc., 450 East Jamie Court, San Francisco, CA, 94080 USA",
+              "institution_ids": [
+                "https://openalex.org/I4210131827"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5059699419",
+            "display_name": "Julia Gavrilyuk",
+            "orcid": null
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I4210109362",
+              "display_name": "Rex Medical (United States)",
+              "ror": "https://ror.org/01yhcdk46",
+              "country_code": "US",
+              "type": "company",
+              "lineage": [
+                "https://openalex.org/I4210109362"
+              ]
+            },
+            {
+              "id": "https://openalex.org/I4210131827",
+              "display_name": "ChemoCentryx (United States)",
+              "ror": "https://ror.org/04gp12571",
+              "country_code": "US",
+              "type": "company",
+              "lineage": [
+                "https://openalex.org/I4210131827"
+              ]
+            }
+          ],
+          "countries": [
+            "US"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Julia Gavrilyuk",
+          "raw_affiliation_strings": [
+            "Stemcentrx, Inc.  450 East Jamie Court San Francisco CA 94080 USA",
+            "Stemcentrx, Inc., 450 East Jamie Court, San Francisco, CA, 94080 USA"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Stemcentrx, Inc.  450 East Jamie Court San Francisco CA 94080 USA",
+              "institution_ids": [
+                "https://openalex.org/I4210109362"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Stemcentrx, Inc., 450 East Jamie Court, San Francisco, CA, 94080 USA",
+              "institution_ids": [
+                "https://openalex.org/I4210131827"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5012720499",
+            "display_name": "Damien Webb",
+            "orcid": null
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I180857899",
+              "display_name": "Pfizer (United States)",
+              "ror": "https://ror.org/01xdqrp08",
+              "country_code": "US",
+              "type": "company",
+              "lineage": [
+                "https://openalex.org/I180857899"
+              ]
+            }
+          ],
+          "countries": [
+            "US"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Damien Webb",
+          "raw_affiliation_strings": [
+            "Pfizer Worldwide Research &amp; Development  610 Main Street Cambridge MA 02139 USA",
+            "Pfizer Worldwide Research & Development, 610 Main Street, Cambridge, MA, 02139 USA"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Pfizer Worldwide Research &amp; Development  610 Main Street Cambridge MA 02139 USA",
+              "institution_ids": [
+                "https://openalex.org/I180857899"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Pfizer Worldwide Research & Development, 610 Main Street, Cambridge, MA, 02139 USA",
+              "institution_ids": [
+                "https://openalex.org/I180857899"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "last",
+          "author": {
+            "id": "https://openalex.org/A5054309916",
+            "display_name": "Antonia F. Stepan",
+            "orcid": "https://orcid.org/0000-0003-2203-129X"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I180857899",
+              "display_name": "Pfizer (United States)",
+              "ror": "https://ror.org/01xdqrp08",
+              "country_code": "US",
+              "type": "company",
+              "lineage": [
+                "https://openalex.org/I180857899"
+              ]
+            }
+          ],
+          "countries": [
+            "US"
+          ],
+          "is_corresponding": true,
+          "raw_author_name": "Antonia F. Stepan",
+          "raw_affiliation_strings": [
+            "Pfizer Worldwide Research &amp; Development  610 Main Street Cambridge MA 02139 USA",
+            "Pfizer Worldwide Research & Development, 610 Main Street, Cambridge, MA, 02139 USA"
+          ],
+          "raw_orcid": null,
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Pfizer Worldwide Research &amp; Development  610 Main Street Cambridge MA 02139 USA",
+              "institution_ids": [
+                "https://openalex.org/I180857899"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Pfizer Worldwide Research & Development, 610 Main Street, Cambridge, MA, 02139 USA",
+              "institution_ids": [
+                "https://openalex.org/I180857899"
+              ]
+            }
+          ]
+        }
+      ],
+      "institutions": [],
+      "countries_distinct_count": 2,
+      "institutions_distinct_count": 9,
+      "corresponding_author_ids": [
+        "https://openalex.org/A5054309916",
+        "https://openalex.org/A5065008454",
+        "https://openalex.org/A5108216613"
+      ],
+      "corresponding_institution_ids": [
+        "https://openalex.org/I180857899",
+        "https://openalex.org/I203474044",
+        "https://openalex.org/I74775410"
+      ],
+      "apc_list": {
+        "value": 3760,
+        "currency": "USD",
+        "value_usd": 3760
+      },
+      "apc_paid": null,
+      "fwci": 3.7724,
+      "has_fulltext": false,
+      "cited_by_count": 129,
+      "citation_normalized_percentile": {
+        "value": 0.93814795,
+        "is_in_top_1_percent": false,
+        "is_in_top_10_percent": true
+      },
+      "cited_by_percentile_year": {
+        "min": 98,
+        "max": 100
+      },
+      "biblio": {
+        "volume": "11",
+        "issue": "1",
+        "first_page": "31",
+        "last_page": "37"
+      },
+      "is_retracted": false,
+      "is_paratext": false,
+      "is_xpac": false,
+      "primary_topic": {
+        "id": "https://openalex.org/T11215",
+        "display_name": "Chronic Myeloid Leukemia Treatments",
+        "score": 0.9995999932289124,
+        "subfield": {
+          "id": "https://openalex.org/subfields/2720",
+          "display_name": "Hematology"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/27",
+          "display_name": "Medicine"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/4",
+          "display_name": "Health Sciences"
+        }
+      },
+      "topics": [
+        {
+          "id": "https://openalex.org/T11215",
+          "display_name": "Chronic Myeloid Leukemia Treatments",
+          "score": 0.9995999932289124,
+          "subfield": {
+            "id": "https://openalex.org/subfields/2720",
+            "display_name": "Hematology"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/27",
+            "display_name": "Medicine"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/4",
+            "display_name": "Health Sciences"
+          }
+        },
+        {
+          "id": "https://openalex.org/T11440",
+          "display_name": "Click Chemistry and Applications",
+          "score": 0.9923999905586243,
+          "subfield": {
+            "id": "https://openalex.org/subfields/1605",
+            "display_name": "Organic Chemistry"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/16",
+            "display_name": "Chemistry"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/3",
+            "display_name": "Physical Sciences"
+          }
+        },
+        {
+          "id": "https://openalex.org/T12318",
+          "display_name": "Quinazolinone synthesis and applications",
+          "score": 0.9908999800682068,
+          "subfield": {
+            "id": "https://openalex.org/subfields/1605",
+            "display_name": "Organic Chemistry"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/16",
+            "display_name": "Chemistry"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/3",
+            "display_name": "Physical Sciences"
+          }
+        }
+      ],
+      "keywords": [
+        {
+          "id": "https://openalex.org/keywords/cytotoxicity",
+          "display_name": "Cytotoxicity",
+          "score": 0.7954310178756714
+        },
+        {
+          "id": "https://openalex.org/keywords/chemistry",
+          "display_name": "Chemistry",
+          "score": 0.6473193764686584
+        },
+        {
+          "id": "https://openalex.org/keywords/moiety",
+          "display_name": "Moiety",
+          "score": 0.6383126974105835
+        },
+        {
+          "id": "https://openalex.org/keywords/imatinib",
+          "display_name": "Imatinib",
+          "score": 0.6347958445549011
+        },
+        {
+          "id": "https://openalex.org/keywords/stereochemistry",
+          "display_name": "Stereochemistry",
+          "score": 0.5783970355987549
+        },
+        {
+          "id": "https://openalex.org/keywords/structure\u2013activity-relationship",
+          "display_name": "Structure\u2013activity relationship",
+          "score": 0.48445558547973633
+        },
+        {
+          "id": "https://openalex.org/keywords/imatinib-mesylate",
+          "display_name": "Imatinib mesylate",
+          "score": 0.46021783351898193
+        },
+        {
+          "id": "https://openalex.org/keywords/kinase",
+          "display_name": "Kinase",
+          "score": 0.4580693244934082
+        },
+        {
+          "id": "https://openalex.org/keywords/molecular-model",
+          "display_name": "Molecular model",
+          "score": 0.4262024164199829
+        },
+        {
+          "id": "https://openalex.org/keywords/combinatorial-chemistry",
+          "display_name": "Combinatorial chemistry",
+          "score": 0.41232240200042725
+        },
+        {
+          "id": "https://openalex.org/keywords/biochemistry",
+          "display_name": "Biochemistry",
+          "score": 0.2951110601425171
+        },
+        {
+          "id": "https://openalex.org/keywords/in-vitro",
+          "display_name": "In vitro",
+          "score": 0.27553561329841614
+        },
+        {
+          "id": "https://openalex.org/keywords/biology",
+          "display_name": "Biology",
+          "score": 0.18743664026260376
+        },
+        {
+          "id": "https://openalex.org/keywords/cancer-research",
+          "display_name": "Cancer research",
+          "score": 0.12956872582435608
+        },
+        {
+          "id": "https://openalex.org/keywords/myeloid-leukemia",
+          "display_name": "Myeloid leukemia",
+          "score": 0.06844183802604675
+        }
+      ],
+      "concepts": [
+        {
+          "id": "https://openalex.org/C109316439",
+          "wikidata": "https://www.wikidata.org/wiki/Q246181",
+          "display_name": "Cytotoxicity",
+          "level": 3,
+          "score": 0.7954310178756714
+        },
+        {
+          "id": "https://openalex.org/C185592680",
+          "wikidata": "https://www.wikidata.org/wiki/Q2329",
+          "display_name": "Chemistry",
+          "level": 0,
+          "score": 0.6473193764686584
+        },
+        {
+          "id": "https://openalex.org/C2776568683",
+          "wikidata": "https://www.wikidata.org/wiki/Q23005640",
+          "display_name": "Moiety",
+          "level": 2,
+          "score": 0.6383126974105835
+        },
+        {
+          "id": "https://openalex.org/C2777583451",
+          "wikidata": "https://www.wikidata.org/wiki/Q177094",
+          "display_name": "Imatinib",
+          "level": 3,
+          "score": 0.6347958445549011
+        },
+        {
+          "id": "https://openalex.org/C71240020",
+          "wikidata": "https://www.wikidata.org/wiki/Q186011",
+          "display_name": "Stereochemistry",
+          "level": 1,
+          "score": 0.5783970355987549
+        },
+        {
+          "id": "https://openalex.org/C193042331",
+          "wikidata": "https://www.wikidata.org/wiki/Q1772003",
+          "display_name": "Structure\u2013activity relationship",
+          "level": 3,
+          "score": 0.48445558547973633
+        },
+        {
+          "id": "https://openalex.org/C3019892230",
+          "wikidata": "https://www.wikidata.org/wiki/Q177094",
+          "display_name": "Imatinib mesylate",
+          "level": 4,
+          "score": 0.46021783351898193
+        },
+        {
+          "id": "https://openalex.org/C184235292",
+          "wikidata": "https://www.wikidata.org/wiki/Q421851",
+          "display_name": "Kinase",
+          "level": 2,
+          "score": 0.4580693244934082
+        },
+        {
+          "id": "https://openalex.org/C178910836",
+          "wikidata": "https://www.wikidata.org/wiki/Q2196961",
+          "display_name": "Molecular model",
+          "level": 2,
+          "score": 0.4262024164199829
+        },
+        {
+          "id": "https://openalex.org/C21951064",
+          "wikidata": "https://www.wikidata.org/wiki/Q899212",
+          "display_name": "Combinatorial chemistry",
+          "level": 1,
+          "score": 0.41232240200042725
+        },
+        {
+          "id": "https://openalex.org/C55493867",
+          "wikidata": "https://www.wikidata.org/wiki/Q7094",
+          "display_name": "Biochemistry",
+          "level": 1,
+          "score": 0.2951110601425171
+        },
+        {
+          "id": "https://openalex.org/C202751555",
+          "wikidata": "https://www.wikidata.org/wiki/Q221681",
+          "display_name": "In vitro",
+          "level": 2,
+          "score": 0.27553561329841614
+        },
+        {
+          "id": "https://openalex.org/C86803240",
+          "wikidata": "https://www.wikidata.org/wiki/Q420",
+          "display_name": "Biology",
+          "level": 0,
+          "score": 0.18743664026260376
+        },
+        {
+          "id": "https://openalex.org/C502942594",
+          "wikidata": "https://www.wikidata.org/wiki/Q3421914",
+          "display_name": "Cancer research",
+          "level": 1,
+          "score": 0.12956872582435608
+        },
+        {
+          "id": "https://openalex.org/C2778729363",
+          "wikidata": "https://www.wikidata.org/wiki/Q11688946",
+          "display_name": "Myeloid leukemia",
+          "level": 2,
+          "score": 0.06844183802604675
+        }
+      ],
+      "mesh": [
+        {
+          "descriptor_ui": "D000068877",
+          "descriptor_name": "Imatinib Mesylate",
+          "qualifier_ui": "Q000031",
+          "qualifier_name": "analogs & derivatives",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000068877",
+          "descriptor_name": "Imatinib Mesylate",
+          "qualifier_ui": "Q000031",
+          "qualifier_name": "analogs & derivatives",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000068877",
+          "descriptor_name": "Imatinib Mesylate",
+          "qualifier_ui": "Q000031",
+          "qualifier_name": "analogs & derivatives",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000068877",
+          "descriptor_name": "Imatinib Mesylate",
+          "qualifier_ui": "Q000138",
+          "qualifier_name": "chemical synthesis",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000068877",
+          "descriptor_name": "Imatinib Mesylate",
+          "qualifier_ui": "Q000138",
+          "qualifier_name": "chemical synthesis",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000068877",
+          "descriptor_name": "Imatinib Mesylate",
+          "qualifier_ui": "Q000138",
+          "qualifier_name": "chemical synthesis",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000068877",
+          "descriptor_name": "Imatinib Mesylate",
+          "qualifier_ui": "Q000494",
+          "qualifier_name": "pharmacology",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000068877",
+          "descriptor_name": "Imatinib Mesylate",
+          "qualifier_ui": "Q000494",
+          "qualifier_name": "pharmacology",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000068877",
+          "descriptor_name": "Imatinib Mesylate",
+          "qualifier_ui": "Q000494",
+          "qualifier_name": "pharmacology",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000068877",
+          "descriptor_name": "Imatinib Mesylate",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000068877",
+          "descriptor_name": "Imatinib Mesylate",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000068877",
+          "descriptor_name": "Imatinib Mesylate",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000970",
+          "descriptor_name": "Antineoplastic Agents",
+          "qualifier_ui": "Q000138",
+          "qualifier_name": "chemical synthesis",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000970",
+          "descriptor_name": "Antineoplastic Agents",
+          "qualifier_ui": "Q000138",
+          "qualifier_name": "chemical synthesis",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000970",
+          "descriptor_name": "Antineoplastic Agents",
+          "qualifier_ui": "Q000138",
+          "qualifier_name": "chemical synthesis",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000970",
+          "descriptor_name": "Antineoplastic Agents",
+          "qualifier_ui": "Q000494",
+          "qualifier_name": "pharmacology",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000970",
+          "descriptor_name": "Antineoplastic Agents",
+          "qualifier_ui": "Q000494",
+          "qualifier_name": "pharmacology",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000970",
+          "descriptor_name": "Antineoplastic Agents",
+          "qualifier_ui": "Q000494",
+          "qualifier_name": "pharmacology",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000970",
+          "descriptor_name": "Antineoplastic Agents",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000970",
+          "descriptor_name": "Antineoplastic Agents",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000970",
+          "descriptor_name": "Antineoplastic Agents",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D004305",
+          "descriptor_name": "Dose-Response Relationship, Drug",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D004305",
+          "descriptor_name": "Dose-Response Relationship, Drug",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D004305",
+          "descriptor_name": "Dose-Response Relationship, Drug",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D004354",
+          "descriptor_name": "Drug Screening Assays, Antitumor",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D004354",
+          "descriptor_name": "Drug Screening Assays, Antitumor",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D004354",
+          "descriptor_name": "Drug Screening Assays, Antitumor",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D006801",
+          "descriptor_name": "Humans",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D006801",
+          "descriptor_name": "Humans",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D006801",
+          "descriptor_name": "Humans",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D008958",
+          "descriptor_name": "Models, Molecular",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D008958",
+          "descriptor_name": "Models, Molecular",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D008958",
+          "descriptor_name": "Models, Molecular",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D013329",
+          "descriptor_name": "Structure-Activity Relationship",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D013329",
+          "descriptor_name": "Structure-Activity Relationship",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D013329",
+          "descriptor_name": "Structure-Activity Relationship",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D015394",
+          "descriptor_name": "Molecular Structure",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D015394",
+          "descriptor_name": "Molecular Structure",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D015394",
+          "descriptor_name": "Molecular Structure",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D016044",
+          "descriptor_name": "Fusion Proteins, bcr-abl",
+          "qualifier_ui": "Q000037",
+          "qualifier_name": "antagonists & inhibitors",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D016044",
+          "descriptor_name": "Fusion Proteins, bcr-abl",
+          "qualifier_ui": "Q000037",
+          "qualifier_name": "antagonists & inhibitors",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D016044",
+          "descriptor_name": "Fusion Proteins, bcr-abl",
+          "qualifier_ui": "Q000037",
+          "qualifier_name": "antagonists & inhibitors",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D016044",
+          "descriptor_name": "Fusion Proteins, bcr-abl",
+          "qualifier_ui": "Q000378",
+          "qualifier_name": "metabolism",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D016044",
+          "descriptor_name": "Fusion Proteins, bcr-abl",
+          "qualifier_ui": "Q000378",
+          "qualifier_name": "metabolism",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D016044",
+          "descriptor_name": "Fusion Proteins, bcr-abl",
+          "qualifier_ui": "Q000378",
+          "qualifier_name": "metabolism",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D045744",
+          "descriptor_name": "Cell Line, Tumor",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D045744",
+          "descriptor_name": "Cell Line, Tumor",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D045744",
+          "descriptor_name": "Cell Line, Tumor",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D047428",
+          "descriptor_name": "Protein Kinase Inhibitors",
+          "qualifier_ui": "Q000138",
+          "qualifier_name": "chemical synthesis",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D047428",
+          "descriptor_name": "Protein Kinase Inhibitors",
+          "qualifier_ui": "Q000138",
+          "qualifier_name": "chemical synthesis",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D047428",
+          "descriptor_name": "Protein Kinase Inhibitors",
+          "qualifier_ui": "Q000138",
+          "qualifier_name": "chemical synthesis",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D047428",
+          "descriptor_name": "Protein Kinase Inhibitors",
+          "qualifier_ui": "Q000494",
+          "qualifier_name": "pharmacology",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D047428",
+          "descriptor_name": "Protein Kinase Inhibitors",
+          "qualifier_ui": "Q000494",
+          "qualifier_name": "pharmacology",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D047428",
+          "descriptor_name": "Protein Kinase Inhibitors",
+          "qualifier_ui": "Q000494",
+          "qualifier_name": "pharmacology",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D047428",
+          "descriptor_name": "Protein Kinase Inhibitors",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D047428",
+          "descriptor_name": "Protein Kinase Inhibitors",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D047428",
+          "descriptor_name": "Protein Kinase Inhibitors",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D049109",
+          "descriptor_name": "Cell Proliferation",
+          "qualifier_ui": "Q000187",
+          "qualifier_name": "drug effects",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D049109",
+          "descriptor_name": "Cell Proliferation",
+          "qualifier_ui": "Q000187",
+          "qualifier_name": "drug effects",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D049109",
+          "descriptor_name": "Cell Proliferation",
+          "qualifier_ui": "Q000187",
+          "qualifier_name": "drug effects",
+          "is_major_topic": false
+        }
+      ],
+      "locations_count": 2,
+      "locations": [
+        {
+          "id": "doi:10.1002/cmdc.201500510",
+          "is_oa": false,
+          "landing_page_url": "https://doi.org/10.1002/cmdc.201500510",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S136164820",
+            "display_name": "ChemMedChem",
+            "issn_l": "1860-7179",
+            "issn": [
+              "1860-7179",
+              "1860-7187"
+            ],
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": true,
+            "host_organization": "https://openalex.org/P4310320595",
+            "host_organization_name": "Wiley",
+            "host_organization_lineage": [
+              "https://openalex.org/P4310320595"
+            ],
+            "host_organization_lineage_names": [
+              "Wiley"
+            ],
+            "type": "journal"
+          },
+          "license": null,
+          "license_id": null,
+          "version": "publishedVersion",
+          "is_accepted": true,
+          "is_published": true,
+          "raw_source_name": "ChemMedChem",
+          "raw_type": "journal-article"
+        },
+        {
+          "id": "pmid:26585829",
+          "is_oa": false,
+          "landing_page_url": "https://pubmed.ncbi.nlm.nih.gov/26585829",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S4306525036",
+            "display_name": "PubMed",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": false,
+            "host_organization": "https://openalex.org/I1299303238",
+            "host_organization_name": "National Institutes of Health",
+            "host_organization_lineage": [
+              "https://openalex.org/I1299303238"
+            ],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": null,
+          "license_id": null,
+          "version": "publishedVersion",
+          "is_accepted": true,
+          "is_published": true,
+          "raw_source_name": "ChemMedChem",
+          "raw_type": null
+        }
+      ],
+      "best_oa_location": null,
+      "sustainable_development_goals": [
+        {
+          "score": 0.7799999713897705,
+          "display_name": "Good health and well-being",
+          "id": "https://metadata.un.org/sdg/3"
+        }
+      ],
+      "awards": [
+        {
+          "id": "https://openalex.org/G1794110318",
+          "display_name": null,
+          "funder_award_id": "C-1819",
+          "funder_id": "https://openalex.org/F4320306196",
+          "funder_display_name": "Welch Foundation"
+        }
+      ],
+      "funders": [
+        {
+          "id": "https://openalex.org/F4320306196",
+          "display_name": "Welch Foundation",
+          "ror": "https://ror.org/00np6vq88"
+        },
+        {
+          "id": "https://openalex.org/F4320309549",
+          "display_name": "University of Houston",
+          "ror": "https://ror.org/040vwpm13"
+        }
+      ],
+      "has_content": {
+        "grobid_xml": false,
+        "pdf": false
+      },
+      "content_urls": null,
+      "referenced_works_count": 34,
+      "referenced_works": [
+        "https://openalex.org/W1558067684",
+        "https://openalex.org/W1924589945",
+        "https://openalex.org/W1971713290",
+        "https://openalex.org/W1981858825",
+        "https://openalex.org/W1992688100",
+        "https://openalex.org/W1993647687",
+        "https://openalex.org/W2002933534",
+        "https://openalex.org/W2007964446",
+        "https://openalex.org/W2012238745",
+        "https://openalex.org/W2027179985",
+        "https://openalex.org/W2034283748",
+        "https://openalex.org/W2039141766",
+        "https://openalex.org/W2048190243",
+        "https://openalex.org/W2051542700",
+        "https://openalex.org/W2058623521",
+        "https://openalex.org/W2064912418",
+        "https://openalex.org/W2070629960",
+        "https://openalex.org/W2071089812",
+        "https://openalex.org/W2071374099",
+        "https://openalex.org/W2074274985",
+        "https://openalex.org/W2082291447",
+        "https://openalex.org/W2085604719",
+        "https://openalex.org/W2085944962",
+        "https://openalex.org/W2093417059",
+        "https://openalex.org/W2100446581",
+        "https://openalex.org/W2101212670",
+        "https://openalex.org/W2157732921",
+        "https://openalex.org/W2168683010",
+        "https://openalex.org/W2169303530",
+        "https://openalex.org/W2316314792",
+        "https://openalex.org/W2951833296",
+        "https://openalex.org/W4237792107",
+        "https://openalex.org/W4241264138",
+        "https://openalex.org/W4285719527"
+      ],
+      "related_works": [
+        "https://openalex.org/W2002247001",
+        "https://openalex.org/W2123135404",
+        "https://openalex.org/W2070391470",
+        "https://openalex.org/W2161653304",
+        "https://openalex.org/W2121209161",
+        "https://openalex.org/W2037178677",
+        "https://openalex.org/W2305602491",
+        "https://openalex.org/W2317064019",
+        "https://openalex.org/W4395958367",
+        "https://openalex.org/W1982958274"
+      ],
+      "abstract_inverted_index": {
+        "A": [
+          0
+        ],
+        "convenient": [
+          1
+        ],
+        "synthesis": [
+          2
+        ],
+        "of": [
+          3,
+          8,
+          18,
+          21,
+          30,
+          33,
+          40,
+          46,
+          114,
+          128
+        ],
+        "imatinib,": [
+          4
+        ],
+        "a": [
+          5,
+          19,
+          31,
+          38
+        ],
+        "potent": [
+          6,
+          95
+        ],
+        "inhibitor": [
+          7
+        ],
+        "ABL1": [
+          9,
+          62,
+          90,
+          118
+        ],
+        "kinase": [
+          10,
+          63,
+          91
+        ],
+        "and": [
+          11,
+          25,
+          69,
+          81,
+          92,
+          103,
+          120
+        ],
+        "widely": [
+          12
+        ],
+        "prescribed": [
+          13
+        ],
+        "drug": [
+          14
+        ],
+        "for": [
+          15,
+          57
+        ],
+        "the": [
+          16,
+          28,
+          47,
+          85,
+          93,
+          111,
+          115,
+          125
+        ],
+        "treatment": [
+          17
+        ],
+        "variety": [
+          20
+        ],
+        "leukemias,": [
+          22
+        ],
+        "was": [
+          23,
+          107
+        ],
+        "devised": [
+          24
+        ],
+        "applied": [
+          26
+        ],
+        "to": [
+          27,
+          74,
+          109
+        ],
+        "construction": [
+          29
+        ],
+        "series": [
+          32
+        ],
+        "novel": [
+          34
+        ],
+        "imatinib": [
+          35
+        ],
+        "analogues": [
+          36,
+          53,
+          71,
+          83
+        ],
+        "featuring": [
+          37
+        ],
+        "number": [
+          39
+        ],
+        "non-aromatic": [
+          41
+        ],
+        "structural": [
+          42
+        ],
+        "motifs": [
+          43
+        ],
+        "in": [
+          44
+        ],
+        "place": [
+          45
+        ],
+        "parent": [
+          48
+        ],
+        "molecule's": [
+          49
+        ],
+        "phenyl": [
+          50
+        ],
+        "moiety.": [
+          51
+        ],
+        "These": [
+          52
+        ],
+        "were": [
+          54,
+          72
+        ],
+        "subsequently": [
+          55
+        ],
+        "evaluated": [
+          56
+        ],
+        "their": [
+          58
+        ],
+        "biopharmaceutical": [
+          59
+        ],
+        "properties": [
+          60
+        ],
+        "(e.g.,": [
+          61
+        ],
+        "inhibitory": [
+          64,
+          87
+        ],
+        "activity,": [
+          65
+        ],
+        "cytotoxicity).": [
+          66
+        ],
+        "The": [
+          67
+        ],
+        "bicyclo[1.1.1]pentane-": [
+          68
+        ],
+        "cubane-containing": [
+          70
+        ],
+        "found": [
+          73
+        ],
+        "possess": [
+          75
+        ],
+        "higher": [
+          76
+        ],
+        "themodynamic": [
+          77
+        ],
+        "solubility,": [
+          78
+        ],
+        "whereas": [
+          79
+        ],
+        "cubane-": [
+          80
+        ],
+        "cyclohexyl-containing": [
+          82
+        ],
+        "exhibited": [
+          84
+        ],
+        "highest": [
+          86
+        ],
+        "activity": [
+          88,
+          113
+        ],
+        "against": [
+          89,
+          98,
+          117
+        ],
+        "most": [
+          94
+        ],
+        "cytotoxicity": [
+          96,
+          127
+        ],
+        "values": [
+          97
+        ],
+        "cancer": [
+          99
+        ],
+        "cell": [
+          100
+        ],
+        "lines": [
+          101
+        ],
+        "K562": [
+          102
+        ],
+        "SUP-B15.": [
+          104
+        ],
+        "Molecular": [
+          105
+        ],
+        "modeling": [
+          106
+        ],
+        "employed": [
+          108
+        ],
+        "rationalize": [
+          110
+        ],
+        "weak": [
+          112
+        ],
+        "compounds": [
+          116
+        ],
+        "kinase,": [
+          119
+        ],
+        "it": [
+          121
+        ],
+        "is": [
+          122
+        ],
+        "likely": [
+          123
+        ],
+        "that": [
+          124
+        ],
+        "observed": [
+          126
+        ],
+        "these": [
+          129
+        ],
+        "agents": [
+          130
+        ],
+        "arises": [
+          131
+        ],
+        "through": [
+          132
+        ],
+        "off-target": [
+          133
+        ],
+        "effects.": [
+          134
+        ]
+      },
+      "counts_by_year": [
+        {
+          "year": 2026,
+          "cited_by_count": 4
+        },
+        {
+          "year": 2025,
+          "cited_by_count": 17
+        },
+        {
+          "year": 2024,
+          "cited_by_count": 14
+        },
+        {
+          "year": 2023,
+          "cited_by_count": 14
+        },
+        {
+          "year": 2022,
+          "cited_by_count": 11
+        },
+        {
+          "year": 2021,
+          "cited_by_count": 18
+        },
+        {
+          "year": 2020,
+          "cited_by_count": 19
+        },
+        {
+          "year": 2019,
+          "cited_by_count": 14
+        },
+        {
+          "year": 2018,
+          "cited_by_count": 5
+        },
+        {
+          "year": 2017,
+          "cited_by_count": 5
+        },
+        {
+          "year": 2016,
+          "cited_by_count": 8
+        }
+      ],
+      "updated_date": "2026-05-21T06:26:12.895304",
+      "created_date": "2025-10-10T00:00:00"
+    },
+    {
+      "id": "https://openalex.org/W2133365461",
+      "doi": "https://doi.org/10.1039/c2ob27002a",
+      "title": "An expeditious synthesis of imatinib and analogues utilising flow chemistry methods",
+      "display_name": "An expeditious synthesis of imatinib and analogues utilising flow chemistry methods",
+      "relevance_score": 313.04572,
+      "publication_year": 2012,
+      "publication_date": "2012-12-05",
+      "ids": {
+        "openalex": "https://openalex.org/W2133365461",
+        "doi": "https://doi.org/10.1039/c2ob27002a",
+        "mag": "2133365461",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/23247615"
+      },
+      "language": "en",
+      "primary_location": {
+        "id": "doi:10.1039/c2ob27002a",
+        "is_oa": false,
+        "landing_page_url": "https://doi.org/10.1039/c2ob27002a",
+        "pdf_url": null,
+        "source": {
+          "id": "https://openalex.org/S179810352",
+          "display_name": "Organic & Biomolecular Chemistry",
+          "issn_l": "1477-0520",
+          "issn": [
+            "1477-0520",
+            "1477-0539"
+          ],
+          "is_oa": false,
+          "is_in_doaj": false,
+          "is_core": true,
+          "host_organization": "https://openalex.org/P4310320556",
+          "host_organization_name": "Royal Society of Chemistry",
+          "host_organization_lineage": [
+            "https://openalex.org/P4310320556"
+          ],
+          "host_organization_lineage_names": [
+            "Royal Society of Chemistry"
+          ],
+          "type": "journal"
+        },
+        "license": null,
+        "license_id": null,
+        "version": "publishedVersion",
+        "is_accepted": true,
+        "is_published": true,
+        "raw_source_name": "Org. Biomol. Chem.",
+        "raw_type": "journal-article"
+      },
+      "type": "article",
+      "indexed_in": [
+        "crossref",
+        "pubmed"
+      ],
+      "open_access": {
+        "is_oa": true,
+        "oa_status": "green",
+        "oa_url": "https://durham-repository.worktribe.com/output/1448175",
+        "any_repository_has_fulltext": true
+      },
+      "authorships": [
+        {
+          "author_position": "first",
+          "author": {
+            "id": "https://openalex.org/A5011206496",
+            "display_name": "Mark D. Hopkin",
+            "orcid": null
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I241749",
+              "display_name": "University of Cambridge",
+              "ror": "https://ror.org/013meh722",
+              "country_code": "GB",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I241749"
+              ]
+            }
+          ],
+          "countries": [
+            "GB"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Mark D. Hopkin",
+          "raw_affiliation_strings": [
+            "Department of Chemistry, University of Cambridge, Lensfield Road, Cambridge, CB2 1EW, UK",
+            "Dept of Chemistry, University of Cambridge, Lensfield Road, Cambridge, UK"
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Department of Chemistry, University of Cambridge, Lensfield Road, Cambridge, CB2 1EW, UK",
+              "institution_ids": [
+                "https://openalex.org/I241749"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Dept of Chemistry, University of Cambridge, Lensfield Road, Cambridge, UK",
+              "institution_ids": [
+                "https://openalex.org/I241749"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5041647177",
+            "display_name": "Ian R. Baxendale",
+            "orcid": "https://orcid.org/0000-0003-1297-1552"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I190082696",
+              "display_name": "Durham University",
+              "ror": "https://ror.org/01v29qb04",
+              "country_code": "GB",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I190082696"
+              ]
+            }
+          ],
+          "countries": [
+            "GB"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Ian R. Baxendale",
+          "raw_affiliation_strings": [
+            "Department of Chemistry, Durham University, South Road, Durham, UK",
+            "Department of Chemistry, Durham University, South Road, Durham, UK,"
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Department of Chemistry, Durham University, South Road, Durham, UK",
+              "institution_ids": [
+                "https://openalex.org/I190082696"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Department of Chemistry, Durham University, South Road, Durham, UK,",
+              "institution_ids": [
+                "https://openalex.org/I190082696"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "last",
+          "author": {
+            "id": "https://openalex.org/A5046859786",
+            "display_name": "Steven V. Ley",
+            "orcid": "https://orcid.org/0000-0002-7816-0042"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I241749",
+              "display_name": "University of Cambridge",
+              "ror": "https://ror.org/013meh722",
+              "country_code": "GB",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I241749"
+              ]
+            }
+          ],
+          "countries": [
+            "GB"
+          ],
+          "is_corresponding": true,
+          "raw_author_name": "Steven V. Ley",
+          "raw_affiliation_strings": [
+            "Department of Chemistry, University of Cambridge, Lensfield Road, Cambridge, UK",
+            "Dept of Chemistry, University of Cambridge, Lensfield Road, Cambridge, UK"
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Department of Chemistry, University of Cambridge, Lensfield Road, Cambridge, UK",
+              "institution_ids": [
+                "https://openalex.org/I241749"
+              ]
+            },
+            {
+              "raw_affiliation_string": "Dept of Chemistry, University of Cambridge, Lensfield Road, Cambridge, UK",
+              "institution_ids": [
+                "https://openalex.org/I241749"
+              ]
+            }
+          ]
+        }
+      ],
+      "institutions": [],
+      "countries_distinct_count": 1,
+      "institutions_distinct_count": 3,
+      "corresponding_author_ids": [
+        "https://openalex.org/A5046859786"
+      ],
+      "corresponding_institution_ids": [
+        "https://openalex.org/I241749"
+      ],
+      "apc_list": null,
+      "apc_paid": null,
+      "fwci": 7.1884,
+      "has_fulltext": false,
+      "cited_by_count": 93,
+      "citation_normalized_percentile": {
+        "value": 0.97863201,
+        "is_in_top_1_percent": false,
+        "is_in_top_10_percent": true
+      },
+      "cited_by_percentile_year": {
+        "min": 91,
+        "max": 100
+      },
+      "biblio": {
+        "volume": "11",
+        "issue": "11",
+        "first_page": "1822",
+        "last_page": "1839"
+      },
+      "is_retracted": false,
+      "is_paratext": false,
+      "is_xpac": false,
+      "primary_topic": {
+        "id": "https://openalex.org/T11215",
+        "display_name": "Chronic Myeloid Leukemia Treatments",
+        "score": 0.9986000061035156,
+        "subfield": {
+          "id": "https://openalex.org/subfields/2720",
+          "display_name": "Hematology"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/27",
+          "display_name": "Medicine"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/4",
+          "display_name": "Health Sciences"
+        }
+      },
+      "topics": [
+        {
+          "id": "https://openalex.org/T11215",
+          "display_name": "Chronic Myeloid Leukemia Treatments",
+          "score": 0.9986000061035156,
+          "subfield": {
+            "id": "https://openalex.org/subfields/2720",
+            "display_name": "Hematology"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/27",
+            "display_name": "Medicine"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/4",
+            "display_name": "Health Sciences"
+          }
+        },
+        {
+          "id": "https://openalex.org/T11440",
+          "display_name": "Click Chemistry and Applications",
+          "score": 0.992900013923645,
+          "subfield": {
+            "id": "https://openalex.org/subfields/1605",
+            "display_name": "Organic Chemistry"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/16",
+            "display_name": "Chemistry"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/3",
+            "display_name": "Physical Sciences"
+          }
+        },
+        {
+          "id": "https://openalex.org/T12318",
+          "display_name": "Quinazolinone synthesis and applications",
+          "score": 0.9912999868392944,
+          "subfield": {
+            "id": "https://openalex.org/subfields/1605",
+            "display_name": "Organic Chemistry"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/16",
+            "display_name": "Chemistry"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/3",
+            "display_name": "Physical Sciences"
+          }
+        }
+      ],
+      "keywords": [
+        {
+          "id": "https://openalex.org/keywords/chemistry",
+          "display_name": "Chemistry",
+          "score": 0.8578286170959473
+        },
+        {
+          "id": "https://openalex.org/keywords/imatinib",
+          "display_name": "Imatinib",
+          "score": 0.7985279560089111
+        },
+        {
+          "id": "https://openalex.org/keywords/combinatorial-chemistry",
+          "display_name": "Combinatorial chemistry",
+          "score": 0.6388711333274841
+        },
+        {
+          "id": "https://openalex.org/keywords/imatinib-mesylate",
+          "display_name": "Imatinib mesylate",
+          "score": 0.5645812749862671
+        },
+        {
+          "id": "https://openalex.org/keywords/flow-chemistry",
+          "display_name": "Flow chemistry",
+          "score": 0.526557445526123
+        },
+        {
+          "id": "https://openalex.org/keywords/solubility",
+          "display_name": "Solubility",
+          "score": 0.5060550570487976
+        },
+        {
+          "id": "https://openalex.org/keywords/continuous-flow",
+          "display_name": "Continuous flow",
+          "score": 0.4303341507911682
+        },
+        {
+          "id": "https://openalex.org/keywords/computational-biology",
+          "display_name": "Computational biology",
+          "score": 0.3440781235694885
+        },
+        {
+          "id": "https://openalex.org/keywords/nanotechnology",
+          "display_name": "Nanotechnology",
+          "score": 0.3403310179710388
+        },
+        {
+          "id": "https://openalex.org/keywords/biochemical-engineering",
+          "display_name": "Biochemical engineering",
+          "score": 0.3068470358848572
+        },
+        {
+          "id": "https://openalex.org/keywords/organic-chemistry",
+          "display_name": "Organic chemistry",
+          "score": 0.2650826573371887
+        },
+        {
+          "id": "https://openalex.org/keywords/cancer-research",
+          "display_name": "Cancer research",
+          "score": 0.12506383657455444
+        },
+        {
+          "id": "https://openalex.org/keywords/catalysis",
+          "display_name": "Catalysis",
+          "score": 0.11762326955795288
+        }
+      ],
+      "concepts": [
+        {
+          "id": "https://openalex.org/C185592680",
+          "wikidata": "https://www.wikidata.org/wiki/Q2329",
+          "display_name": "Chemistry",
+          "level": 0,
+          "score": 0.8578286170959473
+        },
+        {
+          "id": "https://openalex.org/C2777583451",
+          "wikidata": "https://www.wikidata.org/wiki/Q177094",
+          "display_name": "Imatinib",
+          "level": 3,
+          "score": 0.7985279560089111
+        },
+        {
+          "id": "https://openalex.org/C21951064",
+          "wikidata": "https://www.wikidata.org/wiki/Q899212",
+          "display_name": "Combinatorial chemistry",
+          "level": 1,
+          "score": 0.6388711333274841
+        },
+        {
+          "id": "https://openalex.org/C3019892230",
+          "wikidata": "https://www.wikidata.org/wiki/Q177094",
+          "display_name": "Imatinib mesylate",
+          "level": 4,
+          "score": 0.5645812749862671
+        },
+        {
+          "id": "https://openalex.org/C132482357",
+          "wikidata": "https://www.wikidata.org/wiki/Q5462089",
+          "display_name": "Flow chemistry",
+          "level": 3,
+          "score": 0.526557445526123
+        },
+        {
+          "id": "https://openalex.org/C155574463",
+          "wikidata": "https://www.wikidata.org/wiki/Q170731",
+          "display_name": "Solubility",
+          "level": 2,
+          "score": 0.5060550570487976
+        },
+        {
+          "id": "https://openalex.org/C2985264121",
+          "wikidata": "https://www.wikidata.org/wiki/Q216320",
+          "display_name": "Continuous flow",
+          "level": 2,
+          "score": 0.4303341507911682
+        },
+        {
+          "id": "https://openalex.org/C70721500",
+          "wikidata": "https://www.wikidata.org/wiki/Q177005",
+          "display_name": "Computational biology",
+          "level": 1,
+          "score": 0.3440781235694885
+        },
+        {
+          "id": "https://openalex.org/C171250308",
+          "wikidata": "https://www.wikidata.org/wiki/Q11468",
+          "display_name": "Nanotechnology",
+          "level": 1,
+          "score": 0.3403310179710388
+        },
+        {
+          "id": "https://openalex.org/C183696295",
+          "wikidata": "https://www.wikidata.org/wiki/Q2487696",
+          "display_name": "Biochemical engineering",
+          "level": 1,
+          "score": 0.3068470358848572
+        },
+        {
+          "id": "https://openalex.org/C178790620",
+          "wikidata": "https://www.wikidata.org/wiki/Q11351",
+          "display_name": "Organic chemistry",
+          "level": 1,
+          "score": 0.2650826573371887
+        },
+        {
+          "id": "https://openalex.org/C502942594",
+          "wikidata": "https://www.wikidata.org/wiki/Q3421914",
+          "display_name": "Cancer research",
+          "level": 1,
+          "score": 0.12506383657455444
+        },
+        {
+          "id": "https://openalex.org/C161790260",
+          "wikidata": "https://www.wikidata.org/wiki/Q82264",
+          "display_name": "Catalysis",
+          "level": 2,
+          "score": 0.11762326955795288
+        },
+        {
+          "id": "https://openalex.org/C86803240",
+          "wikidata": "https://www.wikidata.org/wiki/Q420",
+          "display_name": "Biology",
+          "level": 0,
+          "score": 0.0
+        },
+        {
+          "id": "https://openalex.org/C192562407",
+          "wikidata": "https://www.wikidata.org/wiki/Q228736",
+          "display_name": "Materials science",
+          "level": 0,
+          "score": 0.0
+        },
+        {
+          "id": "https://openalex.org/C127413603",
+          "wikidata": "https://www.wikidata.org/wiki/Q11023",
+          "display_name": "Engineering",
+          "level": 0,
+          "score": 0.0
+        },
+        {
+          "id": "https://openalex.org/C2778729363",
+          "wikidata": "https://www.wikidata.org/wiki/Q11688946",
+          "display_name": "Myeloid leukemia",
+          "level": 2,
+          "score": 0.0
+        }
+      ],
+      "mesh": [
+        {
+          "descriptor_ui": "D000068877",
+          "descriptor_name": "Imatinib Mesylate",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000068877",
+          "descriptor_name": "Imatinib Mesylate",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000068877",
+          "descriptor_name": "Imatinib Mesylate",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D001549",
+          "descriptor_name": "Benzamides",
+          "qualifier_ui": "Q000138",
+          "qualifier_name": "chemical synthesis",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D001549",
+          "descriptor_name": "Benzamides",
+          "qualifier_ui": "Q000138",
+          "qualifier_name": "chemical synthesis",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D001549",
+          "descriptor_name": "Benzamides",
+          "qualifier_ui": "Q000138",
+          "qualifier_name": "chemical synthesis",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D001549",
+          "descriptor_name": "Benzamides",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D001549",
+          "descriptor_name": "Benzamides",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D001549",
+          "descriptor_name": "Benzamides",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D010879",
+          "descriptor_name": "Piperazines",
+          "qualifier_ui": "Q000138",
+          "qualifier_name": "chemical synthesis",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D010879",
+          "descriptor_name": "Piperazines",
+          "qualifier_ui": "Q000138",
+          "qualifier_name": "chemical synthesis",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D010879",
+          "descriptor_name": "Piperazines",
+          "qualifier_ui": "Q000138",
+          "qualifier_name": "chemical synthesis",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D010879",
+          "descriptor_name": "Piperazines",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D010879",
+          "descriptor_name": "Piperazines",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D010879",
+          "descriptor_name": "Piperazines",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D011743",
+          "descriptor_name": "Pyrimidines",
+          "qualifier_ui": "Q000138",
+          "qualifier_name": "chemical synthesis",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D011743",
+          "descriptor_name": "Pyrimidines",
+          "qualifier_ui": "Q000138",
+          "qualifier_name": "chemical synthesis",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D011743",
+          "descriptor_name": "Pyrimidines",
+          "qualifier_ui": "Q000138",
+          "qualifier_name": "chemical synthesis",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D011743",
+          "descriptor_name": "Pyrimidines",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D011743",
+          "descriptor_name": "Pyrimidines",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D011743",
+          "descriptor_name": "Pyrimidines",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D015394",
+          "descriptor_name": "Molecular Structure",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D015394",
+          "descriptor_name": "Molecular Structure",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D015394",
+          "descriptor_name": "Molecular Structure",
+          "qualifier_ui": null,
+          "qualifier_name": null,
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D020650",
+          "descriptor_name": "Combinatorial Chemistry Techniques",
+          "qualifier_ui": "Q000295",
+          "qualifier_name": "instrumentation",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D020650",
+          "descriptor_name": "Combinatorial Chemistry Techniques",
+          "qualifier_ui": "Q000295",
+          "qualifier_name": "instrumentation",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D020650",
+          "descriptor_name": "Combinatorial Chemistry Techniques",
+          "qualifier_ui": "Q000295",
+          "qualifier_name": "instrumentation",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D020650",
+          "descriptor_name": "Combinatorial Chemistry Techniques",
+          "qualifier_ui": "Q000379",
+          "qualifier_name": "methods",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D020650",
+          "descriptor_name": "Combinatorial Chemistry Techniques",
+          "qualifier_ui": "Q000379",
+          "qualifier_name": "methods",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D020650",
+          "descriptor_name": "Combinatorial Chemistry Techniques",
+          "qualifier_ui": "Q000379",
+          "qualifier_name": "methods",
+          "is_major_topic": false
+        }
+      ],
+      "locations_count": 3,
+      "locations": [
+        {
+          "id": "doi:10.1039/c2ob27002a",
+          "is_oa": false,
+          "landing_page_url": "https://doi.org/10.1039/c2ob27002a",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S179810352",
+            "display_name": "Organic & Biomolecular Chemistry",
+            "issn_l": "1477-0520",
+            "issn": [
+              "1477-0520",
+              "1477-0539"
+            ],
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": true,
+            "host_organization": "https://openalex.org/P4310320556",
+            "host_organization_name": "Royal Society of Chemistry",
+            "host_organization_lineage": [
+              "https://openalex.org/P4310320556"
+            ],
+            "host_organization_lineage_names": [
+              "Royal Society of Chemistry"
+            ],
+            "type": "journal"
+          },
+          "license": null,
+          "license_id": null,
+          "version": "publishedVersion",
+          "is_accepted": true,
+          "is_published": true,
+          "raw_source_name": "Org. Biomol. Chem.",
+          "raw_type": "journal-article"
+        },
+        {
+          "id": "pmid:23247615",
+          "is_oa": false,
+          "landing_page_url": "https://pubmed.ncbi.nlm.nih.gov/23247615",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S4306525036",
+            "display_name": "PubMed",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": false,
+            "host_organization": "https://openalex.org/I1299303238",
+            "host_organization_name": "National Institutes of Health",
+            "host_organization_lineage": [
+              "https://openalex.org/I1299303238"
+            ],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": null,
+          "license_id": null,
+          "version": "publishedVersion",
+          "is_accepted": true,
+          "is_published": true,
+          "raw_source_name": "Organic & biomolecular chemistry",
+          "raw_type": null
+        },
+        {
+          "id": "pmh:oai:durham-repository.worktribe.com:1448175",
+          "is_oa": true,
+          "landing_page_url": "https://durham-repository.worktribe.com/output/1448175",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S4306400188",
+            "display_name": "Durham Research Online (Durham University)",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": false,
+            "host_organization": "https://openalex.org/I190082696",
+            "host_organization_name": "Durham University",
+            "host_organization_lineage": [
+              "https://openalex.org/I190082696"
+            ],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": "cc-by",
+          "license_id": "https://openalex.org/licenses/cc-by",
+          "version": "submittedVersion",
+          "is_accepted": false,
+          "is_published": false,
+          "raw_source_name": "",
+          "raw_type": "Journal Article"
+        }
+      ],
+      "best_oa_location": {
+        "id": "pmh:oai:durham-repository.worktribe.com:1448175",
+        "is_oa": true,
+        "landing_page_url": "https://durham-repository.worktribe.com/output/1448175",
+        "pdf_url": null,
+        "source": {
+          "id": "https://openalex.org/S4306400188",
+          "display_name": "Durham Research Online (Durham University)",
+          "issn_l": null,
+          "issn": null,
+          "is_oa": false,
+          "is_in_doaj": false,
+          "is_core": false,
+          "host_organization": "https://openalex.org/I190082696",
+          "host_organization_name": "Durham University",
+          "host_organization_lineage": [
+            "https://openalex.org/I190082696"
+          ],
+          "host_organization_lineage_names": [],
+          "type": "repository"
+        },
+        "license": "cc-by",
+        "license_id": "https://openalex.org/licenses/cc-by",
+        "version": "submittedVersion",
+        "is_accepted": false,
+        "is_published": false,
+        "raw_source_name": "",
+        "raw_type": "Journal Article"
+      },
+      "sustainable_development_goals": [
+        {
+          "score": 0.550000011920929,
+          "display_name": "No poverty",
+          "id": "https://metadata.un.org/sdg/1"
+        }
+      ],
+      "awards": [
+        {
+          "id": "https://openalex.org/G3526233275",
+          "display_name": null,
+          "funder_award_id": "EP/F069685/1",
+          "funder_id": "https://openalex.org/F4320334627",
+          "funder_display_name": "Engineering and Physical Sciences Research Council"
+        }
+      ],
+      "funders": [
+        {
+          "id": "https://openalex.org/F4320334627",
+          "display_name": "Engineering and Physical Sciences Research Council",
+          "ror": "https://ror.org/0439y7842"
+        }
+      ],
+      "has_content": {
+        "grobid_xml": false,
+        "pdf": false
+      },
+      "content_urls": null,
+      "referenced_works_count": 37,
+      "referenced_works": [
+        "https://openalex.org/W1965696404",
+        "https://openalex.org/W1972550449",
+        "https://openalex.org/W1984546281",
+        "https://openalex.org/W1988519065",
+        "https://openalex.org/W1989181151",
+        "https://openalex.org/W2001889835",
+        "https://openalex.org/W2007678611",
+        "https://openalex.org/W2010676355",
+        "https://openalex.org/W2011994063",
+        "https://openalex.org/W2026823120",
+        "https://openalex.org/W2031774809",
+        "https://openalex.org/W2038910305",
+        "https://openalex.org/W2047787055",
+        "https://openalex.org/W2051378992",
+        "https://openalex.org/W2055615143",
+        "https://openalex.org/W2058497137",
+        "https://openalex.org/W2062856635",
+        "https://openalex.org/W2069426910",
+        "https://openalex.org/W2077070893",
+        "https://openalex.org/W2085944962",
+        "https://openalex.org/W2093300134",
+        "https://openalex.org/W2094830528",
+        "https://openalex.org/W2109133935",
+        "https://openalex.org/W2111769894",
+        "https://openalex.org/W2120437993",
+        "https://openalex.org/W2122226688",
+        "https://openalex.org/W2124324509",
+        "https://openalex.org/W2132426585",
+        "https://openalex.org/W2137824164",
+        "https://openalex.org/W2165352032",
+        "https://openalex.org/W2168685338",
+        "https://openalex.org/W2331992752",
+        "https://openalex.org/W2335038513",
+        "https://openalex.org/W2526271734",
+        "https://openalex.org/W2950606963",
+        "https://openalex.org/W3005374977",
+        "https://openalex.org/W4246093505"
+      ],
+      "related_works": [
+        "https://openalex.org/W2123135404",
+        "https://openalex.org/W2002247001",
+        "https://openalex.org/W2070391470",
+        "https://openalex.org/W2161653304",
+        "https://openalex.org/W2149815987",
+        "https://openalex.org/W2091813747",
+        "https://openalex.org/W2121209161",
+        "https://openalex.org/W3035593497",
+        "https://openalex.org/W2942771711",
+        "https://openalex.org/W4385650799"
+      ],
+      "abstract_inverted_index": {
+        "A": [
+          0
+        ],
+        "flow-based": [
+          1
+        ],
+        "route": [
+          2
+        ],
+        "to": [
+          3,
+          17
+        ],
+        "imatinib,": [
+          4
+        ],
+        "the": [
+          5,
+          12,
+          42,
+          48
+        ],
+        "API": [
+          6
+        ],
+        "of": [
+          7,
+          21,
+          45,
+          47
+        ],
+        "Gleevec,": [
+          8
+        ],
+        "was": [
+          9,
+          39
+        ],
+        "developed": [
+          10
+        ],
+        "and": [
+          11,
+          38
+        ],
+        "general": [
+          13
+        ],
+        "procedure": [
+          14
+        ],
+        "then": [
+          15
+        ],
+        "used": [
+          16
+        ],
+        "generate": [
+          18
+        ],
+        "a": [
+          19
+        ],
+        "number": [
+          20
+        ],
+        "analogues": [
+          22
+        ],
+        "which": [
+          23
+        ],
+        "were": [
+          24
+        ],
+        "screened": [
+          25
+        ],
+        "for": [
+          26
+        ],
+        "biological": [
+          27
+        ],
+        "activity": [
+          28
+        ],
+        "against": [
+          29
+        ],
+        "Abl1.": [
+          30
+        ],
+        "The": [
+          31
+        ],
+        "flow": [
+          32
+        ],
+        "synthesis": [
+          33
+        ],
+        "required": [
+          34
+        ],
+        "minimal": [
+          35
+        ],
+        "manual": [
+          36
+        ],
+        "intervention": [
+          37
+        ],
+        "achieved": [
+          40
+        ],
+        "despite": [
+          41
+        ],
+        "poor": [
+          43
+        ],
+        "solubility": [
+          44
+        ],
+        "many": [
+          46
+        ],
+        "reaction": [
+          49
+        ],
+        "components.": [
+          50
+        ]
+      },
+      "counts_by_year": [
+        {
+          "year": 2025,
+          "cited_by_count": 1
+        },
+        {
+          "year": 2024,
+          "cited_by_count": 2
+        },
+        {
+          "year": 2022,
+          "cited_by_count": 6
+        },
+        {
+          "year": 2021,
+          "cited_by_count": 3
+        },
+        {
+          "year": 2020,
+          "cited_by_count": 4
+        },
+        {
+          "year": 2019,
+          "cited_by_count": 5
+        },
+        {
+          "year": 2018,
+          "cited_by_count": 15
+        },
+        {
+          "year": 2017,
+          "cited_by_count": 7
+        },
+        {
+          "year": 2016,
+          "cited_by_count": 8
+        },
+        {
+          "year": 2015,
+          "cited_by_count": 14
+        },
+        {
+          "year": 2014,
+          "cited_by_count": 15
+        },
+        {
+          "year": 2013,
+          "cited_by_count": 11
+        },
+        {
+          "year": 2012,
+          "cited_by_count": 2
+        }
+      ],
+      "updated_date": "2026-01-13T01:12:25.745995",
+      "created_date": "2025-10-10T00:00:00"
+    },
+    {
+      "id": "https://openalex.org/W2085944962",
+      "doi": "https://doi.org/10.1021/op700270n",
+      "title": "A Facile Total Synthesis of Imatinib Base and Its Analogues",
+      "display_name": "A Facile Total Synthesis of Imatinib Base and Its Analogues",
+      "relevance_score": 313.02808,
+      "publication_year": 2008,
+      "publication_date": "2008-04-15",
+      "ids": {
+        "openalex": "https://openalex.org/W2085944962",
+        "doi": "https://doi.org/10.1021/op700270n",
+        "mag": "2085944962"
+      },
+      "language": "en",
+      "primary_location": {
+        "id": "doi:10.1021/op700270n",
+        "is_oa": false,
+        "landing_page_url": "https://doi.org/10.1021/op700270n",
+        "pdf_url": null,
+        "source": {
+          "id": "https://openalex.org/S107255770",
+          "display_name": "Organic Process Research & Development",
+          "issn_l": "1083-6160",
+          "issn": [
+            "1083-6160",
+            "1520-586X"
+          ],
+          "is_oa": false,
+          "is_in_doaj": false,
+          "is_core": true,
+          "host_organization": "https://openalex.org/P4310320006",
+          "host_organization_name": "American Chemical Society",
+          "host_organization_lineage": [
+            "https://openalex.org/P4310320006"
+          ],
+          "host_organization_lineage_names": [
+            "American Chemical Society"
+          ],
+          "type": "journal"
+        },
+        "license": null,
+        "license_id": null,
+        "version": "publishedVersion",
+        "is_accepted": true,
+        "is_published": true,
+        "raw_source_name": "Organic Process Research &amp; Development",
+        "raw_type": "journal-article"
+      },
+      "type": "article",
+      "indexed_in": [
+        "crossref"
+      ],
+      "open_access": {
+        "is_oa": false,
+        "oa_status": "closed",
+        "oa_url": null,
+        "any_repository_has_fulltext": false
+      },
+      "authorships": [
+        {
+          "author_position": "first",
+          "author": {
+            "id": "https://openalex.org/A5115589054",
+            "display_name": "Yifeng Liu",
+            "orcid": "https://orcid.org/0009-0009-0097-9873"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I37802460",
+              "display_name": "Northwest University",
+              "ror": "https://ror.org/00z3td547",
+              "country_code": "CN",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I37802460"
+              ]
+            }
+          ],
+          "countries": [
+            "CN"
+          ],
+          "is_corresponding": true,
+          "raw_author_name": "Yi-Feng Liu",
+          "raw_affiliation_strings": [
+            "Applied Chemical Institute, Northwest University, Xi\u2019an 710069, P.R. China, School of Life Science, Northwest University, Xi\u2019an 710069, P.R. China, and Department of Clinical Laboratory, Mental Health Center of Weinan, Weinan 714000, P.R. China"
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Applied Chemical Institute, Northwest University, Xi\u2019an 710069, P.R. China, School of Life Science, Northwest University, Xi\u2019an 710069, P.R. China, and Department of Clinical Laboratory, Mental Health Center of Weinan, Weinan 714000, P.R. China",
+              "institution_ids": [
+                "https://openalex.org/I37802460"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5057583303",
+            "display_name": "Cuiling Wang",
+            "orcid": "https://orcid.org/0000-0002-1399-1048"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I37802460",
+              "display_name": "Northwest University",
+              "ror": "https://ror.org/00z3td547",
+              "country_code": "CN",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I37802460"
+              ]
+            }
+          ],
+          "countries": [
+            "CN"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Cui-Ling Wang",
+          "raw_affiliation_strings": [
+            "Applied Chemical Institute, Northwest University, Xi\u2019an 710069, P.R. China, School of Life Science, Northwest University, Xi\u2019an 710069, P.R. China, and Department of Clinical Laboratory, Mental Health Center of Weinan, Weinan 714000, P.R. China"
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Applied Chemical Institute, Northwest University, Xi\u2019an 710069, P.R. China, School of Life Science, Northwest University, Xi\u2019an 710069, P.R. China, and Department of Clinical Laboratory, Mental Health Center of Weinan, Weinan 714000, P.R. China",
+              "institution_ids": [
+                "https://openalex.org/I37802460"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5011289163",
+            "display_name": "Yajun Bai",
+            "orcid": "https://orcid.org/0000-0002-3489-1038"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I37802460",
+              "display_name": "Northwest University",
+              "ror": "https://ror.org/00z3td547",
+              "country_code": "CN",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I37802460"
+              ]
+            }
+          ],
+          "countries": [
+            "CN"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Ya-Jun Bai",
+          "raw_affiliation_strings": [
+            "Applied Chemical Institute, Northwest University, Xi\u2019an 710069, P.R. China, School of Life Science, Northwest University, Xi\u2019an 710069, P.R. China, and Department of Clinical Laboratory, Mental Health Center of Weinan, Weinan 714000, P.R. China"
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Applied Chemical Institute, Northwest University, Xi\u2019an 710069, P.R. China, School of Life Science, Northwest University, Xi\u2019an 710069, P.R. China, and Department of Clinical Laboratory, Mental Health Center of Weinan, Weinan 714000, P.R. China",
+              "institution_ids": [
+                "https://openalex.org/I37802460"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5100754419",
+            "display_name": "Ning Han",
+            "orcid": "https://orcid.org/0000-0001-8480-138X"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I37802460",
+              "display_name": "Northwest University",
+              "ror": "https://ror.org/00z3td547",
+              "country_code": "CN",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I37802460"
+              ]
+            }
+          ],
+          "countries": [
+            "CN"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Ning Han",
+          "raw_affiliation_strings": [
+            "Applied Chemical Institute, Northwest University, Xi\u2019an 710069, P.R. China, School of Life Science, Northwest University, Xi\u2019an 710069, P.R. China, and Department of Clinical Laboratory, Mental Health Center of Weinan, Weinan 714000, P.R. China"
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Applied Chemical Institute, Northwest University, Xi\u2019an 710069, P.R. China, School of Life Science, Northwest University, Xi\u2019an 710069, P.R. China, and Department of Clinical Laboratory, Mental Health Center of Weinan, Weinan 714000, P.R. China",
+              "institution_ids": [
+                "https://openalex.org/I37802460"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "middle",
+          "author": {
+            "id": "https://openalex.org/A5009666818",
+            "display_name": "Junping Jiao",
+            "orcid": null
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I37802460",
+              "display_name": "Northwest University",
+              "ror": "https://ror.org/00z3td547",
+              "country_code": "CN",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I37802460"
+              ]
+            }
+          ],
+          "countries": [
+            "CN"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Jun-Ping Jiao",
+          "raw_affiliation_strings": [
+            "Applied Chemical Institute, Northwest University, Xi\u2019an 710069, P.R. China, School of Life Science, Northwest University, Xi\u2019an 710069, P.R. China, and Department of Clinical Laboratory, Mental Health Center of Weinan, Weinan 714000, P.R. China"
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Applied Chemical Institute, Northwest University, Xi\u2019an 710069, P.R. China, School of Life Science, Northwest University, Xi\u2019an 710069, P.R. China, and Department of Clinical Laboratory, Mental Health Center of Weinan, Weinan 714000, P.R. China",
+              "institution_ids": [
+                "https://openalex.org/I37802460"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "last",
+          "author": {
+            "id": "https://openalex.org/A5103079182",
+            "display_name": "Xiaoli Qi",
+            "orcid": "https://orcid.org/0000-0002-7881-3365"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I37802460",
+              "display_name": "Northwest University",
+              "ror": "https://ror.org/00z3td547",
+              "country_code": "CN",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I37802460"
+              ]
+            }
+          ],
+          "countries": [
+            "CN"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Xiao-Li Qi",
+          "raw_affiliation_strings": [
+            "Applied Chemical Institute, Northwest University, Xi\u2019an 710069, P.R. China, School of Life Science, Northwest University, Xi\u2019an 710069, P.R. China, and Department of Clinical Laboratory, Mental Health Center of Weinan, Weinan 714000, P.R. China"
+          ],
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Applied Chemical Institute, Northwest University, Xi\u2019an 710069, P.R. China, School of Life Science, Northwest University, Xi\u2019an 710069, P.R. China, and Department of Clinical Laboratory, Mental Health Center of Weinan, Weinan 714000, P.R. China",
+              "institution_ids": [
+                "https://openalex.org/I37802460"
+              ]
+            }
+          ]
+        }
+      ],
+      "institutions": [],
+      "countries_distinct_count": 1,
+      "institutions_distinct_count": 6,
+      "corresponding_author_ids": [
+        "https://openalex.org/A5115589054"
+      ],
+      "corresponding_institution_ids": [
+        "https://openalex.org/I37802460"
+      ],
+      "apc_list": null,
+      "apc_paid": null,
+      "fwci": 1.9743,
+      "has_fulltext": false,
+      "cited_by_count": 86,
+      "citation_normalized_percentile": {
+        "value": 0.86219716,
+        "is_in_top_1_percent": false,
+        "is_in_top_10_percent": false
+      },
+      "cited_by_percentile_year": {
+        "min": 94,
+        "max": 99
+      },
+      "biblio": {
+        "volume": "12",
+        "issue": "3",
+        "first_page": "490",
+        "last_page": "495"
+      },
+      "is_retracted": false,
+      "is_paratext": false,
+      "is_xpac": false,
+      "primary_topic": {
+        "id": "https://openalex.org/T11215",
+        "display_name": "Chronic Myeloid Leukemia Treatments",
+        "score": 0.9990000128746033,
+        "subfield": {
+          "id": "https://openalex.org/subfields/2720",
+          "display_name": "Hematology"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/27",
+          "display_name": "Medicine"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/4",
+          "display_name": "Health Sciences"
+        }
+      },
+      "topics": [
+        {
+          "id": "https://openalex.org/T11215",
+          "display_name": "Chronic Myeloid Leukemia Treatments",
+          "score": 0.9990000128746033,
+          "subfield": {
+            "id": "https://openalex.org/subfields/2720",
+            "display_name": "Hematology"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/27",
+            "display_name": "Medicine"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/4",
+            "display_name": "Health Sciences"
+          }
+        },
+        {
+          "id": "https://openalex.org/T12318",
+          "display_name": "Quinazolinone synthesis and applications",
+          "score": 0.9947999715805054,
+          "subfield": {
+            "id": "https://openalex.org/subfields/1605",
+            "display_name": "Organic Chemistry"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/16",
+            "display_name": "Chemistry"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/3",
+            "display_name": "Physical Sciences"
+          }
+        },
+        {
+          "id": "https://openalex.org/T11440",
+          "display_name": "Click Chemistry and Applications",
+          "score": 0.9817000031471252,
+          "subfield": {
+            "id": "https://openalex.org/subfields/1605",
+            "display_name": "Organic Chemistry"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/16",
+            "display_name": "Chemistry"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/3",
+            "display_name": "Physical Sciences"
+          }
+        }
+      ],
+      "keywords": [
+        {
+          "id": "https://openalex.org/keywords/chemistry",
+          "display_name": "Chemistry",
+          "score": 0.8486385345458984
+        },
+        {
+          "id": "https://openalex.org/keywords/yield",
+          "display_name": "Yield (engineering)",
+          "score": 0.823316216468811
+        },
+        {
+          "id": "https://openalex.org/keywords/amine-gas-treating",
+          "display_name": "Amine gas treating",
+          "score": 0.7596017718315125
+        },
+        {
+          "id": "https://openalex.org/keywords/cyanamide",
+          "display_name": "Cyanamide",
+          "score": 0.629269003868103
+        },
+        {
+          "id": "https://openalex.org/keywords/medicinal-chemistry",
+          "display_name": "Medicinal chemistry",
+          "score": 0.5513765215873718
+        },
+        {
+          "id": "https://openalex.org/keywords/solvent",
+          "display_name": "Solvent",
+          "score": 0.5484977960586548
+        },
+        {
+          "id": "https://openalex.org/keywords/combinatorial-chemistry",
+          "display_name": "Combinatorial chemistry",
+          "score": 0.5057516098022461
+        },
+        {
+          "id": "https://openalex.org/keywords/base",
+          "display_name": "Base (topology)",
+          "score": 0.47283560037612915
+        },
+        {
+          "id": "https://openalex.org/keywords/nitro",
+          "display_name": "Nitro",
+          "score": 0.46132105588912964
+        },
+        {
+          "id": "https://openalex.org/keywords/palladium",
+          "display_name": "Palladium",
+          "score": 0.44466909766197205
+        },
+        {
+          "id": "https://openalex.org/keywords/copper",
+          "display_name": "Copper",
+          "score": 0.4440310001373291
+        },
+        {
+          "id": "https://openalex.org/keywords/catalysis",
+          "display_name": "Catalysis",
+          "score": 0.3752833604812622
+        },
+        {
+          "id": "https://openalex.org/keywords/organic-chemistry",
+          "display_name": "Organic chemistry",
+          "score": 0.3653804063796997
+        }
+      ],
+      "concepts": [
+        {
+          "id": "https://openalex.org/C185592680",
+          "wikidata": "https://www.wikidata.org/wiki/Q2329",
+          "display_name": "Chemistry",
+          "level": 0,
+          "score": 0.8486385345458984
+        },
+        {
+          "id": "https://openalex.org/C134121241",
+          "wikidata": "https://www.wikidata.org/wiki/Q899301",
+          "display_name": "Yield (engineering)",
+          "level": 2,
+          "score": 0.823316216468811
+        },
+        {
+          "id": "https://openalex.org/C131779359",
+          "wikidata": "https://www.wikidata.org/wiki/Q471875",
+          "display_name": "Amine gas treating",
+          "level": 2,
+          "score": 0.7596017718315125
+        },
+        {
+          "id": "https://openalex.org/C2779606280",
+          "wikidata": "https://www.wikidata.org/wiki/Q414555",
+          "display_name": "Cyanamide",
+          "level": 2,
+          "score": 0.629269003868103
+        },
+        {
+          "id": "https://openalex.org/C155647269",
+          "wikidata": "https://www.wikidata.org/wiki/Q243455",
+          "display_name": "Medicinal chemistry",
+          "level": 1,
+          "score": 0.5513765215873718
+        },
+        {
+          "id": "https://openalex.org/C2780471494",
+          "wikidata": "https://www.wikidata.org/wiki/Q146505",
+          "display_name": "Solvent",
+          "level": 2,
+          "score": 0.5484977960586548
+        },
+        {
+          "id": "https://openalex.org/C21951064",
+          "wikidata": "https://www.wikidata.org/wiki/Q899212",
+          "display_name": "Combinatorial chemistry",
+          "level": 1,
+          "score": 0.5057516098022461
+        },
+        {
+          "id": "https://openalex.org/C42058472",
+          "wikidata": "https://www.wikidata.org/wiki/Q810214",
+          "display_name": "Base (topology)",
+          "level": 2,
+          "score": 0.47283560037612915
+        },
+        {
+          "id": "https://openalex.org/C2780639532",
+          "wikidata": "https://www.wikidata.org/wiki/Q7041427",
+          "display_name": "Nitro",
+          "level": 3,
+          "score": 0.46132105588912964
+        },
+        {
+          "id": "https://openalex.org/C502130503",
+          "wikidata": "https://www.wikidata.org/wiki/Q1089",
+          "display_name": "Palladium",
+          "level": 3,
+          "score": 0.44466909766197205
+        },
+        {
+          "id": "https://openalex.org/C544778455",
+          "wikidata": "https://www.wikidata.org/wiki/Q753",
+          "display_name": "Copper",
+          "level": 2,
+          "score": 0.4440310001373291
+        },
+        {
+          "id": "https://openalex.org/C161790260",
+          "wikidata": "https://www.wikidata.org/wiki/Q82264",
+          "display_name": "Catalysis",
+          "level": 2,
+          "score": 0.3752833604812622
+        },
+        {
+          "id": "https://openalex.org/C178790620",
+          "wikidata": "https://www.wikidata.org/wiki/Q11351",
+          "display_name": "Organic chemistry",
+          "level": 1,
+          "score": 0.3653804063796997
+        },
+        {
+          "id": "https://openalex.org/C192562407",
+          "wikidata": "https://www.wikidata.org/wiki/Q228736",
+          "display_name": "Materials science",
+          "level": 0,
+          "score": 0.0
+        },
+        {
+          "id": "https://openalex.org/C191897082",
+          "wikidata": "https://www.wikidata.org/wiki/Q11467",
+          "display_name": "Metallurgy",
+          "level": 1,
+          "score": 0.0
+        },
+        {
+          "id": "https://openalex.org/C134306372",
+          "wikidata": "https://www.wikidata.org/wiki/Q7754",
+          "display_name": "Mathematical analysis",
+          "level": 1,
+          "score": 0.0
+        },
+        {
+          "id": "https://openalex.org/C2780263894",
+          "wikidata": "https://www.wikidata.org/wiki/Q335268",
+          "display_name": "Alkyl",
+          "level": 2,
+          "score": 0.0
+        },
+        {
+          "id": "https://openalex.org/C33923547",
+          "wikidata": "https://www.wikidata.org/wiki/Q395",
+          "display_name": "Mathematics",
+          "level": 0,
+          "score": 0.0
+        }
+      ],
+      "mesh": [],
+      "locations_count": 1,
+      "locations": [
+        {
+          "id": "doi:10.1021/op700270n",
+          "is_oa": false,
+          "landing_page_url": "https://doi.org/10.1021/op700270n",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S107255770",
+            "display_name": "Organic Process Research & Development",
+            "issn_l": "1083-6160",
+            "issn": [
+              "1083-6160",
+              "1520-586X"
+            ],
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": true,
+            "host_organization": "https://openalex.org/P4310320006",
+            "host_organization_name": "American Chemical Society",
+            "host_organization_lineage": [
+              "https://openalex.org/P4310320006"
+            ],
+            "host_organization_lineage_names": [
+              "American Chemical Society"
+            ],
+            "type": "journal"
+          },
+          "license": null,
+          "license_id": null,
+          "version": "publishedVersion",
+          "is_accepted": true,
+          "is_published": true,
+          "raw_source_name": "Organic Process Research &amp; Development",
+          "raw_type": "journal-article"
+        }
+      ],
+      "best_oa_location": null,
+      "sustainable_development_goals": [
+        {
+          "score": 0.7699999809265137,
+          "display_name": "Clean water and sanitation",
+          "id": "https://metadata.un.org/sdg/6"
+        }
+      ],
+      "awards": [],
+      "funders": [
+        {
+          "id": "https://openalex.org/F4320332163",
+          "display_name": "U.S. Food and Drug Administration",
+          "ror": "https://ror.org/034xvzb47"
+        }
+      ],
+      "has_content": {
+        "grobid_xml": false,
+        "pdf": false
+      },
+      "content_urls": null,
+      "referenced_works_count": 27,
+      "referenced_works": [
+        "https://openalex.org/W180766444",
+        "https://openalex.org/W1584117272",
+        "https://openalex.org/W1980084789",
+        "https://openalex.org/W1982172544",
+        "https://openalex.org/W1993176346",
+        "https://openalex.org/W1995930366",
+        "https://openalex.org/W1996386396",
+        "https://openalex.org/W2007098305",
+        "https://openalex.org/W2007964446",
+        "https://openalex.org/W2023100599",
+        "https://openalex.org/W2033989981",
+        "https://openalex.org/W2034283748",
+        "https://openalex.org/W2051886142",
+        "https://openalex.org/W2055773768",
+        "https://openalex.org/W2090008683",
+        "https://openalex.org/W2113235660",
+        "https://openalex.org/W2116430617",
+        "https://openalex.org/W2122751252",
+        "https://openalex.org/W2140226688",
+        "https://openalex.org/W2151493026",
+        "https://openalex.org/W2151504205",
+        "https://openalex.org/W2153971092",
+        "https://openalex.org/W2161504119",
+        "https://openalex.org/W2263837564",
+        "https://openalex.org/W2949097009",
+        "https://openalex.org/W2950606963",
+        "https://openalex.org/W2951340703"
+      ],
+      "related_works": [
+        "https://openalex.org/W4244192128",
+        "https://openalex.org/W1978181450",
+        "https://openalex.org/W3012928716",
+        "https://openalex.org/W2580708321",
+        "https://openalex.org/W3202295401",
+        "https://openalex.org/W2005391069",
+        "https://openalex.org/W2951357837",
+        "https://openalex.org/W2002026014",
+        "https://openalex.org/W2072903535",
+        "https://openalex.org/W1569710692"
+      ],
+      "abstract_inverted_index": {
+        "Imatinib": [
+          0
+        ],
+        "and": [
+          1,
+          29
+        ],
+        "its": [
+          2
+        ],
+        "analogues": [
+          3
+        ],
+        "were": [
+          4,
+          63
+        ],
+        "successfully": [
+          5
+        ],
+        "synthesized": [
+          6
+        ],
+        "by": [
+          7,
+          24,
+          52,
+          82
+        ],
+        "an": [
+          8
+        ],
+        "improved": [
+          9
+        ],
+        "method": [
+          10
+        ],
+        "in": [
+          11,
+          57,
+          71,
+          91
+        ],
+        "19.5\u2013": [
+          12
+        ],
+        "46.2%": [
+          13
+        ],
+        "total": [
+          14
+        ],
+        "yield": [
+          15
+        ],
+        "of": [
+          16,
+          27,
+          35,
+          48,
+          55,
+          66
+        ],
+        "six": [
+          17
+        ],
+        "main": [
+          18
+        ],
+        "steps.": [
+          19
+        ],
+        "Pyrimidinyl": [
+          20
+        ],
+        "amine": [
+          21
+        ],
+        "was": [
+          22,
+          50,
+          80
+        ],
+        "prepared": [
+          23,
+          51
+        ],
+        "the": [
+          25,
+          33,
+          46,
+          67
+        ],
+        "reaction": [
+          26
+        ],
+        "enaminone": [
+          28
+        ],
+        "guanidine": [
+          30
+        ],
+        "nitrate": [
+          31
+        ],
+        "without": [
+          32
+        ],
+        "use": [
+          34
+        ],
+        "a": [
+          36,
+          42,
+          83,
+          89
+        ],
+        "toxic": [
+          37
+        ],
+        "cyanamide.": [
+          38
+        ],
+        "N-(2-Methyl-5-nitrophenyl)-4-(pyridin-3-yl)": [
+          39
+        ],
+        "pyrimidin-2-amine": [
+          40
+        ],
+        "as": [
+          41,
+          88
+        ],
+        "key": [
+          43
+        ],
+        "intermediate": [
+          44,
+          77
+        ],
+        "for": [
+          45
+        ],
+        "synthesis": [
+          47
+        ],
+        "imatinib": [
+          49
+        ],
+        "copper-catalyzed": [
+          53
+        ],
+        "N-arylation": [
+          54
+        ],
+        "heteroarylamine": [
+          56
+        ],
+        "82%": [
+          58
+        ],
+        "yield.": [
+          59,
+          93
+        ],
+        "The": [
+          60,
+          76
+        ],
+        "copper": [
+          61
+        ],
+        "salts": [
+          62
+        ],
+        "used": [
+          64
+        ],
+        "instead": [
+          65
+        ],
+        "expensive": [
+          68
+        ],
+        "palladium": [
+          69
+        ],
+        "compounds": [
+          70
+        ],
+        "this": [
+          72
+        ],
+        "C\u2212N": [
+          73
+        ],
+        "bond-forming": [
+          74
+        ],
+        "reaction.": [
+          75
+        ],
+        "nitro": [
+          78
+        ],
+        "compound": [
+          79
+        ],
+        "reduced": [
+          81
+        ],
+        "N2H4\u00b7H2O/FeCl3/C": [
+          84
+        ],
+        "system": [
+          85
+        ],
+        "using": [
+          86
+        ],
+        "water": [
+          87
+        ],
+        "solvent": [
+          90
+        ],
+        "good": [
+          92
+        ]
+      },
+      "counts_by_year": [
+        {
+          "year": 2026,
+          "cited_by_count": 1
+        },
+        {
+          "year": 2025,
+          "cited_by_count": 7
+        },
+        {
+          "year": 2024,
+          "cited_by_count": 9
+        },
+        {
+          "year": 2023,
+          "cited_by_count": 4
+        },
+        {
+          "year": 2022,
+          "cited_by_count": 5
+        },
+        {
+          "year": 2021,
+          "cited_by_count": 3
+        },
+        {
+          "year": 2020,
+          "cited_by_count": 6
+        },
+        {
+          "year": 2019,
+          "cited_by_count": 5
+        },
+        {
+          "year": 2018,
+          "cited_by_count": 2
+        },
+        {
+          "year": 2017,
+          "cited_by_count": 6
+        },
+        {
+          "year": 2016,
+          "cited_by_count": 5
+        },
+        {
+          "year": 2015,
+          "cited_by_count": 5
+        },
+        {
+          "year": 2014,
+          "cited_by_count": 5
+        },
+        {
+          "year": 2013,
+          "cited_by_count": 2
+        },
+        {
+          "year": 2012,
+          "cited_by_count": 9
+        }
+      ],
+      "updated_date": "2026-03-25T14:56:36.534964",
+      "created_date": "2025-10-10T00:00:00"
+    },
+    {
+      "id": "https://openalex.org/W2960449464",
+      "doi": "https://doi.org/10.1021/acs.orglett.9b02259",
+      "title": "Modular Continuous Flow Synthesis of Imatinib and Analogues",
+      "display_name": "Modular Continuous Flow Synthesis of Imatinib and Analogues",
+      "relevance_score": 247.69792,
+      "publication_year": 2019,
+      "publication_date": "2019-07-17",
+      "ids": {
+        "openalex": "https://openalex.org/W2960449464",
+        "doi": "https://doi.org/10.1021/acs.orglett.9b02259",
+        "mag": "2960449464",
+        "pmid": "https://pubmed.ncbi.nlm.nih.gov/31314541"
+      },
+      "language": "en",
+      "primary_location": {
+        "id": "doi:10.1021/acs.orglett.9b02259",
+        "is_oa": false,
+        "landing_page_url": "https://doi.org/10.1021/acs.orglett.9b02259",
+        "pdf_url": null,
+        "source": {
+          "id": "https://openalex.org/S201989124",
+          "display_name": "Organic Letters",
+          "issn_l": "1523-7052",
+          "issn": [
+            "1523-7052",
+            "1523-7060"
+          ],
+          "is_oa": false,
+          "is_in_doaj": false,
+          "is_core": true,
+          "host_organization": "https://openalex.org/P4310320006",
+          "host_organization_name": "American Chemical Society",
+          "host_organization_lineage": [
+            "https://openalex.org/P4310320006"
+          ],
+          "host_organization_lineage_names": [
+            "American Chemical Society"
+          ],
+          "type": "journal"
+        },
+        "license": null,
+        "license_id": null,
+        "version": "publishedVersion",
+        "is_accepted": true,
+        "is_published": true,
+        "raw_source_name": "Organic Letters",
+        "raw_type": "journal-article"
+      },
+      "type": "article",
+      "indexed_in": [
+        "crossref",
+        "pubmed"
+      ],
+      "open_access": {
+        "is_oa": true,
+        "oa_status": "green",
+        "oa_url": "https://hdl.handle.net/1721.1/125954",
+        "any_repository_has_fulltext": true
+      },
+      "authorships": [
+        {
+          "author_position": "first",
+          "author": {
+            "id": "https://openalex.org/A5083329547",
+            "display_name": "Wai Chung Fu",
+            "orcid": "https://orcid.org/0000-0002-7181-0057"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I63966007",
+              "display_name": "Massachusetts Institute of Technology",
+              "ror": "https://ror.org/042nb2s44",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I63966007"
+              ]
+            }
+          ],
+          "countries": [
+            "US"
+          ],
+          "is_corresponding": false,
+          "raw_author_name": "Wai Chung Fu",
+          "raw_affiliation_strings": [
+            "Department of Chemistry, Massachusetts Institute of Technology, 77 Massachusetts Avenue, Cambridge, Massachusetts 02139, United States"
+          ],
+          "raw_orcid": "https://orcid.org/0000-0002-7181-0057",
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Department of Chemistry, Massachusetts Institute of Technology, 77 Massachusetts Avenue, Cambridge, Massachusetts 02139, United States",
+              "institution_ids": [
+                "https://openalex.org/I63966007"
+              ]
+            }
+          ]
+        },
+        {
+          "author_position": "last",
+          "author": {
+            "id": "https://openalex.org/A5044333811",
+            "display_name": "Timothy F. Jamison",
+            "orcid": "https://orcid.org/0000-0002-8601-7799"
+          },
+          "institutions": [
+            {
+              "id": "https://openalex.org/I63966007",
+              "display_name": "Massachusetts Institute of Technology",
+              "ror": "https://ror.org/042nb2s44",
+              "country_code": "US",
+              "type": "education",
+              "lineage": [
+                "https://openalex.org/I63966007"
+              ]
+            }
+          ],
+          "countries": [
+            "US"
+          ],
+          "is_corresponding": true,
+          "raw_author_name": "Timothy F. Jamison",
+          "raw_affiliation_strings": [
+            "Department of Chemistry, Massachusetts Institute of Technology, 77 Massachusetts Avenue, Cambridge, Massachusetts 02139, United States"
+          ],
+          "raw_orcid": "https://orcid.org/0000-0002-8601-7799",
+          "affiliations": [
+            {
+              "raw_affiliation_string": "Department of Chemistry, Massachusetts Institute of Technology, 77 Massachusetts Avenue, Cambridge, Massachusetts 02139, United States",
+              "institution_ids": [
+                "https://openalex.org/I63966007"
+              ]
+            }
+          ]
+        }
+      ],
+      "institutions": [],
+      "countries_distinct_count": 1,
+      "institutions_distinct_count": 2,
+      "corresponding_author_ids": [
+        "https://openalex.org/A5044333811"
+      ],
+      "corresponding_institution_ids": [
+        "https://openalex.org/I63966007"
+      ],
+      "apc_list": null,
+      "apc_paid": null,
+      "fwci": 2.592,
+      "has_fulltext": false,
+      "cited_by_count": 45,
+      "citation_normalized_percentile": {
+        "value": 0.89471622,
+        "is_in_top_1_percent": false,
+        "is_in_top_10_percent": false
+      },
+      "cited_by_percentile_year": {
+        "min": 90,
+        "max": 99
+      },
+      "biblio": {
+        "volume": "21",
+        "issue": "15",
+        "first_page": "6112",
+        "last_page": "6116"
+      },
+      "is_retracted": false,
+      "is_paratext": false,
+      "is_xpac": false,
+      "primary_topic": {
+        "id": "https://openalex.org/T11407",
+        "display_name": "Innovative Microfluidic and Catalytic Techniques Innovation",
+        "score": 0.9998000264167786,
+        "subfield": {
+          "id": "https://openalex.org/subfields/2204",
+          "display_name": "Biomedical Engineering"
+        },
+        "field": {
+          "id": "https://openalex.org/fields/22",
+          "display_name": "Engineering"
+        },
+        "domain": {
+          "id": "https://openalex.org/domains/3",
+          "display_name": "Physical Sciences"
+        }
+      },
+      "topics": [
+        {
+          "id": "https://openalex.org/T11407",
+          "display_name": "Innovative Microfluidic and Catalytic Techniques Innovation",
+          "score": 0.9998000264167786,
+          "subfield": {
+            "id": "https://openalex.org/subfields/2204",
+            "display_name": "Biomedical Engineering"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/22",
+            "display_name": "Engineering"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/3",
+            "display_name": "Physical Sciences"
+          }
+        },
+        {
+          "id": "https://openalex.org/T12318",
+          "display_name": "Quinazolinone synthesis and applications",
+          "score": 0.9695000052452087,
+          "subfield": {
+            "id": "https://openalex.org/subfields/1605",
+            "display_name": "Organic Chemistry"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/16",
+            "display_name": "Chemistry"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/3",
+            "display_name": "Physical Sciences"
+          }
+        },
+        {
+          "id": "https://openalex.org/T10911",
+          "display_name": "Chemical Synthesis and Analysis",
+          "score": 0.9348000288009644,
+          "subfield": {
+            "id": "https://openalex.org/subfields/1312",
+            "display_name": "Molecular Biology"
+          },
+          "field": {
+            "id": "https://openalex.org/fields/13",
+            "display_name": "Biochemistry, Genetics and Molecular Biology"
+          },
+          "domain": {
+            "id": "https://openalex.org/domains/1",
+            "display_name": "Life Sciences"
+          }
+        }
+      ],
+      "keywords": [
+        {
+          "id": "https://openalex.org/keywords/modular-design",
+          "display_name": "Modular design",
+          "score": 0.7995104789733887
+        },
+        {
+          "id": "https://openalex.org/keywords/chemistry",
+          "display_name": "Chemistry",
+          "score": 0.7832669615745544
+        },
+        {
+          "id": "https://openalex.org/keywords/continuous-flow",
+          "display_name": "Continuous flow",
+          "score": 0.7303295135498047
+        },
+        {
+          "id": "https://openalex.org/keywords/scope",
+          "display_name": "Scope (computer science)",
+          "score": 0.7083873748779297
+        },
+        {
+          "id": "https://openalex.org/keywords/solvent",
+          "display_name": "Solvent",
+          "score": 0.6203227043151855
+        },
+        {
+          "id": "https://openalex.org/keywords/combinatorial-chemistry",
+          "display_name": "Combinatorial chemistry",
+          "score": 0.6051933169364929
+        },
+        {
+          "id": "https://openalex.org/keywords/flow",
+          "display_name": "Flow (mathematics)",
+          "score": 0.600612998008728
+        },
+        {
+          "id": "https://openalex.org/keywords/flow-chemistry",
+          "display_name": "Flow chemistry",
+          "score": 0.5272330641746521
+        },
+        {
+          "id": "https://openalex.org/keywords/sequence",
+          "display_name": "Sequence (biology)",
+          "score": 0.4982264041900635
+        },
+        {
+          "id": "https://openalex.org/keywords/imatinib",
+          "display_name": "Imatinib",
+          "score": 0.45099520683288574
+        },
+        {
+          "id": "https://openalex.org/keywords/coupling",
+          "display_name": "Coupling (piping)",
+          "score": 0.4381892681121826
+        },
+        {
+          "id": "https://openalex.org/keywords/biochemical-engineering",
+          "display_name": "Biochemical engineering",
+          "score": 0.2230919599533081
+        },
+        {
+          "id": "https://openalex.org/keywords/organic-chemistry",
+          "display_name": "Organic chemistry",
+          "score": 0.19858378171920776
+        },
+        {
+          "id": "https://openalex.org/keywords/computer-science",
+          "display_name": "Computer science",
+          "score": 0.16675159335136414
+        },
+        {
+          "id": "https://openalex.org/keywords/materials-science",
+          "display_name": "Materials science",
+          "score": 0.09161719679832458
+        },
+        {
+          "id": "https://openalex.org/keywords/catalysis",
+          "display_name": "Catalysis",
+          "score": 0.08644706010818481
+        },
+        {
+          "id": "https://openalex.org/keywords/mathematics",
+          "display_name": "Mathematics",
+          "score": 0.08102339506149292
+        },
+        {
+          "id": "https://openalex.org/keywords/biochemistry",
+          "display_name": "Biochemistry",
+          "score": 0.06989073753356934
+        },
+        {
+          "id": "https://openalex.org/keywords/engineering",
+          "display_name": "Engineering",
+          "score": 0.06405019760131836
+        },
+        {
+          "id": "https://openalex.org/keywords/programming-language",
+          "display_name": "Programming language",
+          "score": 0.048639774322509766
+        }
+      ],
+      "concepts": [
+        {
+          "id": "https://openalex.org/C101468663",
+          "wikidata": "https://www.wikidata.org/wiki/Q1620158",
+          "display_name": "Modular design",
+          "level": 2,
+          "score": 0.7995104789733887
+        },
+        {
+          "id": "https://openalex.org/C185592680",
+          "wikidata": "https://www.wikidata.org/wiki/Q2329",
+          "display_name": "Chemistry",
+          "level": 0,
+          "score": 0.7832669615745544
+        },
+        {
+          "id": "https://openalex.org/C2985264121",
+          "wikidata": "https://www.wikidata.org/wiki/Q216320",
+          "display_name": "Continuous flow",
+          "level": 2,
+          "score": 0.7303295135498047
+        },
+        {
+          "id": "https://openalex.org/C2778012447",
+          "wikidata": "https://www.wikidata.org/wiki/Q1034415",
+          "display_name": "Scope (computer science)",
+          "level": 2,
+          "score": 0.7083873748779297
+        },
+        {
+          "id": "https://openalex.org/C2780471494",
+          "wikidata": "https://www.wikidata.org/wiki/Q146505",
+          "display_name": "Solvent",
+          "level": 2,
+          "score": 0.6203227043151855
+        },
+        {
+          "id": "https://openalex.org/C21951064",
+          "wikidata": "https://www.wikidata.org/wiki/Q899212",
+          "display_name": "Combinatorial chemistry",
+          "level": 1,
+          "score": 0.6051933169364929
+        },
+        {
+          "id": "https://openalex.org/C38349280",
+          "wikidata": "https://www.wikidata.org/wiki/Q1434290",
+          "display_name": "Flow (mathematics)",
+          "level": 2,
+          "score": 0.600612998008728
+        },
+        {
+          "id": "https://openalex.org/C132482357",
+          "wikidata": "https://www.wikidata.org/wiki/Q5462089",
+          "display_name": "Flow chemistry",
+          "level": 3,
+          "score": 0.5272330641746521
+        },
+        {
+          "id": "https://openalex.org/C2778112365",
+          "wikidata": "https://www.wikidata.org/wiki/Q3511065",
+          "display_name": "Sequence (biology)",
+          "level": 2,
+          "score": 0.4982264041900635
+        },
+        {
+          "id": "https://openalex.org/C2777583451",
+          "wikidata": "https://www.wikidata.org/wiki/Q177094",
+          "display_name": "Imatinib",
+          "level": 3,
+          "score": 0.45099520683288574
+        },
+        {
+          "id": "https://openalex.org/C131584629",
+          "wikidata": "https://www.wikidata.org/wiki/Q4308705",
+          "display_name": "Coupling (piping)",
+          "level": 2,
+          "score": 0.4381892681121826
+        },
+        {
+          "id": "https://openalex.org/C183696295",
+          "wikidata": "https://www.wikidata.org/wiki/Q2487696",
+          "display_name": "Biochemical engineering",
+          "level": 1,
+          "score": 0.2230919599533081
+        },
+        {
+          "id": "https://openalex.org/C178790620",
+          "wikidata": "https://www.wikidata.org/wiki/Q11351",
+          "display_name": "Organic chemistry",
+          "level": 1,
+          "score": 0.19858378171920776
+        },
+        {
+          "id": "https://openalex.org/C41008148",
+          "wikidata": "https://www.wikidata.org/wiki/Q21198",
+          "display_name": "Computer science",
+          "level": 0,
+          "score": 0.16675159335136414
+        },
+        {
+          "id": "https://openalex.org/C192562407",
+          "wikidata": "https://www.wikidata.org/wiki/Q228736",
+          "display_name": "Materials science",
+          "level": 0,
+          "score": 0.09161719679832458
+        },
+        {
+          "id": "https://openalex.org/C161790260",
+          "wikidata": "https://www.wikidata.org/wiki/Q82264",
+          "display_name": "Catalysis",
+          "level": 2,
+          "score": 0.08644706010818481
+        },
+        {
+          "id": "https://openalex.org/C33923547",
+          "wikidata": "https://www.wikidata.org/wiki/Q395",
+          "display_name": "Mathematics",
+          "level": 0,
+          "score": 0.08102339506149292
+        },
+        {
+          "id": "https://openalex.org/C55493867",
+          "wikidata": "https://www.wikidata.org/wiki/Q7094",
+          "display_name": "Biochemistry",
+          "level": 1,
+          "score": 0.06989073753356934
+        },
+        {
+          "id": "https://openalex.org/C127413603",
+          "wikidata": "https://www.wikidata.org/wiki/Q11023",
+          "display_name": "Engineering",
+          "level": 0,
+          "score": 0.06405019760131836
+        },
+        {
+          "id": "https://openalex.org/C199360897",
+          "wikidata": "https://www.wikidata.org/wiki/Q9143",
+          "display_name": "Programming language",
+          "level": 1,
+          "score": 0.048639774322509766
+        },
+        {
+          "id": "https://openalex.org/C2778729363",
+          "wikidata": "https://www.wikidata.org/wiki/Q11688946",
+          "display_name": "Myeloid leukemia",
+          "level": 2,
+          "score": 0.0
+        },
+        {
+          "id": "https://openalex.org/C203014093",
+          "wikidata": "https://www.wikidata.org/wiki/Q101929",
+          "display_name": "Immunology",
+          "level": 1,
+          "score": 0.0
+        },
+        {
+          "id": "https://openalex.org/C191897082",
+          "wikidata": "https://www.wikidata.org/wiki/Q11467",
+          "display_name": "Metallurgy",
+          "level": 1,
+          "score": 0.0
+        },
+        {
+          "id": "https://openalex.org/C2524010",
+          "wikidata": "https://www.wikidata.org/wiki/Q8087",
+          "display_name": "Geometry",
+          "level": 1,
+          "score": 0.0
+        },
+        {
+          "id": "https://openalex.org/C86803240",
+          "wikidata": "https://www.wikidata.org/wiki/Q420",
+          "display_name": "Biology",
+          "level": 0,
+          "score": 0.0
+        }
+      ],
+      "mesh": [
+        {
+          "descriptor_ui": "D000068877",
+          "descriptor_name": "Imatinib Mesylate",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000068877",
+          "descriptor_name": "Imatinib Mesylate",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D000068877",
+          "descriptor_name": "Imatinib Mesylate",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D002244",
+          "descriptor_name": "Carbon",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D002244",
+          "descriptor_name": "Carbon",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D002244",
+          "descriptor_name": "Carbon",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D009584",
+          "descriptor_name": "Nitrogen",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D009584",
+          "descriptor_name": "Nitrogen",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D009584",
+          "descriptor_name": "Nitrogen",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D012997",
+          "descriptor_name": "Solvents",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D012997",
+          "descriptor_name": "Solvents",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": false
+        },
+        {
+          "descriptor_ui": "D012997",
+          "descriptor_name": "Solvents",
+          "qualifier_ui": "Q000737",
+          "qualifier_name": "chemistry",
+          "is_major_topic": false
+        }
+      ],
+      "locations_count": 3,
+      "locations": [
+        {
+          "id": "doi:10.1021/acs.orglett.9b02259",
+          "is_oa": false,
+          "landing_page_url": "https://doi.org/10.1021/acs.orglett.9b02259",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S201989124",
+            "display_name": "Organic Letters",
+            "issn_l": "1523-7052",
+            "issn": [
+              "1523-7052",
+              "1523-7060"
+            ],
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": true,
+            "host_organization": "https://openalex.org/P4310320006",
+            "host_organization_name": "American Chemical Society",
+            "host_organization_lineage": [
+              "https://openalex.org/P4310320006"
+            ],
+            "host_organization_lineage_names": [
+              "American Chemical Society"
+            ],
+            "type": "journal"
+          },
+          "license": null,
+          "license_id": null,
+          "version": "publishedVersion",
+          "is_accepted": true,
+          "is_published": true,
+          "raw_source_name": "Organic Letters",
+          "raw_type": "journal-article"
+        },
+        {
+          "id": "pmid:31314541",
+          "is_oa": false,
+          "landing_page_url": "https://pubmed.ncbi.nlm.nih.gov/31314541",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S4306525036",
+            "display_name": "PubMed",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": false,
+            "host_organization": "https://openalex.org/I1299303238",
+            "host_organization_name": "National Institutes of Health",
+            "host_organization_lineage": [
+              "https://openalex.org/I1299303238"
+            ],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": null,
+          "license_id": null,
+          "version": "publishedVersion",
+          "is_accepted": true,
+          "is_published": true,
+          "raw_source_name": "Organic letters",
+          "raw_type": null
+        },
+        {
+          "id": "pmh:oai:dspace.mit.edu:1721.1/125954",
+          "is_oa": true,
+          "landing_page_url": "https://hdl.handle.net/1721.1/125954",
+          "pdf_url": null,
+          "source": {
+            "id": "https://openalex.org/S4306400425",
+            "display_name": "DSpace@MIT (Massachusetts Institute of Technology)",
+            "issn_l": null,
+            "issn": null,
+            "is_oa": false,
+            "is_in_doaj": false,
+            "is_core": false,
+            "host_organization": "https://openalex.org/I63966007",
+            "host_organization_name": "Massachusetts Institute of Technology",
+            "host_organization_lineage": [
+              "https://openalex.org/I63966007"
+            ],
+            "host_organization_lineage_names": [],
+            "type": "repository"
+          },
+          "license": "cc-by-nc",
+          "license_id": "https://openalex.org/licenses/cc-by-nc",
+          "version": "submittedVersion",
+          "is_accepted": false,
+          "is_published": false,
+          "raw_source_name": "Other repository",
+          "raw_type": "http://purl.org/eprint/type/JournalArticle"
+        }
+      ],
+      "best_oa_location": {
+        "id": "pmh:oai:dspace.mit.edu:1721.1/125954",
+        "is_oa": true,
+        "landing_page_url": "https://hdl.handle.net/1721.1/125954",
+        "pdf_url": null,
+        "source": {
+          "id": "https://openalex.org/S4306400425",
+          "display_name": "DSpace@MIT (Massachusetts Institute of Technology)",
+          "issn_l": null,
+          "issn": null,
+          "is_oa": false,
+          "is_in_doaj": false,
+          "is_core": false,
+          "host_organization": "https://openalex.org/I63966007",
+          "host_organization_name": "Massachusetts Institute of Technology",
+          "host_organization_lineage": [
+            "https://openalex.org/I63966007"
+          ],
+          "host_organization_lineage_names": [],
+          "type": "repository"
+        },
+        "license": "cc-by-nc",
+        "license_id": "https://openalex.org/licenses/cc-by-nc",
+        "version": "submittedVersion",
+        "is_accepted": false,
+        "is_published": false,
+        "raw_source_name": "Other repository",
+        "raw_type": "http://purl.org/eprint/type/JournalArticle"
+      },
+      "sustainable_development_goals": [],
+      "awards": [
+        {
+          "id": "https://openalex.org/G1607339045",
+          "display_name": null,
+          "funder_award_id": "W911NF-16-2-0023",
+          "funder_id": "https://openalex.org/F4320332180",
+          "funder_display_name": "Defense Advanced Research Projects Agency"
+        }
+      ],
+      "funders": [
+        {
+          "id": "https://openalex.org/F4320320904",
+          "display_name": "Croucher Foundation",
+          "ror": "https://ror.org/04741mc34"
+        },
+        {
+          "id": "https://openalex.org/F4320332180",
+          "display_name": "Defense Advanced Research Projects Agency",
+          "ror": "https://ror.org/02caytj08"
+        },
+        {
+          "id": "https://openalex.org/F4320338281",
+          "display_name": "Army Research Office",
+          "ror": "https://ror.org/05epdh915"
+        }
+      ],
+      "has_content": {
+        "grobid_xml": false,
+        "pdf": false
+      },
+      "content_urls": null,
+      "referenced_works_count": 35,
+      "referenced_works": [
+        "https://openalex.org/W1490860457",
+        "https://openalex.org/W1840182658",
+        "https://openalex.org/W1879761918",
+        "https://openalex.org/W1937018166",
+        "https://openalex.org/W1964827067",
+        "https://openalex.org/W1988062353",
+        "https://openalex.org/W1989181151",
+        "https://openalex.org/W2016407772",
+        "https://openalex.org/W2031774809",
+        "https://openalex.org/W2036396634",
+        "https://openalex.org/W2041381473",
+        "https://openalex.org/W2045809294",
+        "https://openalex.org/W2083415062",
+        "https://openalex.org/W2086156805",
+        "https://openalex.org/W2090004346",
+        "https://openalex.org/W2090092477",
+        "https://openalex.org/W2113562115",
+        "https://openalex.org/W2115581550",
+        "https://openalex.org/W2120226043",
+        "https://openalex.org/W2122075967",
+        "https://openalex.org/W2131756681",
+        "https://openalex.org/W2133365461",
+        "https://openalex.org/W2162105003",
+        "https://openalex.org/W2162525969",
+        "https://openalex.org/W2239209912",
+        "https://openalex.org/W2267373025",
+        "https://openalex.org/W2291845424",
+        "https://openalex.org/W2325495180",
+        "https://openalex.org/W2468504350",
+        "https://openalex.org/W2584745967",
+        "https://openalex.org/W2619031964",
+        "https://openalex.org/W2620219282",
+        "https://openalex.org/W2621108245",
+        "https://openalex.org/W2763400574",
+        "https://openalex.org/W4255733708"
+      ],
+      "related_works": [
+        "https://openalex.org/W3035593497",
+        "https://openalex.org/W2942771711",
+        "https://openalex.org/W3129542488",
+        "https://openalex.org/W4391956445",
+        "https://openalex.org/W2289007734",
+        "https://openalex.org/W1593853449",
+        "https://openalex.org/W1980081680",
+        "https://openalex.org/W2910832515",
+        "https://openalex.org/W4318616993",
+        "https://openalex.org/W3026700329"
+      ],
+      "abstract_inverted_index": {
+        "A": [
+          0
+        ],
+        "modular": [
+          1
+        ],
+        "continuous": [
+          2,
+          34
+        ],
+        "flow": [
+          3,
+          26,
+          35,
+          70
+        ],
+        "synthesis": [
+          4
+        ],
+        "of": [
+          5,
+          69
+        ],
+        "imatinib": [
+          6,
+          13
+        ],
+        "and": [
+          7,
+          37,
+          72
+        ],
+        "analogues": [
+          8,
+          14
+        ],
+        "is": [
+          9
+        ],
+        "reported.": [
+          10
+        ],
+        "Structurally": [
+          11
+        ],
+        "diverse": [
+          12
+        ],
+        "are": [
+          15
+        ],
+        "rapidly": [
+          16
+        ],
+        "generated": [
+          17
+        ],
+        "using": [
+          18
+        ],
+        "three": [
+          19
+        ],
+        "readily": [
+          20
+        ],
+        "available": [
+          21
+        ],
+        "building": [
+          22
+        ],
+        "blocks": [
+          23
+        ],
+        "via": [
+          24
+        ],
+        "a": [
+          25,
+          42
+        ],
+        "hydration/chemoselective": [
+          27
+        ],
+        "C-N": [
+          28
+        ],
+        "coupling": [
+          29
+        ],
+        "sequence.": [
+          30
+        ],
+        "The": [
+          31
+        ],
+        "newly": [
+          32
+        ],
+        "developed": [
+          33
+        ],
+        "hydration": [
+          36
+        ],
+        "amidation": [
+          38
+        ],
+        "modules": [
+          39
+        ],
+        "each": [
+          40
+        ],
+        "exhibit": [
+          41
+        ],
+        "broad": [
+          43
+        ],
+        "scope": [
+          44
+        ],
+        "with": [
+          45
+        ],
+        "good": [
+          46
+        ],
+        "to": [
+          47,
+          65
+        ],
+        "excellent": [
+          48
+        ],
+        "yields.": [
+          49
+        ],
+        "Overall,": [
+          50
+        ],
+        "the": [
+          51,
+          66
+        ],
+        "method": [
+          52
+        ],
+        "described": [
+          53
+        ],
+        "does": [
+          54
+        ],
+        "not": [
+          55
+        ],
+        "require": [
+          56
+        ],
+        "solvent": [
+          57,
+          73
+        ],
+        "switches,": [
+          58
+        ],
+        "in-line": [
+          59
+        ],
+        "purifications,": [
+          60
+        ],
+        "or": [
+          61
+        ],
+        "packed-bed": [
+          62
+        ],
+        "apparatuses": [
+          63
+        ],
+        "due": [
+          64
+        ],
+        "judicious": [
+          67
+        ],
+        "manipulation": [
+          68
+        ],
+        "setups": [
+          71
+        ],
+        "mixtures.": [
+          74
+        ]
+      },
+      "counts_by_year": [
+        {
+          "year": 2025,
+          "cited_by_count": 5
+        },
+        {
+          "year": 2024,
+          "cited_by_count": 7
+        },
+        {
+          "year": 2023,
+          "cited_by_count": 7
+        },
+        {
+          "year": 2022,
+          "cited_by_count": 9
+        },
+        {
+          "year": 2021,
+          "cited_by_count": 6
+        },
+        {
+          "year": 2020,
+          "cited_by_count": 10
+        },
+        {
+          "year": 2019,
+          "cited_by_count": 1
+        }
+      ],
+      "updated_date": "2025-11-06T03:46:38.306776",
+      "created_date": "2025-10-10T00:00:00"
+    }
+  ],
+  "group_by": []
+}

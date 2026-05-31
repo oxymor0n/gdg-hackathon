@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Literature Review & Generic Drug Synthesis Portal</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <i class="fa-solid fa-flask-vial logo-icon"></i>
+                <div class="logo-text">
+                    <span class="logo-title">SynGen</span>
+                    <span class="logo-subtitle">AI Pharma Review</span>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-tab="synthesis-router">
+                    <i class="fa-solid fa-bezier-curve nav-icon"></i>
+                    <span>Synthesis Router</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="regulatory-radar">
+                    <i class="fa-solid fa-shield-halved nav-icon"></i>
+                    <span>Regulatory Radar</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="literature-explorer">
+                    <i class="fa-solid fa-book-open nav-icon"></i>
+                    <span>Literature Hub</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="settings">
+                    <i class="fa-solid fa-sliders nav-icon"></i>
+                    <span>Engine Settings</span>
+                </a>
+                <a href="#" class="nav-item" id="theme-toggle-btn">
+                    <i class="fa-solid fa-sun nav-icon" id="theme-icon"></i>
+                    <span id="theme-text">Light Mode</span>
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="avatar">
+                        <i class="fa-solid fa-user-doctor"></i>
+                    </div>
+                    <div class="user-info">
+                        <span class="username">Dr. Sarah Chen</span>
+                        <span class="user-role">Lead Process Chemist</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Search & Control Header -->
+            <header class="top-header">
+                <div class="search-container">
+                    <div class="search-glow"></div>
+                    <i class="fa-solid fa-magnifying-glass search-bar-icon"></i>
+                    <input type="text" id="drug-search-input" placeholder="Enter target drug molecule (e.g. Imatinib, Sildenafil)..." value="Imatinib">
+                    <button id="run-review-btn" class="glowing-btn">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        <span>Synthesize Dossier</span>
+                    </button>
+                </div>
+                <div class="quick-stats">
+                    <div class="quick-stat-item">
+                        <span class="stat-label">Model:</span>
+                        <span class="stat-value text-glow-purple">Gemini 3.5 Flash</span>
+                    </div>
+                    <div class="quick-stat-item">
+                        <span class="stat-label">Skills DB:</span>
+                        <span class="stat-value text-glow-teal">Science-Skills SDK</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Loading Spinner Overlay -->
+            <div id="loading-overlay" class="hidden">
+                <div class="loader-container">
+                    <div class="pulse-loader"></div>
+                    <span class="loader-text">Querying ChEMBL & PubChem databases...</span>
+                    <span class="loader-subtext">Executing DeepMind Science Skills wrappers</span>
+                </div>
+            </div>
+
+            <!-- Dashboard Content Grid -->
+            <div class="dashboard-grid">
+                
+                <!-- HERO CARD: Drug Profile -->
+                <section class="hero-card col-span-3">
+                    <div class="hero-overlay"></div>
+                    <div class="hero-content">
+                        <div class="hero-header">
+                            <div>
+                                <span class="badge" id="hero-badge">Philadelphia Chromosome inhibitor</span>
+                                <h1 id="hero-title">Imatinib Mesylate</h1>
+                                <p class="hero-subtitle">Brand Name: <strong id="hero-brand">Gleevec (Glivec)</strong> | Patent Status: <span id="hero-patent" class="expired-label">Expired (2015/2016)</span></p>
+                            </div>
+                            <div class="chemical-structure-render">
+                                <div class="mol-placeholder">
+                                    <i class="fa-solid fa-atom atom-spin"></i>
+                                    <span id="formula-display">C29H31N7O</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="hero-specs">
+                            <div class="spec-tile">
+                                <span class="tile-label">Molecular Weight</span>
+                                <span class="tile-value" id="spec-mwt">493.62 g/mol</span>
+                            </div>
+                            <div class="spec-tile">
+                                <span class="tile-label">ChEMBL Identifier</span>
+                                <span class="tile-value text-teal" id="spec-chembl">CHEMBL941</span>
+                            </div>
+                            <div class="spec-tile">
+                                <span class="tile-label">PubChem CID</span>
+                                <span class="tile-value text-purple" id="spec-cid">5291</span>
+                            </div>
+                            <div class="spec-tile col-span-2">
+                                <span class="tile-label">Canonical SMILES String</span>
+                                <span class="tile-value smiles-code" id="spec-smiles">Cc1ccc(NC(=O)c2ccc(CN3CCN(C)CC3)cc2)cc1Nc1nccc(-c2cccnc2)n1</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- FEASIBILITY SCORECARD -->
+                <section class="grid-card col-span-1" id="feasibility-card">
+                    <div class="card-header">
+                        <i class="fa-solid fa-chart-line card-icon text-teal"></i>
+                        <h2>Industrial Feasibility</h2>
+                        <div class="feasibility-gauge">
+                            <span class="score-value" id="overall-score-display">84</span>
+                            <span class="score-label">Overall Index</span>
+                        </div>
+                    </div>
+                    
+                    <div class="feasibility-metrics">
+                        <div class="metric-progress-item">
+                            <div class="metric-lbl">
+                                <span>Scale-Up Safety</span>
+                                <span id="val-safety">72%</span>
+                            </div>
+                            <div class="progress-bg">
+                                <div class="progress-bar bar-red" id="bar-safety" style="width: 72%;"></div>
+                            </div>
+                        </div>
+                        <div class="metric-progress-item">
+                            <div class="metric-lbl">
+                                <span>Green Chemistry (E-Factor)</span>
+                                <span id="val-green">81%</span>
+                            </div>
+                            <div class="progress-bg">
+                                <div class="progress-bar bar-teal" id="bar-green" style="width: 81%;"></div>
+                            </div>
+                        </div>
+                        <div class="metric-progress-item">
+                            <div class="metric-lbl">
+                                <span>Economic Margin</span>
+                                <span id="val-economic">90%</span>
+                            </div>
+                            <div class="progress-bg">
+                                <div class="progress-bar bar-purple" id="bar-economic" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-details mt-4">
+                        <h3>Scale-Up Pros</h3>
+                        <ul class="details-list pros-list" id="feasibility-pros">
+                            <!-- Populated by JS -->
+                        </ul>
+                        <h3 class="mt-3">Scale-Up Hurdles</h3>
+                        <ul class="details-list cons-list" id="feasibility-cons">
+                            <!-- Populated by JS -->
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- INTERACTIVE FLOWCHART TIMELINE -->
+                <section class="grid-card col-span-2" id="synthesis-timeline-card">
+                    <div class="card-header">
+                        <i class="fa-solid fa-network-wired card-icon text-purple"></i>
+                        <h2>Proposed Industrial Synthesis Route</h2>
+                        <span class="badge badge-purple">Polymorph Alpha Stabilized</span>
+                    </div>
+
+                    <div class="timeline-container" id="synthesis-timeline">
+                        <!-- Populated dynamically by JS -->
+                    </div>
+                </section>
+
+                <!-- FDA INSIGHTS: REGULATORY RADAR -->
+                <section class="grid-card col-span-1" id="regulatory-radar-card">
+                    <div class="card-header">
+                        <i class="fa-solid fa-shield-halved card-icon text-red"></i>
+                        <h2>FDA Regulatory Radar</h2>
+                        <span class="badge badge-red" id="fda-shortage-badge">Supply Stable</span>
+                    </div>
+                    
+                    <div class="fda-label-details">
+                        <div class="fda-detail-row">
+                            <span class="lbl">US product labeling:</span>
+                            <span class="val" id="fda-brand-display">GLEEVEC (Novartis)</span>
+                        </div>
+                        <div class="fda-detail-row">
+                            <span class="lbl">Primary Product NDC:</span>
+                            <span class="val code" id="fda-ndc-display">0078-0373-66</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-3">
+                        <h3>Critical Warnings & Clinical Alerts</h3>
+                        <ul class="details-list warnings-list" id="fda-warnings-list">
+                            <!-- Populated by JS -->
+                        </ul>
+                    </div>
+
+                    <div class="mt-4">
+                        <h3>MedDRA Clinical Adverse Events Incidence</h3>
+                        <div class="bar-chart-container" id="fda-adverse-reactions">
+                            <!-- Populated dynamically by JS -->
+                        </div>
+                    </div>
+
+                    <div class="mt-3 shortage-historical-card">
+                        <h3>Shortage & Supply Analysis</h3>
+                        <p id="fda-shortage-history" class="shortage-text"></p>
+                    </div>
+                </section>
+
+                <!-- GEMINI ADVISORY DOSSIER -->
+                <section class="grid-card col-span-2" id="gemini-advisory-card">
+                    <div class="card-header border-purple-glowing">
+                        <div class="ai-header">
+                            <i class="fa-solid fa-microchip ai-icon"></i>
+                            <div>
+                                <h2>Gemini 3.5 Flash Scale-Up Dossier</h2>
+                                <span class="ai-subtitle">Autonomous Process Chemistry Advisory</span>
+                            </div>
+                        </div>
+                        <span class="badge badge-ai"><i class="fa-solid fa-sparkles"></i> AI Active</span>
+                    </div>
+
+                    <div class="ai-dossier-content" id="ai-dossier-body">
+                        <!-- Populated dynamically by JS with structured markdown report -->
+                    </div>
+                </section>
+
+                <!-- LITERATURE HUB -->
+                <section class="grid-card col-span-3" id="literature-hub-card">
+                    <div class="card-header">
+                        <i class="fa-solid fa-book-open card-icon text-teal"></i>
+                        <h2>Science Skills Literature Hub</h2>
+                        <span class="badge badge-teal">EuropePMC / OpenAlex Index</span>
+                    </div>
+
+                    <div class="literature-table-wrapper">
+                        <table class="lit-table">
+                            <thead>
+                                <tr>
+                                    <th>Publication Title</th>
+                                    <th>Authors & Affiliation</th>
+                                    <th>Journal & Year</th>
+                                    <th>DOI Record Link</th>
+                                    <th>Relevance Score & Key Contribution</th>
+                                </tr>
+                            </thead>
+                            <tbody id="literature-table-body">
+                                <!-- Populated dynamically by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                
+            </div>
+        </main>
+    </div>
+
+    <!-- Engine Settings Modal -->
+    <div id="settings-modal" class="modal hidden">
+        <div class="modal-content glass-card">
+            <div class="modal-header">
+                <h2><i class="fa-solid fa-sliders text-teal"></i> Engine Settings Panel</h2>
+                <i class="fa-solid fa-xmark close-modal-btn"></i>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="api-key-gemini">Google Gemini 3.5 API Key</label>
+                    <input type="password" id="api-key-gemini" placeholder="Enter key (or loads from system ~/.env if empty)...">
+                    <p class="form-help">Enter a Google AI Studio API key to enable live reasoning queries for any custom chemical compound synthesis.</p>
+                </div>
+                <div class="form-group">
+                    <label for="api-key-openalex">OpenAlex Premium Key (Optional)</label>
+                    <input type="password" id="api-key-openalex" placeholder="Enter polite pool / premium key...">
+                </div>
+                <div class="form-group">
+                    <label for="api-key-fda">openFDA API Key (Optional)</label>
+                    <input type="password" id="api-key-fda" placeholder="Enter key for elevated rate limits...">
+                </div>
+                <button id="save-settings-btn" class="glowing-btn mt-4">Save Configuration</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
