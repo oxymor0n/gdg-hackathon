@@ -66,15 +66,23 @@ The platform is pre-optimized for a pilot compound case study—**Imatinib Mesyl
 ```
 deepmind-hackathon/
 ├── README.md                 # Project documentation
+├── GKE_DEPLOYMENT.md         # Production GKE step-by-step deployment guide
 ├── run.sh                    # Automated shell launcher (virtual env, dependencies, dual dev servers)
+├── docker-compose.yml        # Local docker container orchestrator
 ├── backend/
 │   ├── main.py               # FastAPI router, live database orchestration, fallback structured routing
 │   ├── requirements.txt      # Python dependencies
-│   └── skills_helper.py      # Subprocess Science Skills wrapper scripts executor
+│   ├── skills_helper.py      # Subprocess Science Skills wrapper scripts executor
+│   └── Dockerfile            # Multi-stage production Python container definition
 ├── frontend/
 │   ├── index.html            # Dashboard grid layout, settings panel, and DMF preview modal
 │   ├── style.css             # Slate dark/light styles, full-width CTA buttons, and responsive cards
-│   └── app.js                # Requisition triggers, client-side markdown compiler, and modal bindings
+│   ├── app.js                # Requisition triggers, client-side markdown compiler, and modal bindings
+│   ├── nginx.conf            # Custom reverse proxy configuration for GKE/Compose
+│   └── Dockerfile            # Lightweight Nginx alpine assets container definition
+├── kubernetes/
+│   ├── backend-deployment.yaml  # GKE Pod Deployment and ClusterIP service for the API
+│   └── frontend-deployment.yaml # GKE Pod Deployment and public LoadBalancer for Nginx
 └── science-skills/           # DeepMind Science Skills SDK dependency
 ```
 
@@ -113,3 +121,18 @@ To unlock the full potential of **autonomous AI planning** and customized regula
 3. Input your **Google Gemini API Key** (and optional OpenAlex or openFDA keys).
 4. Click **Save Configuration**.
 5. All subsequent searches will delegate chemical conversion routing and CTD drafting to Gemini 3.5 Flash, generating highly customized regulatory dossier submissions!
+
+---
+
+## 🐳 Containerization & GKE Deployment
+
+SynGen is fully containerized and ready for production-grade scale-up deployment on **Google Kubernetes Engine (GKE)**.
+
+### Docker & Kubernetes Blueprint
+- **Reverse-Proxy Routing**: The `frontend-service` container embeds a custom `nginx.conf` reverse proxy that serves static web files natively on `/` and forwards `/api` endpoints internally to the backend service. This eliminates CORS configuration issues and consolidates external traffic under a single port (`80`/`443`).
+- **GKE Pod Redundancy**: Pre-configured Kubernetes deployment manifests launch 2 redundant pod replicas for both services, ensuring high availability and zero-downtime rolling updates.
+- **External LoadBalancer**: The frontend is exposed via a Google Cloud `LoadBalancer` service, dynamically requesting a public IP for the cluster.
+- **Secure Secret Injecting**: API keys are securely decoupled from the codebase using GKE Kubernetes Secrets (`syngen-secrets`).
+
+> [!NOTE]
+> For step-by-step instructions on compiling, tagging, pushing container images to GCR/GAR, creating GKE secrets, and applying manifests, please refer to the detailed [GKE_DEPLOYMENT.md](file:///Users/wvt/projects/deepmind-hackathon/GKE_DEPLOYMENT.md) guide in the project root!
