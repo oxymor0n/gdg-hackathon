@@ -93,3 +93,10 @@
 ::1 - - [30/May/2026 20:16:55] "GET / HTTP/1.1" 304 -
 ::1 - - [30/May/2026 20:16:55] "GET /style.css HTTP/1.1" 304 -
 ::1 - - [30/May/2026 20:16:55] "GET /app.js HTTP/1.1" 304 -
+::1 - - [30/May/2026 20:22:05] "GET / HTTP/1.1" 304 -
+::1 - - [30/May/2026 20:22:05] "GET /style.css HTTP/1.1" 304 -
+::1 - - [30/May/2026 20:22:05] "GET /app.js HTTP/1.1" 304 -
+::1 - - [30/May/2026 20:22:42] code 404, message File not found
+::1 - - [30/May/2026 20:22:42] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 -
+::1 - - [30/May/2026 20:23:22] "GET / HTTP/1.1" 304 -
+::1 - - [30/May/2026 20:23:51] "GET / HTTP/1.1" 200 -
