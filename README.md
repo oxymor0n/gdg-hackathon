@@ -43,6 +43,12 @@ The platform is pre-optimized for a pilot compound case study—**Imatinib Mesyl
 - Features a custom client-side Markdown-to-HTML compiler (`parseMarkdown`) to render headers, bulleted lists, code blocks, bold text, and structured tables cleanly.
 - Integrated export tools to **Copy Raw** markdown directly to the clipboard or **Download .md** to save the submission draft locally.
 
+### 7. Interactive Dossier Co-Pilot (AI Chat Panel)
+- **Three-Column Symmetrical Console**: A gorgeous, full-height right sidebar matching the design and aesthetic of the left navigation panel.
+- **Dynamic Optimization Refineries**: Allows process chemists to interactively instruct Gemini to adjust reaction variables, yields, flow chemistry configurations, safety controls, or GHS hazard policies.
+- **Real-Time Render Updates**: Instructing the Co-Pilot (e.g., "increase yield in step 1 to 95%") triggers a private `/api/refine` POST request to rewrite reaction metrics on the fly, instantly recalculating the Overall Feasibility Index and re-rendering the flowchart timeline and AI Dossier cards.
+- **Double Fail-Safe Refiner**: Seamlessly routes through Gemini 3.5 Flash JSON schema structures, falling back to a robust local regex-based process refiner for offline/unconfigured environments.
+
 ---
 
 ## 🛠 Technology Stack

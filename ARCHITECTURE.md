@@ -65,9 +65,9 @@ graph TD
 
 ### 1. Frontend Client Layer (`frontend/`)
 Served via Nginx in container environments, the client is a highly optimized Single-Page Application (SPA) designed to maintain application states locally in memory:
-- **`index.html`**: Contains the dashboard panel structure. Implements a Collapsible Sidebar navigation layout that expands and collapses dynamically via transitions, a search-triggered welcome hub, metrics scorecard, timeline accordions, FDA alerts, and a fullscreen preview modal for generating regulatory documents.
-- **`style.css`**: Embeds core color tokens (Slate Dark Mode default, adaptive Light Mode variables). Uses CSS Grid to structure dashboard widgets cleanly and styles elements like `.radar-inset-card` cells and the `.cta-dmf-btn` full-width purple CTA button.
-- **`app.js`**: Binds navigation and theme toggles, maps timeline accordions, and orchestrates async `fetch` queries. Embeds a custom, high-performance client-side Markdown-to-HTML parser (`parseMarkdown`) to render headers, bold styling, list bullets, code blocks, and structured ASCII tables beautifully inside the preview modal without adding external libraries.
+- **`index.html`**: Contains the dashboard panel structure. Implements a Collapsible Sidebar navigation layout, a right-hand sticky full-height AI Co-Pilot chat panel (`.sidebar-right`), a search-triggered welcome hub, metrics scorecard, timeline accordions, FDA alerts, and a fullscreen preview modal.
+- **`style.css`**: Embeds core color tokens (Slate Dark Mode default, adaptive Light Mode variables). Uses CSS Grid to structure dashboard widgets, and styles the right Co-Pilot panel (`.sidebar-right`) to occupy `100vh` viewport height, sticky to the top, with a standard left border, smooth hover transitions, and customized scrollbar tracks.
+- **`app.js`**: Binds navigation, theme toggles, and right Co-Pilot chat panels. Triggers interactive `/api/refine` requests, appends chat user/AI bubbles, and refreshes the timeline/dossier components dynamically. Custom-built Markdown-to-HTML compiler (`parseMarkdown`) renders regulatory text without dependencies.
 
 ### 2. Backend API Gateway (`backend/`)
 Built with FastAPI, the backend acts as a highly structured API gateway that parses requests, delegates subprocesses, and aggregates chemical data:
@@ -76,6 +76,7 @@ Built with FastAPI, the backend acts as a highly structured API gateway that par
   - `/api/search`: Live metadata query verifying molecule presence in PubChem and ChEMBL.
   - `/api/synthesis`: Triggers Phase 1 (Live DB query gathering), delegates Phase 2 (Gemini process chemistry reasoning), and maintains Phase 3 (a robust, keyless rule-based process compiler backup).
   - `/api/dmf/generate`: Gathers compound metrics, resolves openFDA warnings, and triggers either custom Gemini CTD drafts or executes a complete, crash-proof Type II DMF document template populated dynamically using Python dictionary `.get()` defaults.
+  - `/api/refine`: A POST endpoint that takes the current chemical process steps, active user refinement instructions, and API keys. It runs the query through Gemini 3.5 Flash JSON schema rules or evaluates them using a local regex-based process refiner (adjusting yields, E-factors, flows, safety hazards) to update step structures dynamically.
 - **`skills_helper.py`**: Manages Python `subprocess.run` sandbox shells. It dynamically searches the global PATH using `shutil.which` to find `uv` and executes Science Skills scripts inside the `/app/science-skills/` directory efficiently.
 
 ### 3. Google DeepMind Science Skills SDK (`science-skills/`)
