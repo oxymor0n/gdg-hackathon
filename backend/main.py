@@ -1165,3 +1165,10 @@ def generate_dmf(query: str = Query(..., description="Name of the compound"), ap
         "source": "fallback_structured_regulatory_template",
         "dmf_content": dmf_text
     }
+
+
+# Serve static frontend files (unified single-container server deployment)
+from fastapi.staticfiles import StaticFiles
+frontend_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "frontend")
+if os.path.exists(frontend_path):
+    app.mount("/", StaticFiles(directory=frontend_path, html=True), name="frontend")
