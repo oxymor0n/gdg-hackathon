@@ -443,8 +443,8 @@ def get_synthesis(query: str = Query(..., description="Drug name for synthesis p
             }
             
             genai.configure(api_key=resolved_api_key)
-            # Use gemini-1.5-flash as the standard stable model identifier
-            model = genai.GenerativeModel('gemini-1.5-flash')
+            # Use gemini-3.5-flash as the standard stable model identifier
+            model = genai.GenerativeModel('gemini-3.5-flash')
             
             prompt = f"""
             You are an expert industrial process chemist and pharmaceutical engineer.
@@ -554,10 +554,12 @@ def get_synthesis(query: str = Query(..., description="Drug name for synthesis p
                 generation_config={"response_mime_type": "application/json"}
             )
             parsed_payload = json.loads(response.text)
+            parsed_payload["routing_mode"] = "gemini"
             logger.info("Successfully received autonomous synthesis route from Gemini.")
             return parsed_payload
         except Exception as ex:
             logger.error(f"Gemini autonomous reasoning failed: {str(ex)}. Falling back to structured rule-based planner...")
+            gemini_err_msg = str(ex)
             
     # --- PHASE 3: RULE-BASED STRUCTURED BACKUP GENERATOR ---
     logger.info("Generating fallback structured process plan...")
@@ -566,7 +568,19 @@ def get_synthesis(query: str = Query(..., description="Drug name for synthesis p
     step1_precursor = f"Substituted {query_clean.capitalize()} core"
     step2_precursor = f"Chlorinated {query_clean.capitalize()} derivative"
     
+    # Track reasoning path and capture error message
+    err_str = "Unknown error"
+    if 'gemini_err_msg' in locals():
+        err_str = gemini_err_msg
+    elif not GENAI_AVAILABLE:
+        err_str = "Google Generative AI SDK (google-generativeai) is not available or could not be loaded."
+    elif not resolved_api_key:
+        err_str = "Google Gemini API key not configured in settings."
+
+    
     fallback_payload = {
+        "routing_mode": "fallback",
+        "gemini_error": err_str,
         "summary": {
             "name": query_clean.capitalize(),
             "brand_name": fda_brand,
@@ -884,7 +898,7 @@ def generate_dmf(query: str = Query(..., description="Name of the compound"), ap
         try:
             logger.info("Orchestrating Gemini 3.5 Flash for professional DMF regulatory drafting...")
             genai.configure(api_key=resolved_api_key)
-            model = genai.GenerativeModel('gemini-1.5-flash')
+            model = genai.GenerativeModel('gemini-3.5-flash')
             
             prompt = f"""
             You are a senior regulatory affairs specialist and pharmaceutical quality control director.

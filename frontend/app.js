@@ -78,6 +78,20 @@ let currentCarouselIndex = 0;
 
 // Initialize App
 document.addEventListener("DOMContentLoaded", () => {
+    // Initial loading of API Keys from localStorage
+    geminiApiKey = localStorage.getItem("geminiApiKey") || "";
+    openalexApiKey = localStorage.getItem("openalexApiKey") || "";
+    fdaApiKey = localStorage.getItem("fdaApiKey") || "";
+    
+    // Pre-populate input values
+    const geminiInput = document.getElementById("api-key-gemini");
+    const openalexInput = document.getElementById("api-key-openalex");
+    const fdaInput = document.getElementById("api-key-fda");
+    
+    if (geminiInput) geminiInput.value = geminiApiKey;
+    if (openalexInput) openalexInput.value = openalexApiKey;
+    if (fdaInput) fdaInput.value = fdaApiKey;
+
     // Initial Theme setup
     const savedTheme = localStorage.getItem("theme") || "dark";
     if (savedTheme === "light") {
@@ -154,6 +168,10 @@ document.addEventListener("DOMContentLoaded", () => {
         geminiApiKey = document.getElementById("api-key-gemini").value;
         openalexApiKey = document.getElementById("api-key-openalex").value;
         fdaApiKey = document.getElementById("api-key-fda").value;
+        
+        localStorage.setItem("geminiApiKey", geminiApiKey);
+        localStorage.setItem("openalexApiKey", openalexApiKey);
+        localStorage.setItem("fdaApiKey", fdaApiKey);
         
         showNotification("Engine configuration updated successfully!");
         settingsModal.classList.add("hidden");
@@ -549,6 +567,12 @@ function updateUI(dossier) {
         literatureTableBody.innerHTML = `<tr><td colspan="5" class="text-center text-muted">No matching publications indexed.</td></tr>`;
     }
     
+    // Show smart warning notification if Gemini failed/fallback was served
+    if (dossier.routing_mode === "fallback") {
+        const errorMsg = dossier.gemini_error || "Unknown error connecting to Google Gemini.";
+        showNotification(`⚠️ Gemini process solver failed. Serving generic fallback route. (Error: ${errorMsg.substring(0, 80)}...)`, true);
+    }
+    
     // 6. Generate Gemini 3.5 Flash Dossier Report
     generateAiAdvisoryReport(summary.name, dossier.synthesis_path, f.overall_score);
 }
@@ -821,6 +845,17 @@ function generateAiAdvisoryReport(drugName, steps, score) {
     aiDossierBody.innerHTML = htmlContent;
 }
 
+// Dynamic toast stack rearrangement
+function rearrangeToasts() {
+    const toasts = document.querySelectorAll(".toast-notification");
+    let currentBottom = 30;
+    toasts.forEach((t) => {
+        t.style.bottom = `${currentBottom}px`;
+        const height = t.offsetHeight || 50;
+        currentBottom += height + 12; // 12px gap
+    });
+}
+
 // Notification Toasts
 function showNotification(message, isError = false) {
     const toast = document.createElement("div");
@@ -831,14 +866,22 @@ function showNotification(message, isError = false) {
     `;
     document.body.appendChild(toast);
     
+    // Allow layout calculation to resolve heights, then stack
+    setTimeout(() => {
+        rearrangeToasts();
+    }, 0);
+    
     // Add active animation
     setTimeout(() => toast.classList.add("show"), 50);
     
-    // Remove after 3.5 seconds
+    // Remove after 5.0 seconds (giving more reading time for detailed warnings)
     setTimeout(() => {
         toast.classList.remove("show");
-        setTimeout(() => toast.remove(), 500);
-    }, 3500);
+        setTimeout(() => {
+            toast.remove();
+            rearrangeToasts();
+        }, 500);
+    }, 5000);
 }
 
 // Mock PDF download trigger
